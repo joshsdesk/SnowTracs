@@ -1,8 +1,8 @@
 
-# SnowTrack 📍🏂  
+# SnowTracs 📍🏂  
 ### **The Ultimate GPS Tracking App for Snowboarding and Skiing**
 
-SnowTrack is a GPS-based mobile application designed for snow enthusiasts to enhance their experience on the slopes. Whether you're snowboarding or skiing, track your trails, measure performance, and stay safe.
+SnowTracs is a GPS-based mobile application designed for snow enthusiasts to enhance their experience on the slopes. Whether you're snowboarding or skiing, track your trails, measure performance, and stay safe.
 
 ---
 
@@ -68,7 +68,7 @@ We welcome contributions from the community! 🚀
 2. Create a feature branch.  
 3. Make your changes and submit a pull request.  
 
-Let's make SnowTrack even better together!  
+Let's make SnowTracs even better together!  
 
 ---
 
