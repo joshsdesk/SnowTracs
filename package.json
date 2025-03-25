@@ -1,15 +1,12 @@
 {
-    "name": "snowtracs",
-    "private": true,
-    "scripts": {
-      "dev": "concurrently \"npm run dev --prefix client\" \"npm run dev --prefix server\"",
-      "client": "npm run dev --prefix client",
-      "server": "npm run dev --prefix server",
-      "build": "npm run build --prefix client",
-      "start": "npm run start --prefix server"
-    },
-    "devDependencies": {
-      "concurrently": "^8.2.0"
-    }
-  }
-  
+  "name": "snowtracs",
+  "version": "1.0.0",
+  "description": "**The Ultimate GPS Tracking App for Snowboarding and Skiing**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

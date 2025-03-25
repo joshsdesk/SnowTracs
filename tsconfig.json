@@ -1,9 +1,14 @@
 {
-    "files": [],
-    "include": [],
-    "references": [
-      { "path": "./server" },
-      { "path": "./client" }
-    ]
+    "compilerOptions": {
+      "target": "ESNext",
+      "module": "ESNext",
+      "moduleResolution": "Node",
+      "strict": true,
+      "jsx": "react-jsx",
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true
+    },
+    "include": ["client/src", "server/src"]
   }
   
