@@ -90,4 +90,18 @@ For any questions, please reach out to:
 - GitHub: [Your GitHub Username](https://github.com/YourGitHubUsername)
 - Email: your.email@example.com
 
-lets add some c++ too
+------------------------------------------
+| [Map API Controls / Buttons]           |  ← Top Map Controls (Mapbox/Map API)  
+------------------------------------------
+|                                        |
+|                                        |
+|                                        |
+|                MAP                     |  ← 75% (3/4 of the screen height) 
+|        (Mapbox or OpenStreetMap)       |
+|                                        |  
+|                                        |
+|        [Record]   [Pause]              |  ← Floating buttons over the map (record/pause)
+------------------------------------------
+|       [Nav Button 1] [Nav Button 2]    |  ← Bottom Navigation Bar (Bootstrap Nav)
+|       [Nav Button 3] [Nav Button 4]    |
+------------------------------------------

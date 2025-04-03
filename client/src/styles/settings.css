@@ -1,0 +1,64 @@
+.settings-wrapper {
+  background: linear-gradient(to bottom, #0d0d0d, #1a1a1a);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.settings-container {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+  color: #fff;
+}
+
+.settings-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.settings-row label {
+  font-size: 1rem;
+}
+
+.settings-row input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #00ccff;
+}
+
+.settings-row select {
+  background: #111;
+  color: #fff;
+  border: 1px solid #00ccff;
+  padding: 0.4rem;
+  border-radius: 8px;
+}
+
+.settings-logout-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00ccff;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 2rem auto 0 auto;
+}
+
+.settings-logout-btn:hover {
+  background-color: #0056b3;
+  box-shadow: 0 0 12px #00ccff;
+}

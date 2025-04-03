@@ -1,0 +1,49 @@
+/* modal.css */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: #121212; /* Matches your body background */
+  border: 2px solid #00bfff; /* Blue border to match theme */
+  border-radius: 12px;
+  padding: 1.5rem;
+  color: #fff;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.3); /* Teal glow */
+  z-index: 60;
+}
+
+.modal-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #2c2c2c;
+  padding-bottom: 0.5rem;
+  color: #00bfff;
+}
+
+.modal-body {
+  margin-bottom: 1.5rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* backdrop still fades background content */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 40;
+}

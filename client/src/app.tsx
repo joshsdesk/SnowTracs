@@ -1,25 +1,44 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import MainPage from './pages/MainPage';  // Import MainPage
-import StatsPage from './pages/StatsPage';  // Import StatsPage
-import './styles/index.css'; // Updated import for styling
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import Login from './pages/login';
+import Home from './pages/home';
+import User from './pages/user';
+import Settings from './pages/settings';
+import Stats from './pages/stats';
+import Resorts from './pages/resorts';
+import Friends from './pages/friends';
+import Nav from './components/nav';
+import Eggs from './eggs'; // 💥 Imported visual layer
+import './index.css';
 
-function App() {
+function AppWrapper() {
+  const location = useLocation();
+  const isLoginPage = location.pathname === '/';
+
   return (
-    <Router>
-      <Routes>
-        {/* Home page route */}
-        <Route path="/" element={<Home />} />
+    <>
+      {!isLoginPage && <Eggs />} {/* ⛰️ Show only if not on login page */}
+      
+      <div className="app-wrapper">
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/user" element={<User />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/stats" element={<Stats />} />
+          <Route path="/resorts" element={<Resorts />} />
+          <Route path="/friends" element={<Friends />} />
+        </Routes>
 
-        {/* Main page route (Map and tracking functionality) */}
-        <Route path="/main" element={<MainPage />} />
-
-        {/* Stats page route */}
-        <Route path="/stats" element={<StatsPage />} />
-      </Routes>
-    </Router>
+        {!isLoginPage && <Nav />}
+      </div>
+    </>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <Router>
+      <AppWrapper />
+    </Router>
+  );
+}
