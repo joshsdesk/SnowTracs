@@ -1,9 +1,10 @@
+// vite.config.ts
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  root: './',                    // ✅ Use client/ as root
-  publicDir: 'public',           // ✅ Serve /public/index.html
+  root: './',
+  publicDir: 'public',
   plugins: [react()],
   server: {
     port: 5173,
@@ -11,7 +12,7 @@ export default defineConfig({
     proxy: {
       '/api': 'http://localhost:3001',
       '/auth': 'http://localhost:3001',
-      // Future DB or weather route proxies go here
+      '/map': 'http://localhost:5000',
     },
   },
   build: {

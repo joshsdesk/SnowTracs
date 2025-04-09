@@ -7,7 +7,6 @@ import Stats from './pages/stats';
 import Resorts from './pages/resorts';
 import Friends from './pages/friends';
 import Nav from './components/nav';
-import Eggs from './eggs'; // 💥 Imported visual layer
 import './index.css';
 
 function AppWrapper() {
@@ -16,8 +15,7 @@ function AppWrapper() {
 
   return (
     <>
-      {!isLoginPage && <Eggs />} {/* ⛰️ Show only if not on login page */}
-      
+           
       <div className="app-wrapper">
         <Routes>
           <Route path="/" element={<Login />} />
