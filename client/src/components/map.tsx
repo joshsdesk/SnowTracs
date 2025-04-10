@@ -8,7 +8,6 @@ import 'leaflet/dist/leaflet.css';
 import '../styles/map.css';
 import ReactDOMServer from 'react-dom/server';
 
-// ====== Types ======
 type LatLng = [number, number];
 
 interface Resort {
@@ -25,7 +24,6 @@ interface Resort {
   lastUpdated?: string;
 }
 
-// ====== FlyTo Component: Controls map movement ======
 function FlyToLocation({ coordinates }: { coordinates: LatLng | null }) {
   const map = useMap();
   useEffect(() => {
@@ -36,7 +34,6 @@ function FlyToLocation({ coordinates }: { coordinates: LatLng | null }) {
   return null;
 }
 
-// ====== Main Map Component ======
 export default function Map() {
   const [isRecording, setIsRecording] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
@@ -96,9 +93,32 @@ export default function Map() {
   });
 
   return (
-    <div className="map-placeholder">
-      {/* ====== Search Bar Overlay ====== */}
-      <div className="search-overlay fade-in">
+    <>
+      {/* ====== Map ====== */}
+      {mapTarget && (
+        <MapContainer
+          center={mapTarget}
+          zoom={13}
+          scrollWheelZoom={true}
+          style={{ height: '100%', width: '100%', zIndex: 1 }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution='© <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+          />
+          <FlyToLocation coordinates={mapTarget} />
+          {resortMarker && (
+            <Marker
+              position={resortMarker}
+              icon={cableCarIcon}
+              eventHandlers={{ click: handleMarkerClick }}
+            />
+          )}
+        </MapContainer>
+      )}
+
+      {/* ====== Search Overlay ====== */}
+      <div className="search-overlay">
         <input
           type="text"
           placeholder="Search for any location or resort"
@@ -114,29 +134,8 @@ export default function Map() {
         <button onClick={handleSearch}>Search</button>
       </div>
 
-      {/* ====== Map Display ====== */}
-      <div className="map-content">
-        {mapTarget && (
-          <MapContainer
-            center={mapTarget}
-            zoom={13}
-            scrollWheelZoom={true}
-            style={{ height: '100%', width: '100%', zIndex: 1 }}
-          >
-            <TileLayer
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              attribution='© <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
-            />
-            <FlyToLocation coordinates={mapTarget} />
-            {resortMarker && (
-              <Marker position={resortMarker} icon={cableCarIcon} eventHandlers={{ click: handleMarkerClick }} />
-            )}
-          </MapContainer>
-        )}
-      </div>
-
-      {/* ====== Recording Controls ====== */}
-      <div className="record-overlay fade-in">
+      {/* ====== Record Controls ====== */}
+      <div className="record-overlay">
         {!isRecording ? (
           <div className="record-button" onClick={() => setIsRecording(true)} role="button" aria-label="Start">
             <FontAwesomeIcon icon={faCirclePlay} />
@@ -166,10 +165,10 @@ export default function Map() {
         )}
       </div>
 
-      {/* ====== Resort Info Modal ====== */}
+      {/* ====== Modal ====== */}
       <Modal show={showModal} onClose={() => setShowModal(false)} title="Resort Info">
         <p>This is where the resort website will go later.</p>
       </Modal>
-    </div>
+    </>
   );
 }

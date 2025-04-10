@@ -1,0 +1,152 @@
+[
+  {
+    "name": "Vail",
+    "trailsOpen": 157,
+    "trailsTotal": 195,
+    "liftsOpen": 28,
+    "liftsTotal": 31,
+    "snowpack": {
+      "baseDepthInches": 62,
+      "newSnow24hInches": 4
+    },
+    "website": "https://www.vail.com",
+    "hours": "8:30am - 4:00pm",
+    "condition": "Powder",
+    "terrainParkOpen": true
+  },
+  {
+    "name": "Breckenridge",
+    "trailsOpen": 132,
+    "trailsTotal": 155,
+    "liftsOpen": 31,
+    "liftsTotal": 34,
+    "snowpack": {
+      "baseDepthInches": 58,
+      "newSnow24hInches": 2
+    },
+    "website": "https://www.breckenridge.com",
+    "hours": "8:30am - 4:00pm",
+    "condition": "Packed Powder",
+    "terrainParkOpen": true
+  },
+  {
+    "name": "Keystone",
+    "trailsOpen": 115,
+    "trailsTotal": 130,
+    "liftsOpen": 20,
+    "liftsTotal": 23,
+    "snowpack": {
+      "baseDepthInches": 54,
+      "newSnow24hInches": 1
+    },
+    "website": "https://www.keystoneresort.com",
+    "hours": "9:00am - 4:00pm",
+    "condition": "Machine Groomed",
+    "terrainParkOpen": false
+  },
+  {
+    "name": "Aspen Snowmass",
+    "trailsOpen": 145,
+    "trailsTotal": 170,
+    "liftsOpen": 21,
+    "liftsTotal": 23,
+    "snowpack": {
+      "baseDepthInches": 65,
+      "newSnow24hInches": 3
+    },
+    "website": "https://www.aspensnowmass.com",
+    "hours": "9:00am - 4:00pm",
+    "condition": "Fresh Snow",
+    "terrainParkOpen": true
+  },
+  {
+    "name": "Copper Mountain",
+    "trailsOpen": 130,
+    "trailsTotal": 150,
+    "liftsOpen": 21,
+    "liftsTotal": 24,
+    "snowpack": {
+      "baseDepthInches": 60,
+      "newSnow24hInches": 5
+    },
+    "website": "https://www.coppercolorado.com",
+    "hours": "9:00am - 4:00pm",
+    "condition": "Powder",
+    "terrainParkOpen": true
+  },
+  {
+    "name": "Winter Park",
+    "trailsOpen": 135,
+    "trailsTotal": 166,
+    "liftsOpen": 25,
+    "liftsTotal": 27,
+    "snowpack": {
+      "baseDepthInches": 64,
+      "newSnow24hInches": 2
+    },
+    "website": "https://www.winterparkresort.com",
+    "hours": "9:00am - 4:00pm",
+    "condition": "Variable",
+    "terrainParkOpen": true
+  },
+  {
+    "name": "Telluride",
+    "trailsOpen": 105,
+    "trailsTotal": 120,
+    "liftsOpen": 17,
+    "liftsTotal": 19,
+    "snowpack": {
+      "baseDepthInches": 50,
+      "newSnow24hInches": 1
+    },
+    "website": "https://www.tellurideskiresort.com",
+    "hours": "9:00am - 4:00pm",
+    "condition": "Packed Powder",
+    "terrainParkOpen": false
+  },
+  {
+    "name": "Beaver Creek",
+    "trailsOpen": 120,
+    "trailsTotal": 150,
+    "liftsOpen": 23,
+    "liftsTotal": 25,
+    "snowpack": {
+      "baseDepthInches": 56,
+      "newSnow24hInches": 3
+    },
+    "website": "https://www.beavercreek.com",
+    "hours": "8:30am - 4:00pm",
+    "condition": "Powder",
+    "terrainParkOpen": false
+  },
+  {
+    "name": "Steamboat",
+    "trailsOpen": 130,
+    "trailsTotal": 165,
+    "liftsOpen": 20,
+    "liftsTotal": 21,
+    "snowpack": {
+      "baseDepthInches": 59,
+      "newSnow24hInches": 2
+    },
+    "website": "https://www.steamboat.com",
+    "hours": "8:30am - 4:00pm",
+    "condition": "Fresh Snow",
+    "terrainParkOpen": true
+  },
+  {
+    "name": "Crested Butte",
+    "trailsOpen": 98,
+    "trailsTotal": 121,
+    "liftsOpen": 14,
+    "liftsTotal": 15,
+    "snowpack": {
+      "baseDepthInches": 47,
+      "newSnow24hInches": 1
+    },
+    "website": "https://www.skicb.com",
+    "hours": "9:00am - 4:00pm",
+    "condition": "Machine Groomed",
+    "terrainParkOpen": false
+  }
+]

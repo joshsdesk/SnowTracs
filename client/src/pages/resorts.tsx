@@ -1,16 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/resort.css';
-import CardList from '../components/cardList'; // This replaces the direct ResortCard import
+import CardList from '../components/cardList';
 
 export default function Resort() {
+  const [search, setSearch] = useState('');
+
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log('Searching for:', search);
+  };
+
   return (
     <div className="resort-page">
-      <div className="resort-map">[Map Placeholder]</div>
-      
-      {/* Replaced old carousel with scrollable resort cards */}
-      <div className="resort-carousel fade-in">
-        <CardList />
-      </div>
+      <form className="resort-search-bar" onSubmit={handleSearch}>
+        <input
+          type="text"
+          placeholder="Search resorts by name..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <button type="submit">Search</button>
+      </form>
+
+      {/* Clean layout — no .resort-carousel around CardList */}
+      <CardList search={search} />
     </div>
   );
 }

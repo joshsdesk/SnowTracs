@@ -25,7 +25,7 @@ const Profile = () => {
         {/* Right Column: Map and Other Info */}
         <div className="right-column">
           <div className="map-section">
-            <img src="map-placeholder.png" alt="Map" className="map-placeholder" />
+            <img src="map-placeholder.png" alt="Map" />
           </div>
 
           {/* Weather and Stats Section */}
