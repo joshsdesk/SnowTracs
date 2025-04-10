@@ -1,88 +1,109 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCirclePlay, faCirclePause, faCircleStop } from '@fortawesome/free-solid-svg-icons';
-import { MapContainer, TileLayer, useMap } from 'react-leaflet';
+import { faCirclePlay, faCirclePause, faCircleStop, faCableCar } from '@fortawesome/free-solid-svg-icons';
+import { MapContainer, TileLayer, useMap, Marker } from 'react-leaflet';
+import L from 'leaflet';
+import Modal from './modal';
 import 'leaflet/dist/leaflet.css';
 import '../styles/map.css';
+import ReactDOMServer from 'react-dom/server';
+
+// ====== Types ======
+type LatLng = [number, number];
+
+interface Resort {
+  name: string;
+  region: string;
+  country: string;
+  snowBase?: number;
+  snowfall24h?: number;
+  liftsOpen?: number;
+  liftsTotal?: number;
+  trailsOpen?: number;
+  trailsTotal?: number;
+  conditions?: string;
+  lastUpdated?: string;
+}
 
 // ====== FlyTo Component: Controls map movement ======
-function FlyToLocation({ coordinates }: { coordinates: [number, number] | null }) {
+function FlyToLocation({ coordinates }: { coordinates: LatLng | null }) {
   const map = useMap();
-
   useEffect(() => {
     if (coordinates) {
       map.flyTo(coordinates, 13, { duration: 2 });
     }
   }, [coordinates, map]);
-
   return null;
 }
 
 // ====== Main Map Component ======
 export default function Map() {
-  // ====== State: UI Control ======
   const [isRecording, setIsRecording] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const [searchResults, setSearchResults] = useState<{ display_name: string }[]>([]);
-  const [userLocation, setUserLocation] = useState<[number, number] | null>(null);
-  const [mapTarget, setMapTarget] = useState<[number, number] | null>(null);
+  const [mapTarget, setMapTarget] = useState<LatLng | null>(null);
+  const [userLocation, setUserLocation] = useState<LatLng | null>(null);
 
-  // ====== Init: Get User's Location on Load ======
+  const [showModal, setShowModal] = useState(false);
+  const [selectedResort, setSelectedResort] = useState<Resort | null>(null);
+  const [resortMarker, setResortMarker] = useState<LatLng | null>(null);
+  const [currentResortSlug, setCurrentResortSlug] = useState<string | null>(null);
+
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        const coords: [number, number] = [position.coords.latitude, position.coords.longitude];
+        const coords: LatLng = [position.coords.latitude, position.coords.longitude];
         setUserLocation(coords);
         setMapTarget(coords);
       },
-      (error) => {
-        console.error('Geolocation error:', error);
-        const fallback: [number, number] = [39.7392, -104.9903]; // Denver
+      () => {
+        const fallback: LatLng = [39.7392, -104.9903];
         setUserLocation(fallback);
         setMapTarget(fallback);
       }
     );
   }, []);
 
-  // ====== Handler: Search via Nominatim API ======
   const handleSearch = async () => {
     if (!searchQuery.trim()) return;
 
-    const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(searchQuery)}`;
+    const geoUrl = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(searchQuery)}`;
+    const geoRes = await fetch(geoUrl);
+    const geoData = await geoRes.json();
 
-    try {
-      const res = await fetch(url);
-      const data = await res.json();
-
-      if (data.length > 0) {
-        const firstResult = data[0];
-        const lat = parseFloat(firstResult.lat);
-        const lon = parseFloat(firstResult.lon);
-
-        setMapTarget([lat, lon]);
-        setSearchResults(data); // future use for modals or overlays
-      } else {
-        console.warn('No results found.');
-        setSearchResults([]);
-      }
-    } catch (err) {
-      console.error('Geosearch failed:', err);
+    if (geoData.length > 0) {
+      const firstResult = geoData[0];
+      const lat = parseFloat(firstResult.lat);
+      const lon = parseFloat(firstResult.lon);
+      setMapTarget([lat, lon]);
+      setResortMarker([lat, lon]);
     }
   };
 
+  const handleMarkerClick = () => {
+    setShowModal(true);
+  };
+
+  const cableCarIcon = L.divIcon({
+    html: ReactDOMServer.renderToString(
+      <div className="shake-marker">
+        <FontAwesomeIcon icon={faCableCar} />
+      </div>
+    ),
+    className: '',
+    iconSize: [30, 30],
+    iconAnchor: [15, 30],
+  });
+
   return (
     <div className="map-placeholder">
-
-      {/* ====== Search Overlay ====== */}
+      {/* ====== Search Bar Overlay ====== */}
       <div className="search-overlay fade-in">
         <input
           type="text"
           placeholder="Search for any location or resort"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          
-          // ====== Keyboard Support: Trigger search on Enter key ======
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
               e.preventDefault();
@@ -107,6 +128,9 @@ export default function Map() {
               attribution='© <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
             />
             <FlyToLocation coordinates={mapTarget} />
+            {resortMarker && (
+              <Marker position={resortMarker} icon={cableCarIcon} eventHandlers={{ click: handleMarkerClick }} />
+            )}
           </MapContainer>
         )}
       </div>
@@ -114,12 +138,7 @@ export default function Map() {
       {/* ====== Recording Controls ====== */}
       <div className="record-overlay fade-in">
         {!isRecording ? (
-          <div
-            className="record-button"
-            onClick={() => setIsRecording(true)}
-            role="button"
-            aria-label="Start"
-          >
+          <div className="record-button" onClick={() => setIsRecording(true)} role="button" aria-label="Start">
             <FontAwesomeIcon icon={faCirclePlay} />
           </div>
         ) : (
@@ -130,7 +149,7 @@ export default function Map() {
               role="button"
               aria-label={isPaused ? 'Resume' : 'Pause'}
             >
-              <FontAwesomeIcon icon={isPaused ? faCirclePlay : faCirclePause} />
+              <FontAwesomeIcon icon={faCirclePlay} />
             </div>
             <div
               className="record-button"
@@ -146,6 +165,11 @@ export default function Map() {
           </>
         )}
       </div>
+
+      {/* ====== Resort Info Modal ====== */}
+      <Modal show={showModal} onClose={() => setShowModal(false)} title="Resort Info">
+        <p>This is where the resort website will go later.</p>
+      </Modal>
     </div>
   );
 }

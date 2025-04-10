@@ -16,8 +16,11 @@
   color: #fff;
   width: 90%;
   max-width: 420px;
+  max-height: 90vh; /* Prevent modal from being too tall */
+  overflow-y: auto; /* Allow scroll if needed */
   box-shadow: 0 0 20px rgba(0, 191, 255, 0.3); /* Teal glow */
   z-index: 60;
+  animation: fadeIn 0.3s ease-in-out; /* Smooth entrance */
 }
 
 .modal-title {
@@ -40,10 +43,21 @@
   gap: 1rem;
 }
 
-/* backdrop still fades background content */
 .modal-backdrop {
   position: fixed;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 40;
+}
+
+/* ====== Animation for Modal ====== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

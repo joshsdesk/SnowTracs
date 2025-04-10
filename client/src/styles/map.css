@@ -1,96 +1,120 @@
 .map-placeholder {
-    position: relative;
-    width: 100%;
-    height: 300px;
-    background: #2c2c2c;
-    border-radius: 12px;
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background: #2c2c2c;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.map-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+}
+
+.search-overlay {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 0.75rem;
+  border-radius: 10px;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.search-overlay input {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+}
+
+.search-overlay button {
+  background-color: #00bfff;
+  border: none;
+  padding: 0.5rem 1rem;
+  color: #121212;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-overlay button:hover {
+  transform: scale(1.05);
+}
+
+/* 🔥 Record buttons styled like the search bar */
+.record-overlay {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1.5rem;
+  z-index: 10;
+}
+
+.record-button {
+  background-color: #00bfff;
+  color: #121212;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Hover is handled globally in index.css under .record-button:hover */
+.fade-in {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
-  
-  .map-content {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #999;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .search-overlay {
-    position: absolute;
-    top: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 0.75rem;
-    border-radius: 10px;
-    display: flex;
-    gap: 0.5rem;
-    z-index: 10;
+}
+
+/* 🌟 Cable Car Icon Floating Marker Style */
+.shake-marker {
+  font-size: 50px;
+  color: #00bfff; /* same blue as record button */
+  animation: shake 0.5s infinite alternate;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
+  transform: translateY(-10px);
+  transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.6));
+}
+
+/* Hover effect for the shake marker */
+.shake-marker:hover {
+  transform: translateY(-5px) scale(1.1);
+  color: #1de1ff; /* lighter blue on hover */
+  text-shadow: 0 0 10px rgba(0, 0, 0, 1), 0 0 12px #1de1ff;
+}
+
+@keyframes shake {
+  from {
+    transform: translateY(-1px);
   }
-  
-  .search-overlay input {
-    padding: 0.5rem;
-    border: none;
-    border-radius: 4px;
-    outline: none;
+  to {
+    transform: translateY(2px);
   }
-  
-  .search-overlay button {
-    background-color: #00bfff;
-    border: none;
-    padding: 0.5rem 1rem;
-    color: #121212;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .search-overlay button:hover {
-    transform: scale(1.05);
-  }
-  
-  /* 🔥 Record buttons styled like the search bar */
-  .record-overlay {
-    position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 1.5rem;
-    z-index: 10;
-  }
-  
-  .record-button {
-    background-color: #00bfff;
-    color: #121212;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  
-  /* Hover is handled globally in index.css under .record-button:hover */
-  
-  .fade-in {
-    animation: fadeIn 0.4s ease-in-out;
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
+}

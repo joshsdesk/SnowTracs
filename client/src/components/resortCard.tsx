@@ -3,47 +3,41 @@ import '../styles/resortcard.css';
 
 type ResortCardProps = {
   name: string;
-  location: string;
-  temperature: number;
-  snowDepth: string;
-  liftsOpen: string;
-  trailsOpen: string;
-  firstLiftTime: string;
-  imageUrl: string;
+  trailsOpen: number;
+  trailsTotal: number;
+  liftsOpen: number;
+  liftsTotal: number;
+  snowDepth: {
+    baseDepthInches: number;
+    newSnow24hInches: number;
+  };
+  condition: string;
+  terrainParkOpen: boolean;
   website: string;
 };
 
 const ResortCard: React.FC<ResortCardProps> = ({
   name,
-  location,
-  temperature,
-  snowDepth,
-  liftsOpen,
   trailsOpen,
-  firstLiftTime,
-  imageUrl,
+  trailsTotal,
+  liftsOpen,
+  liftsTotal,
+  snowDepth,
+  condition,
+  terrainParkOpen,
   website
 }) => {
   return (
     <div className="resort-card-wrapper">
-      <div className="resort-image">
-        <img src={imageUrl} alt={`${name} Resort`} />
-      </div>
-
       <div className="resort-content">
-        <div className="resort-top">
-          <div className="resort-title">
-            <h2 className="resort-name">{name}</h2>
-            <p className="resort-detail">{location}</p>
-          </div>
-          <div className="resort-temp">{temperature}°</div>
-        </div>
-
+        <h2 className="resort-name">{name}</h2>
+        
         <ul className="resort-stats">
-          <li>Snowpack: {snowDepth}</li>
-          <li>Lifts Open: {liftsOpen}</li>
-          <li>Trails Open: {trailsOpen}</li>
-          <li>First Lift: {firstLiftTime}</li>
+          <li><strong>Snowpack:</strong> {snowDepth.baseDepthInches}\" base, {snowDepth.newSnow24hInches}\" new</li>
+          <li><strong>Lifts:</strong> {liftsOpen} / {liftsTotal}</li>
+          <li><strong>Trails:</strong> {trailsOpen} / {trailsTotal}</li>
+          <li><strong>Conditions:</strong> {condition}</li>
+          <li><strong>Terrain Park:</strong> {terrainParkOpen ? 'Open' : 'Closed'}</li>
         </ul>
 
         <div className="resort-link">
