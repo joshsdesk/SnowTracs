@@ -13,8 +13,6 @@ type Resort = {
     newSnow24hInches: number;
   };
   hours: string;
-  condition: string;
-  terrainParkOpen: boolean;
   website: string;
   imageUrl: string;
 };
