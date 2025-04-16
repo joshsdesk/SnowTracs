@@ -9,7 +9,7 @@
     bottom: 0;
     width: 100%;
     left: 0;
-    max-width: 412.5px;       /* match your app-wrapper max-width */
+    max-width: 400px;       /* match your app-wrapper max-width */
     margin: 0 auto;          /* center it on desktop */
     right: 0;                /* needed to help centering with position: fixed */
     z-index: 10;

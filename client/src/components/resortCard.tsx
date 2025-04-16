@@ -1,55 +1,52 @@
 import React from 'react';
 import '../styles/resortcard.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 
+// ===== ResortCard Props =====
 export type ResortCardProps = {
   name: string;
-  trailsOpen: number;
-  trailsTotal: number;
-  liftsOpen: number;
-  liftsTotal: number;
-  snowpack: {
-    baseDepthInches: number;
-    newSnow24hInches: number;
-  };
+  trails_open: number;
+  trails_total: number;
+  lifts_open: number;
+  lifts_total: number;
+  gondolas_open: number;
+  gondolas_total: number;
+  snowpack_in: number;
   hours: string;
-  condition: string;
-  terrainParkOpen: boolean;
   website: string;
-  imageUrl: string;
 };
 
+// ===== ResortCard Component =====
 const ResortCard: React.FC<ResortCardProps> = ({
   name,
-  trailsOpen,
-  trailsTotal,
-  liftsOpen,
-  liftsTotal,
-  snowpack,
+  trails_open,
+  trails_total,
+  lifts_open,
+  lifts_total,
+  gondolas_open,
+  gondolas_total,
+  snowpack_in,
   hours,
-  condition,
-  terrainParkOpen,
-  website,
-  imageUrl
+  website
 }) => {
   return (
     <div className="resort-card-wrapper">
-      <div className="resort-image">
-        <img src={imageUrl} alt={`${name} logo`} />
-      </div>
-
+      {/* === Right: Main Content === */}
       <div className="resort-content">
         <h2 className="resort-name">{name}</h2>
 
+        {/* === Resort Stats === */}
         <ul className="resort-stats">
-          <li><strong>Snowpack:</strong> {snowpack.baseDepthInches}" base, {snowpack.newSnow24hInches}" new</li>
-          <li><strong>Lifts:</strong> {liftsOpen} / {liftsTotal}</li>
-          <li><strong>Trails:</strong> {trailsOpen} / {trailsTotal}</li>
-          <li><strong>Conditions:</strong> {condition}</li>
-          <li><strong>Terrain Park:</strong> {terrainParkOpen ? 'Open' : 'Closed'}</li>
+          <li><strong>Snowpack:</strong> {snowpack_in}"</li>
+          <li><strong>Lifts:</strong> {lifts_open} / {lifts_total}</li>
+          <li><strong>Gondolas:</strong> {gondolas_open} / {gondolas_total}</li>
+          <li><strong>Trails:</strong> {trails_open} / {trails_total}</li>
           <li><strong>Hours:</strong> {hours}</li>
         </ul>
 
-        <div className="resort-link">
+        {/* === Bottom Row: Website + Icons === */}
+        <div className="resort-actions">
           <a
             href={website}
             target="_blank"
@@ -58,6 +55,11 @@ const ResortCard: React.FC<ResortCardProps> = ({
           >
             Visit Website
           </a>
+
+          <div className="resort-icons">
+            <FontAwesomeIcon icon={faHeart} className="resort-icon" title="Love" />
+            <FontAwesomeIcon icon={faPlus} className="resort-icon" title="Add to Favorites" />
+          </div>
         </div>
       </div>
     </div>

@@ -1,3 +1,4 @@
+/* === Page Layout === */
 .resort-page {
   background: #121212;
   color: #ffffff;
@@ -11,6 +12,7 @@
   margin: 0 auto;
 }
 
+/* === Optional Resort Map Placeholder === */
 .resort-map {
   width: 100%;
   height: 250px;
@@ -22,7 +24,7 @@
   color: #aaa;
 }
 
-/* Updated search bar styling to match Home Page */
+/* === Search Bar Styling === */
 .resort-search-bar {
   display: flex;
   align-items: center;
@@ -62,29 +64,71 @@
   transform: scale(1.05);
 }
 
-/* Fade-in section animation */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* === Ski Divider === */
+.ski-divider {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0 1rem;
 }
 
-.fade-in {
-  animation: fadeInUp 0.5s ease-out both;
+.ski-divider img {
+  width: 370px;
+  max-width: 600px;
+  height: auto;
+  object-fit: contain;
 }
 
-.cardlist-wrapper {
-  width: 100%;
+/* === Past Searches Styling === */
+.past-searches {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin-bottom: 4rem;
+  padding-bottom: 1rem;
 }
 
+.past-searches h4 {
+  text-align: center;
+  font-size: 3rem;
+  color: #00bfff;
+  margin-top: 1rem;
+}
+
+/* === Past Search Card Appearance === */
+.resort-card.past-search-card {
+  background-color: #1f1f1f;
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* === Two-Column Stat Layout === */
+.resort-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.3rem 1.5rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* === Refresh Icon Button === */
+.refresh-button {
+  color: #00bfff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-left: auto;
+  transition: transform 0.2s ease;
+}
+
+.refresh-button:hover {
+  transform: rotate(90deg) scale(1.2);
+}
+
+/* === Fallback Text Styling === */
 .no-results-message {
   width: 100%;
   font-size: 1rem;
@@ -94,6 +138,15 @@
   text-align: left;
 }
 
+/* === Card List Layout === */
+.cardlist-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* === Section Heading === */
 h3.fade-in {
   margin-top: 0.25rem;
   margin-bottom: 0.5rem;

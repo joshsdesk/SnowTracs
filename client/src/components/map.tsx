@@ -1,28 +1,13 @@
+// ====== Core Imports ======
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCirclePlay, faCirclePause, faCircleStop, faCableCar } from '@fortawesome/free-solid-svg-icons';
-import { MapContainer, TileLayer, useMap, Marker } from 'react-leaflet';
-import L from 'leaflet';
-import Modal from './modal';
+import { faCirclePlay, faCirclePause, faCircleStop } from '@fortawesome/free-solid-svg-icons';
+import { MapContainer, TileLayer, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import '../styles/map.css';
-import ReactDOMServer from 'react-dom/server';
 
+// ====== Types ======
 type LatLng = [number, number];
-
-interface Resort {
-  name: string;
-  region: string;
-  country: string;
-  snowBase?: number;
-  snowfall24h?: number;
-  liftsOpen?: number;
-  liftsTotal?: number;
-  trailsOpen?: number;
-  trailsTotal?: number;
-  conditions?: string;
-  lastUpdated?: string;
-}
 
 function FlyToLocation({ coordinates }: { coordinates: LatLng | null }) {
   const map = useMap();
@@ -41,11 +26,7 @@ export default function Map() {
   const [mapTarget, setMapTarget] = useState<LatLng | null>(null);
   const [userLocation, setUserLocation] = useState<LatLng | null>(null);
 
-  const [showModal, setShowModal] = useState(false);
-  const [selectedResort, setSelectedResort] = useState<Resort | null>(null);
-  const [resortMarker, setResortMarker] = useState<LatLng | null>(null);
-  const [currentResortSlug, setCurrentResortSlug] = useState<string | null>(null);
-
+  // ====== Set User Location on Load ======
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -61,6 +42,7 @@ export default function Map() {
     );
   }, []);
 
+  // ====== Geocode Search Input ======
   const handleSearch = async () => {
     if (!searchQuery.trim()) return;
 
@@ -73,28 +55,13 @@ export default function Map() {
       const lat = parseFloat(firstResult.lat);
       const lon = parseFloat(firstResult.lon);
       setMapTarget([lat, lon]);
-      setResortMarker([lat, lon]);
     }
   };
 
-  const handleMarkerClick = () => {
-    setShowModal(true);
-  };
-
-  const cableCarIcon = L.divIcon({
-    html: ReactDOMServer.renderToString(
-      <div className="shake-marker">
-        <FontAwesomeIcon icon={faCableCar} />
-      </div>
-    ),
-    className: '',
-    iconSize: [30, 30],
-    iconAnchor: [15, 30],
-  });
-
+  // ====== UI Render ======
   return (
     <>
-      {/* ====== Map ====== */}
+      {/* ====== Map View ====== */}
       {mapTarget && (
         <MapContainer
           center={mapTarget}
@@ -107,13 +74,6 @@ export default function Map() {
             attribution='© <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
           />
           <FlyToLocation coordinates={mapTarget} />
-          {resortMarker && (
-            <Marker
-              position={resortMarker}
-              icon={cableCarIcon}
-              eventHandlers={{ click: handleMarkerClick }}
-            />
-          )}
         </MapContainer>
       )}
 
@@ -121,7 +81,7 @@ export default function Map() {
       <div className="search-overlay">
         <input
           type="text"
-          placeholder="Search for any location or resort"
+          placeholder="Search for any location"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           onKeyDown={(e) => {
@@ -164,11 +124,6 @@ export default function Map() {
           </>
         )}
       </div>
-
-      {/* ====== Modal ====== */}
-      <Modal show={showModal} onClose={() => setShowModal(false)} title="Resort Info">
-        <p>This is where the resort website will go later.</p>
-      </Modal>
     </>
   );
 }
