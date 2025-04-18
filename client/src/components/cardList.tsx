@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ResortCard from '../components/resortCard';
 import '../styles/resort.css';
-import ski from '../assets/images/ski.png';
+import ski from '../assets/images//UI/ski.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowsRotate } from '@fortawesome/free-solid-svg-icons';
 

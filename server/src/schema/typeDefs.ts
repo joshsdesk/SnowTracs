@@ -1,6 +1,7 @@
 import { gql } from 'graphql-tag';
 
 const typeDefs = gql`
+  # === Resort Type ===
   type Resort {
     id: ID!
     name: String!
@@ -18,9 +19,29 @@ const typeDefs = gql`
     longitude: Float
   }
 
+  # === User Auth Types ===
+  type User {
+    _id: ID!
+    username: String!
+    email: String!
+  }
+
+  type Auth {
+    token: String!
+    user: User!
+  }
+
+  # === Root Queries ===
   type Query {
     resorts: [Resort]
     resort(name: String!): Resort
+    me: User
+  }
+
+  # === Root Mutations ===
+  type Mutation {
+    register(username: String!, email: String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
   }
 `;
 

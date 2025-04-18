@@ -1,4 +1,8 @@
+// app.tsx – Main Application Wrapper
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { ApolloProvider } from '@apollo/client';
+import client from './apollo';
+
 import Login from './pages/login';
 import Home from './pages/home';
 import User from './pages/user';
@@ -15,7 +19,6 @@ function AppWrapper() {
 
   return (
     <>
-           
       <div className="app-wrapper">
         <Routes>
           <Route path="/" element={<Login />} />
@@ -26,17 +29,19 @@ function AppWrapper() {
           <Route path="/resorts" element={<Resorts />} />
           <Route path="/friends" element={<Friends />} />
         </Routes>
-
-        {!isLoginPage && <Nav />}
       </div>
+
+      {!isLoginPage && <Nav />}
     </>
   );
 }
 
 export default function App() {
   return (
-    <Router>
-      <AppWrapper />
-    </Router>
+    <ApolloProvider client={client}>
+      <Router>
+        <AppWrapper />
+      </Router>
+    </ApolloProvider>
   );
 }

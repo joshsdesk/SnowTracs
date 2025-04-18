@@ -6,11 +6,10 @@ const Settings: React.FC = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Clear login session (adjust based on how you're storing it)
+    // 🔐 Clear JWT token from localStorage
     localStorage.removeItem('token');
-    localStorage.removeItem('isLoggedIn');
 
-    // Redirect to login page
+    // 🔄 Redirect user to login screen
     navigate('/login');
   };
 

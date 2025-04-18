@@ -1,65 +1,66 @@
 /* Navigation Bar Styles */
 .bottom-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #121212;
-    padding: 8px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    left: 0;
-    max-width: 400px;       /* match your app-wrapper max-width */
-    margin: 0 auto;          /* center it on desktop */
-    right: 0;                /* needed to help centering with position: fixed */
-    z-index: 10;
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  background-color: #121212;
+  padding: 8px 0
+}
+
+/* Navigation Links */
+.bottom-nav a {
+  font-size: 1.1rem;
+  text-align: center;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.bottom-nav a:hover {
+  text-decoration: underline;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+/* Glowing Circle Background on Hover */
+.bottom-nav a:hover::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 191, 255, 0.6);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: glowing 1.5s infinite alternate;
+}
+
+/* Glow Animation */
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 5px rgba(0, 191, 255, 0.6), 0 0 10px rgba(0, 191, 255, 0.5), 0 0 15px rgba(0, 191, 255, 0.4);
   }
-  
-  
-  .bottom-nav a {
-    font-size: 1.1rem;
-    text-align: center;
-    position: relative;
-    transition: color 0.3s ease, transform 0.3s ease;
+  100% {
+    box-shadow: 0 0 10px rgba(0, 191, 255, 1), 0 0 20px rgba(0, 191, 255, 0.8), 0 0 30px rgba(0, 191, 255, 0.6);
   }
-  
-  .bottom-nav a:hover {
-    text-decoration: underline;
-    color: #ffffff; /* Change color to white on hover */
-    transform: scale(1.1); /* Slightly enlarge the icon/text on hover */
-  }
-  
-  /* Glowing effect */
-  .bottom-nav a:hover::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 191, 255, 0.6); /* Blue glow effect */
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    animation: glowing 1.5s infinite alternate; /* Animation for glow effect */
-  }
-  
-  /* Glow animation */
-  @keyframes glowing {
-    0% {
-      box-shadow: 0 0 5px rgba(0, 191, 255, 0.6), 0 0 10px rgba(0, 191, 255, 0.5), 0 0 15px rgba(0, 191, 255, 0.4);
-    }
-    100% {
-      box-shadow: 0 0 10px rgba(0, 191, 255, 1), 0 0 20px rgba(0, 191, 255, 0.8), 0 0 30px rgba(0, 191, 255, 0.6);
-    }
-  }
-  
-  /* Glow effect on icons (using box-shadow for a more glowing effect) */
-  .bottom-nav a svg {
-    transition: all 0.3s ease;
-  }
-  
-  .bottom-nav a:hover svg {
-    transform: scale(1.2); /* Slightly enlarge the icon */
-    filter: brightness(1.4); /* Make the icon brighter on hover */
-  }
-  
+}
+
+/* Icon Transitions */
+.bottom-nav a svg {
+  transition: all 0.3s ease;
+}
+
+.bottom-nav a:hover svg {
+  transform: scale(1.2);
+  filter: brightness(1.4);
+}

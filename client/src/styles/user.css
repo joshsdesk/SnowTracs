@@ -1,106 +1,252 @@
-/* Profile page styling */
+/* Profile Page Layout */
 .profile-page {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #121212;
   color: white;
+  font-family: 'Playfair Display', serif;
   overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px;
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
 }
 
-/* Top row: Flex container for left and right columns */
+/* Top Row: Avatar + Weather */
 .top-row {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 20px;
-  flex-grow: 1;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0;
 }
 
-/* Left column: Profile image and basic info */
 .left-column {
-  width: 100%;
   display: flex;
   flex-direction: column;
+}
+
+.profile-avatar-wrapper {
+  width: 132px;
+  height: 132px;
+  background: rgba(0, 191, 255, 0.2);
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.4),
+              0 0 20px rgba(0, 191, 255, 0.3),
+              0 0 30px rgba(0, 191, 255, 0.2);
+  border-radius: 50%;
+  padding: 6px;
+  overflow: hidden;
+  display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .profile-avatar {
   width: 120px;
   height: 120px;
+  object-fit: cover;
   border-radius: 50%;
-  margin-bottom: 10px;
+  display: block;
 }
 
-.profile-header h2 {
-  font-size: 24px;
+.right-column {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
 }
 
-.profile-header p {
-  color: #bbb;
+.weather-info.compact {
+  font-size: 44px;
+  color: white;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* Info Cards */
+.stats-info {
+  background-color: #2a2a2a;
+  border-radius: 10px;
+  width: 100%;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.section-title {
+  font-size: 25px;
+  color: #fff;
   text-align: center;
 }
 
-/* Right column: Map, weather, stats, runs */
-.right-column {
-  width: 100%;
-}
-
-.map-section {
-  width: 100%;
-  height: 200px;
-  background-color: #333;
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-
-.map-placeholder {
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-}
-
-.info-section {
-  margin-bottom: 20px;
-}
-
-.weather-info, .stats-info {
-  background-color: #2a2a2a;
-  padding: 15px;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-.weather-info h3, .stats-info h3 {
-  color: white;
-}
-
-.weather-info p, .stats-info p {
+.user-description {
   color: #bbb;
+  margin-top: 8px;
+  text-align: center;
 }
 
-.runs-list {
-  margin-top: 20px;
-}
-
-.run-summary {
-  background-color: #333;
-  margin: 10px 0;
-  padding: 10px;
+/* User Stats Card */
+.user-stats-card {
+  background-color: #1e1e1e;
   border-radius: 8px;
+  padding: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.stats-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 17px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.stats-values {
+  display: flex;
+  justify-content: space-between;
+  font-size: 19px;
+  font-weight: 500;
+  color: #ccc;
+}
+
+/* Favorite Mountains */
+.fav-mtn-card {
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Title + icons on the same row */
+.fav-mtn-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.fav-mtn-header h4 {
+  font-size: 18px;
+  color: #fff;
+  margin: 0;
+}
+
+.card-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.resort-icon {
+  font-size: 18px;
   cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-.run-summary:hover {
-  background-color: #444;
+.resort-icon.selected {
+  color: #ff4b5c;
 }
 
-/* Social media icons */
+.resort-icon.delete {
+  color: #f44336;
+}
+
+.resort-icon:hover {
+  transform: scale(1.2);
+  filter: brightness(1.4);
+}
+
+/* Stats below the title/icons row */
+.fav-mtn-labels {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 14px;
+  color: #ccc;
+  margin-top: 8px;
+  padding: 0 8px;
+  gap: 12px;
+}
+
+.fav-mtn-labels strong {
+  color: #fff;
+  margin-right: 4px;
+}
+
+
+/* Your Tracks - Session Card */
+.session-card {
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Title + Eye icon */
+.session-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.session-header h4 {
+  font-size: 18px;
+  color: #fff;
+  margin: 0;
+}
+
+/* Stats row */
+.session-info {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 14px;
+  color: #ccc;
+  margin-top: 8px;
+  padding: 0 8px;
+  gap: 12px;
+}
+
+.session-info strong {
+  color: #fff;
+  margin-right: 4px;
+}
+
+/* Eye icon styling */
+.session-eye {
+  font-size: 18px;
+  color: #00bfff;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.session-eye:hover {
+  transform: scale(1.2);
+}
+
+.session-eye:active {
+  animation: blink 0.3s steps(2, start) 3;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+
+/* Social Media Icons */
 .social-media-share {
   display: flex;
   justify-content: center;
   gap: 20px;
-  margin-top: 20px;
+  margin: 20px 0;
+  width: 100%;
 }
 
 .social-media-share svg {
@@ -110,56 +256,4 @@
 
 .social-media-share svg:hover {
   transform: scale(1.2);
-}
-
-/* Modal styling for Run Details */
-.run-details-modal {
-  background-color: rgba(0, 0, 0, 0.8);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-
-.run-details-modal h3 {
-  color: white;
-}
-
-.run-details-modal p {
-  color: #bbb;
-}
-
-.run-details-modal button {
-  margin-top: 10px;
-  background-color: #f44336;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.run-details-modal button:hover {
-  background-color: #e53935;
-}
-
-/* Mobile-first responsiveness */
-@media (min-width: 768px) {
-  .top-row {
-    flex-direction: row;
-  }
-
-  .left-column, .right-column {
-    width: 48%;
-  }
-}
-
-@media (min-width: 1024px) {
-  .profile-page {
-    padding: 40px;
-  }
 }

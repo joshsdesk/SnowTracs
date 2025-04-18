@@ -1,80 +1,108 @@
+// user.tsx - Structured with outer sections and card containers
 import React, { useState } from 'react';
-import '../styles/user.css';  // Assuming this is where your styles are handled
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
-import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons'; // Import FontAwesome social icons
+import '../styles/user.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faHeartCircleCheck, faTrash, faEye } from '@fortawesome/free-solid-svg-icons';
 
 const Profile = () => {
-  const [activeRun, setActiveRun] = useState<number | null>(null); // State for active run
+  const [activeRun, setActiveRun] = useState<number | null>(null);
+  const [riderType] = useState<'skier' | 'snowboarder'>('snowboarder');
 
   const handleRunClick = (runId: number) => {
-    setActiveRun(runId); // Open modal with specific run details
+    setActiveRun(runId);
   };
 
   return (
     <div className="profile-page">
+      {/* === Top Row: Avatar + Weather === */}
       <div className="top-row">
-        {/* Left Column: Profile Image and Info */}
         <div className="left-column">
-          <div className="profile-header">
-            <img src="user-avatar.jpg" alt="User Avatar" className="profile-avatar" />
-            <h2>Anne Hathaway</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl vel egestas tempus.</p>
+          <div className="profile-avatar-wrapper">
+            <img
+              src="/assets/images/profileIMGs/default.png"
+              alt="User Avatar"
+              className="profile-avatar"
+            />
           </div>
         </div>
-
-        {/* Right Column: Map and Other Info */}
         <div className="right-column">
-          <div className="map-section">
-            <img src="map-placeholder.png" alt="Map" />
-          </div>
-
-          {/* Weather and Stats Section */}
-          <div className="info-section">
-            <div className="weather-info">
-              <h3>Today's Weather</h3>
-              <p>Temperature: -5°C</p>
-              <p>Snowfall: 10 cm</p>
-              <p>Wind Speed: 20 km/h</p>
-            </div>
-
-            <div className="stats-info">
-              <h3>Today's Stats</h3>
-              <p>Total Distance: 10 km</p>
-              <p>Max Speed: 50 km/h</p>
-              <p>Total Elevation: 1200 m</p>
-            </div>
-          </div>
-
-          {/* List of Runs */}
-          <div className="runs-list">
-            <h3>Other Runs</h3>
-            <div className="run-summary" onClick={() => handleRunClick(1)}>
-              <p>Run 1: 3 km | 45 km/h | 500 m elevation</p>
-            </div>
-            <div className="run-summary" onClick={() => handleRunClick(2)}>
-              <p>Run 2: 4 km | 55 km/h | 600 m elevation</p>
-            </div>
-          </div>
-
-          {/* Social Media Section */}
-          <div className="social-media-share">
-            <FontAwesomeIcon icon={faFacebook} size="2x" color="#1877f2" />
-            <FontAwesomeIcon icon={faInstagram} size="2x" color="#E4405F" />
-            <FontAwesomeIcon icon={faTwitter} size="2x" color="#1DA1F2" />
+          <div className="weather-info compact">
+            <p>69°F</p>
           </div>
         </div>
       </div>
 
-      {/* Modal for Run Details */}
-      {activeRun && (
-        <div className="run-details-modal">
-          <h3>Run {activeRun} Details</h3>
-          <p>Distance: 3 km</p>
-          <p>Max Speed: 45 km/h</p>
-          <p>Elevation Gain: 500 m</p>
-          <button onClick={() => setActiveRun(null)}>Close</button>
+      {/* === User Info Card === */}
+      <div className="user-card">
+        <h2 className="section-title">JoshsBoard</h2>
+        <p className="user-description">Shredding powder &amp; chasing peaks. 🏔️</p>
+      </div>
+
+      {/* === Stats to Date Section === */}
+      <div className="user-stats">
+        <h3 className="section-title">Stats to Date</h3>
+        <div className="user-stats-card">
+          <div className="stats-labels">
+            <p>Runs</p>
+            <p>Total Elevation</p>
+            <p>Max Speed</p>
+          </div>
+          <div className="stats-values">
+            <p>26</p>
+            <p>18,200 ft</p>
+            <p>72 km/h</p>
+          </div>
         </div>
-      )}
+      </div>
+
+      {/* === Favorite Mountains Section === */}
+      <div className="fav-mtn">
+        <h3 className="section-title">Favorite Mountains</h3>
+        <div className="fav-mtn-card">
+          <div className="fav-mtn-header">
+            <h4>Snowmass</h4>
+            <div className="card-actions">
+              <FontAwesomeIcon icon={faHeartCircleCheck} className="resort-icon selected" title="Favorited" />
+              <FontAwesomeIcon icon={faTrash} className="resort-icon delete" title="Remove from Favorites" />
+            </div>
+          </div>
+          <div className="fav-mtn-labels">
+            <p><strong>Snowpack:</strong> 45"</p>
+            <p><strong>Trails:</strong> 72 / 100</p>
+            <p><strong>Lifts:</strong> 10 / 12</p>
+          </div>
+        </div>
+      </div>
+
+      {/* === Your Tracs Section === */}
+<div className="ur-tracs">
+  <h3 className="section-title">Your Tracs</h3>
+  <div className="session-card">
+    <div className="session-header">
+      <h4>Keystone</h4>
+      <FontAwesomeIcon
+        icon={faEye}
+        className="resort-icon session-eye"
+        title="View Full Stats"
+        onClick={() => window.location.href = '/stats'}
+      />
+    </div>
+    <div className="session-info">
+      <p><strong>Runs:</strong> 5</p>
+      <p><strong>Elevation:</strong> 2800 ft</p>
+      <p><strong>Max Speed:</strong> 62 km/h</p>
+    </div>
+  </div>
+</div>
+
+
+      {/* === Social Icons === */}
+      <div className="social-media-share">
+        <FontAwesomeIcon icon={faFacebook} size="2x" color="#1877f2" />
+        <FontAwesomeIcon icon={faInstagram} size="2x" color="#E4405F" />
+        <FontAwesomeIcon icon={faTwitter} size="2x" color="#1DA1F2" />
+      </div>
     </div>
   );
 };
