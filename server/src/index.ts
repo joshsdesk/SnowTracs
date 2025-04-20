@@ -1,5 +1,5 @@
 // ====== Core Imports ======
-import express, { Request } from 'express';
+import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { ApolloServer } from '@apollo/server';
@@ -10,6 +10,7 @@ import db from './config/connection';
 import { typeDefs, resolvers } from './schema';
 import mapRoutes from './routes/map';
 import resortRoutes from './routes/resortRoutes';
+import { authMiddleware } from './middleware/auth'; // ✅ Shared JWT logic: verifies token and injects user context
 
 dotenv.config();
 
@@ -38,11 +39,11 @@ async function startApolloServer() {
     '/graphql',
     express.json(),
     expressMiddleware(server, {
-      context: async ({ req }) => {
-        const token = req.headers.authorization || null;
-        const user = getUserFromToken(token);
-        return { user };
-      },
+      // ✅ This context function calls authMiddleware
+      // It checks for a JWT in the Authorization header,
+      // verifies it, and attaches the decoded `user` object
+      // to the GraphQL context so it's accessible in resolvers
+      context: authMiddleware
     })
   );
 

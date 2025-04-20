@@ -1,0 +1,43 @@
+[
+    {
+      "userId": "user001",
+      "theme": "dark",
+      "units": "imperial",
+      "notifications": true,
+      "showStatsOnHome": true,
+      "highContrastMode": false
+    },
+    {
+      "userId": "user002",
+      "theme": "light",
+      "units": "imperial",
+      "notifications": false,
+      "showStatsOnHome": false,
+      "highContrastMode": true
+    },
+    {
+      "userId": "user003",
+      "theme": "dark",
+      "units": "imperial",
+      "notifications": true,
+      "showStatsOnHome": true,
+      "highContrastMode": false
+    },
+    {
+      "userId": "user004",
+      "theme": "dark",
+      "units": "imperial",
+      "notifications": true,
+      "showStatsOnHome": false,
+      "highContrastMode": false
+    },
+    {
+      "userId": "user005",
+      "theme": "light",
+      "units": "imperial",
+      "notifications": false,
+      "showStatsOnHome": true,
+      "highContrastMode": false
+    }
+  ]
+  

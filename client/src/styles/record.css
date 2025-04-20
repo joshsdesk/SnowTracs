@@ -1,114 +1,110 @@
 /* === Recording Controls (Play, Pause, Stop) === */
-
 .record-controls {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 1.5rem;
-  }
-  
-  .record-btn {
-    background: none;
-    border: none;
-    color: var(--accent-color, #fff);
-    cursor: pointer;
-    font-size: 2.2rem;
-    transition: transform 0.2s ease, color 0.2s ease;
-  }
-  
-  .record-btn:hover {
-    transform: scale(1.2);
-    color: var(--hover-color, #00bcd4);
-  }
-  
-  
-  /* === Pause Modal === */
-  
-  .pause-modal-body {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    padding: 1.2rem;
-    background-color: var(--card-bg, #1e1e1e);
-    color: var(--text-color, #fff);
-  }
-  
-  /* Icon row in modal */
-  .pause-icon-row {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-    padding-top: 0.5rem;
-  }
-  
-  .pause-icon-btn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: none;
-    border: none;
-    color: var(--accent-color, #ccc);
-    font-size: 1.7rem;
-    cursor: pointer;
-    transition: color 0.2s ease, transform 0.2s ease;
-  }
-  
-  .pause-icon-btn:hover {
-    color: var(--hover-color, #00bcd4);
-    transform: scale(1.15);
-  }
-  
-  .pause-icon-label {
-    margin-top: 0.25rem;
-    font-size: 0.8rem;
-    color: var(--muted-text, #aaa);
-  }
-  
-  
-  /* === Expanded input fields === */
-  
-  .pause-note-input {
-    width: 100%;
-    min-height: 80px;
-    resize: vertical;
-    border-radius: 6px;
-    padding: 0.75rem;
-    border: 1px solid #444;
-    background-color: var(--input-bg, #2b2b2b);
-    color: var(--text-color, #fff);
-  }
-  
-  .pause-photo-preview {
-    display: flex;
-    justify-content: center;
-    padding-top: 0.5rem;
-  }
-  
-  .pause-photo-preview img {
-    max-width: 100%;
-    max-height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 1px solid #444;
-  }
-  
-  
-  /* === Save Button === */
-  
-  .pause-save-btn {
-    margin-top: 1.5rem;
-    padding: 0.6rem 1.5rem;
-    font-size: 1rem;
-    background-color: var(--accent-color, #00bcd4);
-    border: none;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.2s ease;
-  }
-  
-  .pause-save-btn:hover {
-    background-color: var(--hover-color, #0097a7);
-  }
-  
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.record-btn {
+  background: none;
+  border: none;
+  color: var(--accent-color, #00bfff);
+  cursor: pointer;
+  font-size: 2.4rem;
+  border-radius: 50%;
+  padding: 0.6rem;
+  transition: transform 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.record-btn:hover {
+  transform: scale(1.2);
+  color: var(--hover-color, #1de1ff);
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.6);
+}
+
+/* === Pause Modal === */
+.pause-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.2rem;
+  background-color: var(--card-bg, #1e1e1e);
+  color: var(--text-color, #fff);
+}
+
+/* Icon row in modal */
+.pause-icon-row {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding-top: 0.5rem;
+}
+
+.pause-icon-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: none;
+  color: var(--accent-color, #ccc);
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.pause-icon-btn:hover {
+  color: var(--hover-color, #00bcd4);
+  transform: scale(1.15);
+}
+
+.pause-icon-label {
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--muted-text, #aaa);
+}
+
+/* === Expanded input fields === */
+.pause-note-input {
+  width: 100%;
+  min-height: 80px;
+  resize: vertical;
+  border-radius: 6px;
+  padding: 0.75rem;
+  border: 1px solid #444;
+  background-color: var(--input-bg, #2b2b2b);
+  color: var(--text-color, #fff);
+}
+
+.pause-photo-preview {
+  display: flex;
+  justify-content: center;
+  padding-top: 0.5rem;
+}
+
+.pause-photo-preview img {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #444;
+}
+
+/* === Save Button === */
+.pause-save-btn {
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  background-color: var(--accent-color, #00bcd4);
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.pause-save-btn:hover {
+  background-color: var(--hover-color, #0097a7);
+  transform: scale(1.05);
+}

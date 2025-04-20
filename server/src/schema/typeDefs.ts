@@ -19,6 +19,33 @@ const typeDefs = gql`
     longitude: Float
   }
 
+  # === Run & Session Types ===
+  type Run {
+    runNumber: Int
+    distance: Float
+    elevationDrop: Float
+    elevationGain: Float
+    duration: String
+  }
+
+  type Session {
+    _id: ID!
+    name: String!
+    date: String!
+    runs: [Run]
+    totalDistance: Float
+    elevationGain: Float
+    verticalDescent: Float
+    topSpeed: Float
+    averageSpeed: Float
+    runCount: Int
+    totalDuration: String
+    liftTime: String
+    restTime: String
+    createdAt: String
+    updatedAt: String
+  }
+
   # === User Auth Types ===
   type User {
     _id: ID!
@@ -36,6 +63,8 @@ const typeDefs = gql`
     resorts: [Resort]
     resort(name: String!): Resort
     me: User
+    sessions: [Session]
+    session(id: ID!): Session
   }
 
   # === Root Mutations ===

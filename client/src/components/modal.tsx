@@ -21,13 +21,16 @@ export default function Modal({ show, onClose, title, children, footer }: ModalP
   if (!show) return null;
 
   return (
-    <div className="modal-overlay" role="dialog" aria-modal="true">     
-
+    <div className="modal-overlay" role="dialog" aria-modal="true">
       <div className="modal-content">
-        {title && <h2 className="modal-title">{title}</h2>}
+
+        {title && (
+          <div className="modal-header">
+            <h2 className="modal-title">{title}</h2>
+          </div>
+        )}
 
         <div className="modal-body">{children}</div>
-        
 
         {footer && <div className="modal-footer">{footer}</div>}
       </div>

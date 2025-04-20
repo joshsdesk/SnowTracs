@@ -27,19 +27,23 @@
   gap: 1rem;
   box-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
   animation: fadeIn 0.3s ease-in-out;
-  backdrop-filter: none !important;  /* ⛔ Remove blur if inherited */
+  backdrop-filter: none !important;
 }
 
+/* ===== Modal Header (Title Section Wrapper) ===== */
+.modal-header {
+  border-bottom: 1px solid var(--accent-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
 
-/* ===== Title/Header ===== */
+/* ===== Title Text ===== */
 .modal-title {
   font-family: 'Playfair Display', serif;
   font-size: 1.4rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #d38b8b;
-  padding-bottom: 0.5rem;
-  color: #00bfff;
+  color: var(--accent-color);
   text-align: center;
+  margin: 0;
 }
 
 /* ===== Modal Body ===== */

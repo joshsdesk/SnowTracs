@@ -1,0 +1,27 @@
+{
+    "sessionId": "session_001",
+    "resort": "Keystone",
+    "date": "2025-01-11",
+    "runs": [
+      {
+        "runId": "run_001",
+        "distance": "3.2 km",
+        "verticalDescent": "500 ft",
+        "elevationGain": "120 ft",
+        "maxSpeed": "45 km/h",
+        "avgSpeed": "35 km/h",
+        "duration": "00:07:30"
+      }
+    ],
+    "totalDistance": "3.2 km",
+    "totalVerticalDescent": "500 ft",
+    "totalElevationGain": "120 ft",
+    "topSpeed": "45 km/h",
+    "averageSpeed": "35 km/h",
+    "runCount": 1,
+    "totalDuration": "00:15:00",
+    "liftTime": "00:05:00",
+    "restTime": "00:02:30",
+    "snowpack": "38\""
+  }
+  

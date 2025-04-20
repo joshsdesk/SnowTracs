@@ -1,0 +1,36 @@
+{
+    "sessionId": "session_002",
+    "resort": "Vail",
+    "date": "2025-01-18",
+    "runs": [
+      {
+        "runId": "run_001",
+        "distance": "2.5 km",
+        "verticalDescent": "450 ft",
+        "elevationGain": "110 ft",
+        "maxSpeed": "42 km/h",
+        "avgSpeed": "34 km/h",
+        "duration": "00:06:00"
+      },
+      {
+        "runId": "run_002",
+        "distance": "3.8 km",
+        "verticalDescent": "650 ft",
+        "elevationGain": "140 ft",
+        "maxSpeed": "51 km/h",
+        "avgSpeed": "39 km/h",
+        "duration": "00:09:30"
+      }
+    ],
+    "totalDistance": "6.3 km",
+    "totalVerticalDescent": "1100 ft",
+    "totalElevationGain": "250 ft",
+    "topSpeed": "51 km/h",
+    "averageSpeed": "36.5 km/h",
+    "runCount": 2,
+    "totalDuration": "00:22:00",
+    "liftTime": "00:08:00",
+    "restTime": "00:04:00",
+    "snowpack": "41\""
+  }
+  

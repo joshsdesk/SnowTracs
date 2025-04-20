@@ -9,7 +9,11 @@ export default defineConfig({
     open: true,
     proxy: {
       '/map': 'http://localhost:5000',
-      '/resort': 'http://localhost:5000', // ✅ Proxy to your backend
-    },
-  },
+      '/resort': 'http://localhost:5000',
+      '/graphql': {
+        target: 'http://localhost:5000',
+        changeOrigin: true
+      }
+    }
+  }
 });

@@ -20,7 +20,7 @@ const Profile = () => {
         <div className="left-column">
           <div className="profile-avatar-wrapper">
             <img
-              src="/assets/images/profileIMGs/default.png"
+              src="/assets/images/profileIMGs/avatar3.png"
               alt="User Avatar"
               className="profile-avatar"
             />

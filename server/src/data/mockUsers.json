@@ -1,0 +1,53 @@
+[
+    {
+      "id": "user001",
+      "username": "SnowBro",
+      "email": "snowbro@example.com",
+      "avatarIndex": 3,
+      "favoriteResorts": ["Vail", "Keystone"],
+      "friends": ["user002", "user004"],
+      "sharedSessions": ["session_001", "session_003"],
+      "notes": "Prefers snowboarding. Likes long runs. Hates lift lines."
+    },
+    {
+      "id": "user002",
+      "username": "ShredBetty",
+      "email": "shredbetty@example.com",
+      "avatarIndex": 7,
+      "favoriteResorts": ["Breckenridge", "Copper"],
+      "friends": ["user001", "user003", "user005"],
+      "sharedSessions": ["session_002"],
+      "notes": "Snowboarder. Often rides with user001. Enjoys tree runs."
+    },
+    {
+      "id": "user003",
+      "username": "AlpineAce",
+      "email": "alpineace@example.com",
+      "avatarIndex": 0,
+      "favoriteResorts": ["Aspen", "Telluride"],
+      "friends": ["user002"],
+      "sharedSessions": [],
+      "notes": "Skier. New to the app. Training for backcountry."
+    },
+    {
+      "id": "user004",
+      "username": "YetiHunter",
+      "email": "yetihunter@example.com",
+      "avatarIndex": 2,
+      "favoriteResorts": ["Crested Butte", "Snowmass"],
+      "friends": ["user001", "user005"],
+      "sharedSessions": ["session_003"],
+      "notes": "Loves moguls and off-piste. Jokingly tracks Yetis."
+    },
+    {
+      "id": "user005",
+      "username": "SlushPup",
+      "email": "slushpup@example.com",
+      "avatarIndex": 5,
+      "favoriteResorts": ["Loveland", "Winter Park"],
+      "friends": ["user002", "user004"],
+      "sharedSessions": [],
+      "notes": "Freestyle skier. Into terrain parks and social features."
+    }
+  ]
+  

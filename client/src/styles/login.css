@@ -1,194 +1,195 @@
 /* Login Page Styling */
 .login-page {
-    position: relative; /* ✅ Needed for .snow absolute containment */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #121212;
-    color: #ffffff;
-    height: 100vh;
-    padding: 20px;
-    z-index: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-dark);
+  color: var(--text-color);
+  height: 100vh;
+  padding: 20px;
+  z-index: 1;
+}
+
+.app-logo {
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.app-logo h1 {
+  color: var(--accent-color);
+  font-size: 2.2rem;
+  text-shadow: 0 0 10px rgba(0, 191, 255, 0.8);
+}
+
+.app-logo p {
+  color: var(--text-color-muted);
+  font-size: 0.95rem;
+  margin-top: 8px;
+}
+
+.login-container {
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: var(--rounded);
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+  position: relative;
+  z-index: 2;
+}
+
+.login-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+.login-container input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  background-color: var(--input-bg);
+  border: 1px solid #444;
+  color: var(--text-color);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.login-container input::placeholder {
+  color: var(--text-color-muted);
+}
+
+.login-container input:hover {
+  background-color: #444;
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.6);
+}
+
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.login-container button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.6);
+}
+
+.login-container p {
+  text-align: center;
+  margin-top: 15px;
+  cursor: pointer;
+  color: var(--accent-color);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.login-container p:hover {
+  color: var(--text-color);
+  text-decoration: underline;
+  text-shadow: 0 0 10px rgba(0, 191, 255, 0.8);
+}
+
+/* Modal Dark Mode */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: var(--rounded);
+  width: 90%;
+  max-width: 400px;
+  color: var(--text-color);
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  background-color: var(--input-bg);
+  border: 1px solid #444;
+  color: var(--text-color);
+  border-radius: 6px;
+}
+
+.modal-content button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.modal-content button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.6);
+}
+
+/* Snowflakes Background */
+.snow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.flake {
+  position: absolute;
+  top: -10px;
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: fall linear infinite;
+}
+
+.glow {
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.8;
   }
-  
-  .app-logo {
-    text-align: center;
-    margin-bottom: 30px;
-    position: relative; /* ✅ Forces logo above snow */
-    z-index: 2;
+  100% {
+    transform: translateY(110vh) translateX(50px);
+    opacity: 0;
   }
-  
-  .app-logo h1 {
-    color: #00bfff;
-    font-size: 2.2rem;
-    text-shadow: 0 0 10px rgba(0, 191, 255, 0.8); /* Glow effect for the logo */
-  }
-  
-  .app-logo p {
-    color: #bbb;
-    font-size: 0.95rem;
-    margin-top: 8px;
-  }
-  
-  .login-container {
-    background-color: #1e1e1e;
-    padding: 20px;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 400px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
-    position: relative; /* ✅ Ensures above snow */
-    z-index: 2;
-  }
-  
-  .login-container h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #ffffff;
-  }
-  
-  .login-container input {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    background-color: #2a2a2a;
-    border: 1px solid #444;
-    color: #ffffff;
-    border-radius: 6px;
-    transition: all 0.3s ease; /* Smooth transition for hover effect */
-  }
-  
-  .login-container input::placeholder {
-    color: #bbb;
-  }
-  
-  .login-container input:hover {
-    background-color: #444; /* Darken background slightly on hover */
-    box-shadow: 0 0 10px rgba(0, 191, 255, 0.6); /* Light glow effect */
-  }
-  
-  .login-container button {
-    width: 100%;
-    padding: 12px;
-    background-color: #007bff;
-    color: #ffffff;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-  }
-  
-  .login-container button:hover {
-    background-color: #0056b3;
-    transform: scale(1.05); /* Slightly enlarge the button on hover */
-    box-shadow: 0 0 10px rgba(0, 191, 255, 0.6); /* Light glow effect */
-  }
-  
-  .login-container p {
-    text-align: center;
-    margin-top: 15px;
-    cursor: pointer;
-    color: #00bfff;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-  }
-  
-  .login-container p:hover {
-    color: #ffffff;
-    text-decoration: underline;
-    text-shadow: 0 0 10px rgba(0, 191, 255, 0.8); /* Glow effect on text */
-  }
-  
-  /* Modal Dark Mode */
-  .modal {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999; /* ✅ Modal stays above everything */
-  }
-  
-  .modal-content {
-    background-color: #1e1e1e;
-    padding: 20px;
-    border-radius: 8px;
-    width: 90%;
-    max-width: 400px;
-    color: #fff;
-  }
-  
-  .modal-content input {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    background-color: #2a2a2a;
-    border: 1px solid #444;
-    color: #fff;
-    border-radius: 6px;
-  }
-  
-  .modal-content button {
-    width: 100%;
-    padding: 12px;
-    background-color: #007bff;
-    color: #ffffff;
-    border: none;
-    border-radius: 6px;
-    margin-top: 10px;
-    transition: all 0.3s ease;
-  }
-  
-  .modal-content button:hover {
-    background-color: #0056b3;
-    box-shadow: 0 0 10px rgba(0, 191, 255, 0.6); /* Light glow effect */
-  }
-  
-  /* Snowflakes Background */
-  .snow {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 0;
-  }
-  
-  .flake {
-    position: absolute;
-    top: -10px;
-    width: 6px;
-    height: 6px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 50%;
-    animation: fall linear infinite;
-  }
-  
-  .glow {
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
-  }
-  
-  @keyframes fall {
-    0% {
-      transform: translateY(0) translateX(0);
-      opacity: 0.8;
-    }
-    100% {
-      transform: translateY(110vh) translateX(50px);
-      opacity: 0;
-    }
-  }
-  
-  /* Random flakes */
-  .flake:nth-child(odd) { left: 10%; animation-duration: 8s; }
-  .flake:nth-child(even) { left: 50%; animation-duration: 12s; }
-  .flake:nth-child(3n) { left: 30%; animation-duration: 15s; }
-  .flake:nth-child(5n) { left: 70%; animation-duration: 20s; }
-  .flake:nth-child(7n) { left: 20%; animation-duration: 18s; }
-  .flake:nth-child(11n) { left: 80%; animation-duration: 22s; }
-  
+}
+
+/* Random flakes */
+.flake:nth-child(odd) { left: 10%; animation-duration: 8s; }
+.flake:nth-child(even) { left: 50%; animation-duration: 12s; }
+.flake:nth-child(3n) { left: 30%; animation-duration: 15s; }
+.flake:nth-child(5n) { left: 70%; animation-duration: 20s; }
+.flake:nth-child(7n) { left: 20%; animation-duration: 18s; }
+.flake:nth-child(11n) { left: 80%; animation-duration: 22s; }

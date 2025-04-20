@@ -1,6 +1,7 @@
+/* === Home Page Layout === */
 .home-page {
-  background-color: #121212;
-  color: #fff;
+  background-color: var(--bg-dark);
+  color: var(--text-color);
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -8,19 +9,21 @@
   padding-bottom: 50px; /* For bottom nav */
 }
 
+/* === Map Section === */
 .map-section {
   flex: 3;
-  background-color: #2a2a2a;
-  border-radius: 8px 8px 0 0;
+  background-color: var(--card-bg);
+  border-radius: var(--rounded) var(--rounded) 0 0;
   overflow: hidden;
 }
 
+/* === Info Panel (UI container) === */
 .info-panel {
-  background-color: #121212;
+  background-color: var(--bg-dark);
   flex: 1;
   padding: 16px 20px 24px;
   margin-top: -20px;
-  border-radius: 16px 16px 0 0;
+  border-radius: var(--rounded) var(--rounded) 0 0;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -28,7 +31,7 @@
   text-align: center;
 }
 
-/* Action Buttons */
+/* === Action Buttons === */
 .action-buttons {
   display: flex;
   justify-content: space-between;
@@ -41,10 +44,19 @@
   flex: 1;
   padding: 12px;
   cursor: pointer;
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  font-weight: bold;
+  border: 2px solid var(--accent-color);
+  border-radius: var(--rounded);
+  transition: all 0.3s ease, transform 0.2s ease;
 }
 
 .action-buttons button:hover {
-  background-color: #0056b3;
+  background-color: var(--hover-color);
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.6);
 }
 
 .action-buttons button.active {
@@ -55,31 +67,33 @@
   background-color: #ff4d4d;
 }
 
-/* Stats Info */
+/* === Stats Info Grid === */
 .stats-info {
   display: flex;
   justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
   width: 100%;
-  margin-top: 20px;
+  box-sizing: border-box;
+  background-color: var(--card-bg);
+  border-radius: var(--rounded);
 }
 
 .stat-item {
-  font-size: 1.1rem;
-  color: #bbb;
-  text-align: center;
-  width: 22%;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .stat-item .label {
   font-size: 0.9rem;
   margin-bottom: 5px;
-  color: #00bfff;
+  color: var(--accent-color);
 }
 
 .stat-item .value {
   font-size: 1.2rem;
-  color: #fff;
-}
+  color: var(--text-color);
+} 

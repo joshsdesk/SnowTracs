@@ -1,0 +1,63 @@
+{
+  "sessionId": "session_sos_001",
+  "userId": "user003",
+  "username": "AlpineAce",
+  "avatarIndex": 0,
+  "resort": {
+    "name": "Aspen",
+    "trails_open": 95,
+    "trails_total": 129,
+    "lifts_open": 17,
+    "lifts_total": 19,
+    "gondolas_open": 1,
+    "gondolas_total": 1,
+    "hours": "9:00 AM – 4:00 PM"
+  },
+  "date": "2025-01-25",
+  "runs": [
+    {
+      "runNumber": 1,
+      "distance": 2.8,
+      "elevationDrop": 480,
+      "elevationGain": 100,
+      "duration": "00:06:30"
+    },
+    {
+      "runNumber": 2,
+      "distance": 3.9,
+      "elevationDrop": 670,
+      "elevationGain": 120,
+      "duration": "00:09:15"
+    },
+    {
+      "runNumber": 3,
+      "distance": 4.2,
+      "elevationDrop": 720,
+      "elevationGain": 160,
+      "duration": "00:10:00"
+    }
+  ],
+  "totalDistance": 10.9,
+  "elevationGain": 380,
+  "verticalDescent": 1870,
+  "topSpeed": 53,
+  "averageSpeed": 37.4,
+  "runCount": 3,
+  "totalDuration": "00:32:00",
+  "liftTime": "00:10:00",
+  "restTime": "00:06:00",
+  "sosEvent": {
+    "triggered": true,
+    "message": "Visibility dropped. Separated from group near Lift 6.",
+    "lat": 39.1912,
+    "lng": -106.8176,
+    "timestamp": "2025-01-25T10:42:00Z",
+    "status": "resolved"
+  },
+  "track": [
+    { "lat": 39.1911, "lng": -106.8175, "timestamp": "2025-01-25T10:00:00Z" },
+    { "lat": 39.1913, "lng": -106.8177, "timestamp": "2025-01-25T10:02:00Z" },
+    { "lat": 39.1916, "lng": -106.8180, "timestamp": "2025-01-25T10:04:00Z" },
+    { "lat": 39.1919, "lng": -106.8183, "timestamp": "2025-01-25T10:06:00Z" }
+  ]
+}

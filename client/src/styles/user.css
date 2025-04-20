@@ -186,38 +186,29 @@
   box-sizing: border-box;
 }
 
-/* Title + Eye icon */
-.session-header {
+.session-summary {
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px;
+  box-sizing: border-box;
 }
 
-.session-header h4 {
-  font-size: 18px;
-  color: #fff;
+.session-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.session-info p {
   margin: 0;
 }
 
-/* Stats row */
-.session-info {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  font-size: 14px;
-  color: #ccc;
-  margin-top: 8px;
-  padding: 0 8px;
-  gap: 12px;
-}
-
-.session-info strong {
-  color: #fff;
-  margin-right: 4px;
-}
-
-/* Eye icon styling */
 .session-eye {
   font-size: 18px;
   color: #00bfff;

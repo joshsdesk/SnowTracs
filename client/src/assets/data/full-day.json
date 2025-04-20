@@ -1,0 +1,63 @@
+{
+    "sessionId": "session_003",
+    "resort": "Crested Butte",
+    "date": "2025-02-02",
+    "runs": [
+      {
+        "runId": "run_001",
+        "distance": "2.2 km",
+        "verticalDescent": "400 ft",
+        "elevationGain": "100 ft",
+        "maxSpeed": "40 km/h",
+        "avgSpeed": "33 km/h",
+        "duration": "00:05:30"
+      },
+      {
+        "runId": "run_002",
+        "distance": "3.1 km",
+        "verticalDescent": "600 ft",
+        "elevationGain": "130 ft",
+        "maxSpeed": "48 km/h",
+        "avgSpeed": "37 km/h",
+        "duration": "00:07:45"
+      },
+      {
+        "runId": "run_003",
+        "distance": "4.6 km",
+        "verticalDescent": "750 ft",
+        "elevationGain": "160 ft",
+        "maxSpeed": "54 km/h",
+        "avgSpeed": "41 km/h",
+        "duration": "00:09:30"
+      },
+      {
+        "runId": "run_004",
+        "distance": "3.8 km",
+        "verticalDescent": "620 ft",
+        "elevationGain": "140 ft",
+        "maxSpeed": "50 km/h",
+        "avgSpeed": "38 km/h",
+        "duration": "00:08:15"
+      },
+      {
+        "runId": "run_005",
+        "distance": "4.0 km",
+        "verticalDescent": "700 ft",
+        "elevationGain": "150 ft",
+        "maxSpeed": "56 km/h",
+        "avgSpeed": "42 km/h",
+        "duration": "00:09:00"
+      }
+    ],
+    "totalDistance": "17.7 km",
+    "totalVerticalDescent": "3070 ft",
+    "totalElevationGain": "680 ft",
+    "topSpeed": "56 km/h",
+    "averageSpeed": "38.2 km/h",
+    "runCount": 5,
+    "totalDuration": "00:50:00",
+    "liftTime": "00:20:00",
+    "restTime": "00:10:00",
+    "snowpack": "47\""
+  }
+  

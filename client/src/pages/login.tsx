@@ -54,8 +54,8 @@ export default function Login() {
 
         {/* App Logo and Tagline */}
         <div className="app-logo">
-          <h1>SnowTracs❄</h1>
-          <p>Every Peak. Every Run. Every Moment.</p>
+          <h1 className="heading-1">SnowTracs❄</h1>
+          <p className="small-text muted-text">Every Peak. Every Run. Every Moment.</p>
         </div>
 
         {/* Login Box */}
@@ -63,18 +63,20 @@ export default function Login() {
           <input
             type="text"
             placeholder="Email or Username"
+            className="form-control"
             value={email}
             onChange={e => setEmail(e.target.value)}
           />
           <input
             type="password"
             placeholder="Password"
+            className="form-control"
             value={password}
             onChange={e => setPassword(e.target.value)}
           />
-          <button onClick={handleLogin}>Login</button>
+          <button className="btn btn-primary" onClick={handleLogin}>Login</button>
 
-          <p className="register-link" onClick={() => setShowModal(true)}>
+          <p className="form-text accent-text" onClick={() => setShowModal(true)}>
             Register
           </p>
         </div>

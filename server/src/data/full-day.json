@@ -1,0 +1,71 @@
+{
+    "sessionId": "session_003",
+    "userId": "user004",
+    "username": "YetiHunter",
+    "avatarIndex": 2,
+    "resort": {
+      "name": "Crested Butte",
+      "trails_open": 87,
+      "trails_total": 115,
+      "lifts_open": 13,
+      "lifts_total": 15,
+      "gondolas_open": 1,
+      "gondolas_total": 1,
+      "hours": "9:00 AM – 4:00 PM"
+    },
+    "date": "2025-02-02",
+    "runs": [
+      {
+        "runNumber": 1,
+        "distance": 2.2,
+        "elevationDrop": 400,
+        "elevationGain": 100,
+        "duration": "00:05:30"
+      },
+      {
+        "runNumber": 2,
+        "distance": 3.1,
+        "elevationDrop": 600,
+        "elevationGain": 130,
+        "duration": "00:07:45"
+      },
+      {
+        "runNumber": 3,
+        "distance": 4.6,
+        "elevationDrop": 750,
+        "elevationGain": 160,
+        "duration": "00:09:30"
+      },
+      {
+        "runNumber": 4,
+        "distance": 3.8,
+        "elevationDrop": 620,
+        "elevationGain": 140,
+        "duration": "00:08:15"
+      },
+      {
+        "runNumber": 5,
+        "distance": 4.0,
+        "elevationDrop": 700,
+        "elevationGain": 150,
+        "duration": "00:09:00"
+      }
+    ],
+    "totalDistance": 17.7,
+    "elevationGain": 680,
+    "verticalDescent": 3070,
+    "topSpeed": 56,
+    "averageSpeed": 38.2,
+    "runCount": 5,
+    "totalDuration": "00:50:00",
+    "liftTime": "00:20:00",
+    "restTime": "00:10:00",
+    "track": [
+      { "lat": 39.1911, "lng": -106.8175, "timestamp": "2025-02-02T10:01:00Z" },
+      { "lat": 39.1913, "lng": -106.8178, "timestamp": "2025-02-02T10:01:30Z" },
+      { "lat": 39.1916, "lng": -106.8180, "timestamp": "2025-02-02T10:02:00Z" },
+      { "lat": 39.1919, "lng": -106.8183, "timestamp": "2025-02-02T10:02:30Z" },
+      { "lat": 39.1922, "lng": -106.8186, "timestamp": "2025-02-02T10:03:00Z" }
+    ]
+  }
+  

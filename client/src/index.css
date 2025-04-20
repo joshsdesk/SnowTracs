@@ -1,55 +1,74 @@
 /* index.css - Global Styles */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
-/* Reset */
+/* === Reset === */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Global constraints */
+/* === Global Variables (Fallbacks included) === */
+:root {
+  --bg-dark: #121212;
+  --text-color: #ffffff;
+  --text-color-muted: #bbb;
+  --accent-color: #00bfff;
+  --hover-color: #1de1ff;
+  --input-bg: #2b2b2b;
+  --card-bg: #1e1e1e;
+  --muted-text: #aaa;
+  --rounded: 8px;
+  --h1-size: 2rem;
+  --h2-size: 1.75rem;
+  --h3-size: 1.5rem;
+  --base-font-size: 1rem;
+  --small-font-size: 0.875rem;
+}
+
+/* === Base Page Setup === */
 html, body {
   font-family: 'Playfair Display', serif;
-  background-color: #121212;
-  color: #fff;
+  background-color: var(--bg-dark);
+  color: var(--text-color);
   line-height: 1.6;
   width: 100%;
   height: 100%;
   max-width: 100vw;
   overflow-x: hidden;
+  font-size: var(--base-font-size);
 }
 
-/* Core wrapper for app layout */
+/* === Wrapper for Mobile Layout === */
 .app-wrapper {
   width: 100%;
-  max-width: 430px; /* Locks design to mobile width */
+  max-width: 430px;
   margin: 0 auto;
-  box-sizing: border-box;
   overflow-x: hidden;
 }
 
-/* Buttons */
+/* === Global Button Styles === */
 button {
   background-color: transparent;
-  color: #00bfff;
-  padding: 12px 24px;
-  border: 2px solid #00bfff;
-  border-radius: 6px;
+  color: var(--accent-color);
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--accent-color);
+  border-radius: var(--rounded);
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-size: var(--base-font-size);
 }
 
 button:hover {
-  background-color: #00bfff;
+  background-color: var(--accent-color);
   color: #ffffff;
   transform: scale(1.05);
   box-shadow: 0 0 10px rgba(0, 191, 255, 0.6);
 }
 
 button:active {
-  background-color: #00bfff;
+  background-color: var(--accent-color);
   color: #ffffff;
   box-shadow: 0 0 12px rgba(0, 191, 255, 0.8);
 }
@@ -57,13 +76,13 @@ button:active {
 button:focus {
   outline: none;
   background-color: transparent;
-  color: #00bfff;
+  color: var(--accent-color);
   box-shadow: none;
 }
 
-/* Links */
+/* === Global Link Styles === */
 a {
-  color: #007bff;
+  color: var(--accent-color);
   text-decoration: none;
   transition: all 0.3s ease;
 }
@@ -74,8 +93,151 @@ a:hover {
   transform: scale(1.1);
 }
 
-/* Glowing Nav Effects */
-.bottom-nav a:hover::before {
+/* === Typography Scale === */
+.heading-1 {
+  font-size: var(--h1-size);
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.heading-2 {
+  font-size: var(--h2-size);
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.heading-3 {
+  font-size: var(--h3-size);
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.subtitle {
+  font-size: var(--base-font-size);
+  font-weight: 600;
+  color: var(--text-color-muted);
+}
+
+.body-text {
+  font-size: var(--base-font-size);
+  color: var(--text-color);
+}
+
+.small-text {
+  font-size: var(--small-font-size);
+  color: var(--text-color-muted);
+}
+
+.muted-text {
+  color: var(--text-color-muted) !important;
+}
+
+.accent-text {
+  color: var(--accent-color) !important;
+}
+
+.error-text {
+  color: #ff6666;
+  font-size: var(--small-font-size);
+  font-weight: 600;
+}
+
+/* === Form Elements === */
+.form-label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: var(--base-font-size);
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--text-color-muted);
+  border-radius: var(--rounded);
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  font-size: var(--base-font-size);
+  margin-bottom: 0.75rem;
+}
+
+.form-text {
+  font-size: var(--small-font-size);
+  color: var(--text-color-muted);
+  margin-top: -0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.form-error {
+  font-size: var(--small-font-size);
+  color: #ff6666;
+  margin-top: -0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+/* === Buttons & Variants === */
+.btn {
+  @apply button;
+}
+
+.btn-primary {
+  background-color: var(--accent-color);
+  color: #ffffff;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border-color: var(--text-color-muted);
+  color: var(--text-color-muted);
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--text-color-muted);
+  transition: all 0.2s ease;
+}
+
+.icon-btn:hover {
+  color: var(--accent-color);
+  transform: scale(1.1);
+}
+
+/* === Card Container === */
+.card-box {
+  background: var(--card-bg);
+  border-radius: var(--rounded);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+}
+
+/* === Animations & Utility === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.glow-icon {
+  position: relative;
+}
+
+.glow-icon:hover::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -86,29 +248,38 @@ a:hover {
   border-radius: 50%;
   transform: translate(-50%, -50%);
   animation: glowing 1.5s infinite alternate;
+  z-index: -1;
 }
 
-@keyframes glowing {
-  0% {
-    box-shadow: 0 0 5px rgba(0, 191, 255, 0.6), 0 0 10px rgba(0, 191, 255, 0.5), 0 0 15px rgba(0, 191, 255, 0.4);
-  }
-  100% {
-    box-shadow: 0 0 10px rgba(0, 191, 255, 1), 0 0 20px rgba(0, 191, 255, 0.8), 0 0 30px rgba(0, 191, 255, 0.6);
-  }
-}
-
-.bottom-nav a svg {
+/* === Global Link & Hover Effects === */
+.bottom-nav a svg,
+.record-button,
+.share-icon {
   transition: all 0.3s ease;
 }
 
-.bottom-nav a:hover svg {
+.bottom-nav a:hover svg,
+.record-button:hover,
+.share-icon:hover {
   transform: scale(1.2);
   filter: brightness(1.4);
 }
 
-/* Record button hover effect */
-.record-button:hover {
-  transform: scale(1.2);
-  filter: brightness(1.4);
+/* === Form Field Titles Used Across Modals === */
+.form-title {
+  font-size: var(--base-font-size);
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+/* === Accent & Glow Utilities === */
+.accent-text {
+  color: var(--accent-color) !important;
+}
+
+.glow-border {
+  border: 2px solid var(--accent-color);
   box-shadow: 0 0 10px rgba(0, 191, 255, 0.6);
+  border-radius: var(--rounded);
 }
