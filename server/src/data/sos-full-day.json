@@ -1,63 +1,94 @@
 {
-  "sessionId": "session_sos_001",
-  "userId": "user003",
-  "username": "AlpineAce",
-  "avatarIndex": 0,
+  "sessionId": "session_sos_full_day",
+  "userId": "user_5983",
+  "username": "JoshsBoard",
+  "avatarIndex": 4,
   "resort": {
-    "name": "Aspen",
-    "trails_open": 95,
-    "trails_total": 129,
-    "lifts_open": 17,
-    "lifts_total": 19,
+    "name": "Telluride",
+    "trails_open": 90,
+    "trails_total": 120,
+    "lifts_open": 12,
+    "lifts_total": 14,
     "gondolas_open": 1,
     "gondolas_total": 1,
-    "hours": "9:00 AM – 4:00 PM"
+    "hours": "9:00 AM \u2013 4:30 PM"
   },
-  "date": "2025-01-25",
+  "date": "2025-02-03",
   "runs": [
     {
       "runNumber": 1,
-      "distance": 2.8,
-      "elevationDrop": 480,
-      "elevationGain": 100,
+      "distance": 3.0,
+      "elevationDrop": 500,
+      "elevationGain": 120,
       "duration": "00:06:30"
     },
     {
       "runNumber": 2,
-      "distance": 3.9,
-      "elevationDrop": 670,
-      "elevationGain": 120,
-      "duration": "00:09:15"
+      "distance": 3.6,
+      "elevationDrop": 600,
+      "elevationGain": 130,
+      "duration": "00:07:45"
     },
     {
       "runNumber": 3,
-      "distance": 4.2,
+      "distance": 4.0,
       "elevationDrop": 720,
+      "elevationGain": 140,
+      "duration": "00:08:30"
+    },
+    {
+      "runNumber": 4,
+      "distance": 3.8,
+      "elevationDrop": 680,
       "elevationGain": 160,
-      "duration": "00:10:00"
+      "duration": "00:09:00"
+    },
+    {
+      "runNumber": 5,
+      "distance": 4.1,
+      "elevationDrop": 750,
+      "elevationGain": 170,
+      "duration": "00:09:15"
     }
   ],
-  "totalDistance": 10.9,
-  "elevationGain": 380,
-  "verticalDescent": 1870,
+  "totalDistance": 18.5,
+  "elevationGain": 720,
+  "verticalDescent": 3250,
   "topSpeed": 53,
-  "averageSpeed": 37.4,
-  "runCount": 3,
-  "totalDuration": "00:32:00",
-  "liftTime": "00:10:00",
-  "restTime": "00:06:00",
-  "sosEvent": {
-    "triggered": true,
-    "message": "Visibility dropped. Separated from group near Lift 6.",
-    "lat": 39.1912,
-    "lng": -106.8176,
-    "timestamp": "2025-01-25T10:42:00Z",
-    "status": "resolved"
-  },
+  "averageSpeed": 37.5,
+  "runCount": 5,
+  "totalDuration": "01:18:00",
+  "liftTime": "00:27:00",
+  "restTime": "00:09:00",
+  "notes": "Witnessed SOS triggered by YetiHunter on Run 5. Session flagged as shared safety event.",
+  "sharedWith": [
+    "user_1026"
+  ],
   "track": [
-    { "lat": 39.1911, "lng": -106.8175, "timestamp": "2025-01-25T10:00:00Z" },
-    { "lat": 39.1913, "lng": -106.8177, "timestamp": "2025-01-25T10:02:00Z" },
-    { "lat": 39.1916, "lng": -106.8180, "timestamp": "2025-01-25T10:04:00Z" },
-    { "lat": 39.1919, "lng": -106.8183, "timestamp": "2025-01-25T10:06:00Z" }
+    {
+      "lat": 37.9376,
+      "lng": -107.8123,
+      "timestamp": "2025-02-03T09:01:00Z"
+    },
+    {
+      "lat": 37.9384,
+      "lng": -107.8135,
+      "timestamp": "2025-02-03T09:04:30Z"
+    },
+    {
+      "lat": 37.9391,
+      "lng": -107.8147,
+      "timestamp": "2025-02-03T09:08:00Z"
+    },
+    {
+      "lat": 37.9399,
+      "lng": -107.816,
+      "timestamp": "2025-02-03T09:11:30Z"
+    },
+    {
+      "lat": 37.9406,
+      "lng": -107.8172,
+      "timestamp": "2025-02-03T09:15:00Z"
+    }
   ]
 }

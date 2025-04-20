@@ -31,6 +31,7 @@ const typeDefs = gql`
   type Session {
     _id: ID!
     name: String!
+    resort: Resort
     date: String!
     runs: [Run]
     totalDistance: Float

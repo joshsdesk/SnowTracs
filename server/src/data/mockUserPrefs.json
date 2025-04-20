@@ -1,43 +1,24 @@
-[
-    {
-      "userId": "user001",
-      "theme": "dark",
-      "units": "imperial",
-      "notifications": true,
-      "showStatsOnHome": true,
-      "highContrastMode": false
-    },
-    {
-      "userId": "user002",
-      "theme": "light",
-      "units": "imperial",
-      "notifications": false,
-      "showStatsOnHome": false,
-      "highContrastMode": true
-    },
-    {
-      "userId": "user003",
-      "theme": "dark",
-      "units": "imperial",
-      "notifications": true,
-      "showStatsOnHome": true,
-      "highContrastMode": false
-    },
-    {
-      "userId": "user004",
-      "theme": "dark",
-      "units": "imperial",
-      "notifications": true,
-      "showStatsOnHome": false,
-      "highContrastMode": false
-    },
-    {
-      "userId": "user005",
-      "theme": "light",
-      "units": "imperial",
-      "notifications": false,
-      "showStatsOnHome": true,
-      "highContrastMode": false
-    }
-  ]
-  
+{
+  "userId": "user_5983",
+  "username": "JoshsBoard",
+  "avatarIndex": 4,
+  "favoriteResorts": [
+    "Keystone"
+  ],
+  "friends": [
+    "user_1024",
+    "user_1025",
+    "user_1026",
+    "user_1027",
+    "user_1028"
+  ],
+  "sharedSessions": [
+    "session_sos_full_day"
+  ],
+  "notes": "Shredding powder & chasing peaks. \ud83c\udfd4\ufe0f",
+  "theme": "dark",
+  "units": "imperial",
+  "notifications": true,
+  "showStatsOnHome": true,
+  "highContrastMode": false
+}

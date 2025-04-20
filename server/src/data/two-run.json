@@ -1,48 +1,60 @@
 {
-    "sessionId": "session_002",
-    "userId": "user002",
-    "username": "ShredBetty",
-    "avatarIndex": 7,
-    "resort": {
-      "name": "Vail",
-      "trails_open": 102,
-      "trails_total": 195,
-      "lifts_open": 26,
-      "lifts_total": 31,
-      "gondolas_open": 2,
-      "gondolas_total": 2,
-      "hours": "9:00 AM – 4:00 PM"
+  "sessionId": "session_two_run",
+  "userId": "user_5983",
+  "username": "JoshsBoard",
+  "avatarIndex": 4,
+  "resort": {
+    "name": "Aspen Highlands",
+    "trails_open": 76,
+    "trails_total": 87,
+    "lifts_open": 7,
+    "lifts_total": 8,
+    "gondolas_open": 1,
+    "gondolas_total": 1,
+    "hours": "9:00 AM \u2013 4:30 PM"
+  },
+  "date": "2025-01-28",
+  "runs": [
+    {
+      "runNumber": 1,
+      "distance": 2.3,
+      "elevationDrop": 526,
+      "elevationGain": 125,
+      "duration": "00:09:18"
     },
-    "date": "2025-01-18",
-    "runs": [
-      {
-        "runNumber": 1,
-        "distance": 2.5,
-        "elevationDrop": 450,
-        "elevationGain": 110,
-        "duration": "00:06:00"
-      },
-      {
-        "runNumber": 2,
-        "distance": 3.8,
-        "elevationDrop": 650,
-        "elevationGain": 140,
-        "duration": "00:09:30"
-      }
-    ],
-    "totalDistance": 6.3,
-    "elevationGain": 250,
-    "verticalDescent": 1100,
-    "topSpeed": 51,
-    "averageSpeed": 36.5,
-    "runCount": 2,
-    "totalDuration": "00:22:00",
-    "liftTime": "00:08:00",
-    "restTime": "00:04:00",
-    "track": [
-      { "lat": 39.6380, "lng": -106.3742, "timestamp": "2025-01-18T10:00:00Z" },
-      { "lat": 39.6383, "lng": -106.3745, "timestamp": "2025-01-18T10:01:00Z" },
-      { "lat": 39.6386, "lng": -106.3748, "timestamp": "2025-01-18T10:02:00Z" }
-    ]
-  }
-  
+    {
+      "runNumber": 2,
+      "distance": 3.0,
+      "elevationDrop": 672,
+      "elevationGain": 133,
+      "duration": "00:07:16"
+    }
+  ],
+  "totalDistance": 5.3,
+  "elevationGain": 258,
+  "verticalDescent": 1198,
+  "topSpeed": 52,
+  "averageSpeed": 35.8,
+  "runCount": 2,
+  "totalDuration": "00:35:00",
+  "liftTime": "00:15:00",
+  "restTime": "00:06:00",
+  "notes": "Light snow midday. Quick 2-run session before lunch.",
+  "track": [
+    {
+      "lat": 39.1855,
+      "lng": -106.9368,
+      "timestamp": "2025-01-28T10:02:00Z"
+    },
+    {
+      "lat": 39.186,
+      "lng": -106.9379,
+      "timestamp": "2025-01-28T10:05:30Z"
+    },
+    {
+      "lat": 39.1868,
+      "lng": -106.9391,
+      "timestamp": "2025-01-28T10:09:00Z"
+    }
+  ]
+}

@@ -1,42 +1,53 @@
 {
-    "sessionId": "session_001",
-    "userId": "user001",
-    "username": "SnowBro",
-    "avatarIndex": 3,
-    "resort": {
-      "name": "Keystone",
-      "trails_open": 65,
-      "trails_total": 128,
-      "lifts_open": 17,
-      "lifts_total": 20,
-      "gondolas_open": 1,
-      "gondolas_total": 1,
-      "hours": "9:00 AM – 4:00 PM"
+  "sessionId": "session_one_run",
+  "userId": "user_5983",
+  "username": "JoshsBoard",
+  "avatarIndex": 4,
+  "resort": {
+    "name": "Buttermilk",
+    "trails_open": 42,
+    "trails_total": 44,
+    "lifts_open": 6,
+    "lifts_total": 6,
+    "gondolas_open": 0,
+    "gondolas_total": 0,
+    "hours": "9:00 AM \u2013 4:00 PM"
+  },
+  "date": "2025-01-15",
+  "runs": [
+    {
+      "runNumber": 1,
+      "distance": 3.2,
+      "elevationDrop": 459,
+      "elevationGain": 104,
+      "duration": "00:04:08"
+    }
+  ],
+  "totalDistance": 3.2,
+  "elevationGain": 104,
+  "verticalDescent": 459,
+  "topSpeed": 47,
+  "averageSpeed": 33.7,
+  "runCount": 1,
+  "totalDuration": "00:04:08",
+  "liftTime": "00:10:00",
+  "restTime": "00:04:00",
+  "notes": "Quick solo run before heading into town.",
+  "track": [
+    {
+      "lat": 39.2074,
+      "lng": -106.9498,
+      "timestamp": "2025-01-15T11:01:00Z"
     },
-    "date": "2025-01-11",
-    "runs": [
-      {
-        "runNumber": 1,
-        "distance": 3.2,
-        "elevationDrop": 500,
-        "elevationGain": 120,
-        "duration": "00:07:30"
-      }
-    ],
-    "totalDistance": 3.2,
-    "elevationGain": 120,
-    "verticalDescent": 500,
-    "topSpeed": 45,
-    "averageSpeed": 35,
-    "runCount": 1,
-    "totalDuration": "00:15:00",
-    "liftTime": "00:05:00",
-    "restTime": "00:02:30",
-    "track": [
-      { "lat": 39.6052, "lng": -105.9541, "timestamp": "2025-01-11T10:01:00Z" },
-      { "lat": 39.6055, "lng": -105.9543, "timestamp": "2025-01-11T10:01:20Z" },
-      { "lat": 39.6058, "lng": -105.9546, "timestamp": "2025-01-11T10:01:40Z" },
-      { "lat": 39.6061, "lng": -105.9549, "timestamp": "2025-01-11T10:02:00Z" }
-    ]
-  }
-  
+    {
+      "lat": 39.2077,
+      "lng": -106.9504,
+      "timestamp": "2025-01-15T11:03:30Z"
+    },
+    {
+      "lat": 39.208,
+      "lng": -106.951,
+      "timestamp": "2025-01-15T11:06:00Z"
+    }
+  ]
+}

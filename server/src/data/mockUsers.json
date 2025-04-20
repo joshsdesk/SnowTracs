@@ -1,53 +1,73 @@
 [
-    {
-      "id": "user001",
-      "username": "SnowBro",
-      "email": "snowbro@example.com",
-      "avatarIndex": 3,
-      "favoriteResorts": ["Vail", "Keystone"],
-      "friends": ["user002", "user004"],
-      "sharedSessions": ["session_001", "session_003"],
-      "notes": "Prefers snowboarding. Likes long runs. Hates lift lines."
-    },
-    {
-      "id": "user002",
-      "username": "ShredBetty",
-      "email": "shredbetty@example.com",
-      "avatarIndex": 7,
-      "favoriteResorts": ["Breckenridge", "Copper"],
-      "friends": ["user001", "user003", "user005"],
-      "sharedSessions": ["session_002"],
-      "notes": "Snowboarder. Often rides with user001. Enjoys tree runs."
-    },
-    {
-      "id": "user003",
-      "username": "AlpineAce",
-      "email": "alpineace@example.com",
-      "avatarIndex": 0,
-      "favoriteResorts": ["Aspen", "Telluride"],
-      "friends": ["user002"],
-      "sharedSessions": [],
-      "notes": "Skier. New to the app. Training for backcountry."
-    },
-    {
-      "id": "user004",
-      "username": "YetiHunter",
-      "email": "yetihunter@example.com",
-      "avatarIndex": 2,
-      "favoriteResorts": ["Crested Butte", "Snowmass"],
-      "friends": ["user001", "user005"],
-      "sharedSessions": ["session_003"],
-      "notes": "Loves moguls and off-piste. Jokingly tracks Yetis."
-    },
-    {
-      "id": "user005",
-      "username": "SlushPup",
-      "email": "slushpup@example.com",
-      "avatarIndex": 5,
-      "favoriteResorts": ["Loveland", "Winter Park"],
-      "friends": ["user002", "user004"],
-      "sharedSessions": [],
-      "notes": "Freestyle skier. Into terrain parks and social features."
-    }
-  ]
-  
+  {
+    "id": "user_1024",
+    "username": "Shredder01",
+    "avatarIndex": 6,
+    "favoriteResorts": [
+      "Vail"
+    ],
+    "friends": [
+      "user_5983"
+    ],
+    "sharedSessions": [
+      "session_powderday_2398"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "user_1025",
+    "username": "PowderGuru",
+    "avatarIndex": 1,
+    "favoriteResorts": [
+      "Loveland"
+    ],
+    "friends": [
+      "user_5983"
+    ],
+    "sharedSessions": [],
+    "notes": "Snow dumping since 6 AM \u2744\ufe0f"
+  },
+  {
+    "id": "user_1026",
+    "username": "YetiHunter",
+    "avatarIndex": 2,
+    "favoriteResorts": [
+      "Telluride"
+    ],
+    "friends": [
+      "user_5983"
+    ],
+    "sharedSessions": [
+      "session_sos_full_day"
+    ],
+    "notes": "Triggered SOS while riding with JoshsBoard after crash."
+  },
+  {
+    "id": "user_1027",
+    "username": "AlpineAce",
+    "avatarIndex": 5,
+    "favoriteResorts": [
+      "Winter Park"
+    ],
+    "friends": [
+      "user_5983"
+    ],
+    "sharedSessions": [
+      "session_alpineace_7474"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "user_1028",
+    "username": "SkiQueen",
+    "avatarIndex": 3,
+    "favoriteResorts": [
+      "Arapahoe Basin"
+    ],
+    "friends": [
+      "user_5983"
+    ],
+    "sharedSessions": [],
+    "notes": "Perfect weather, no lines \ud83c\udfbf"
+  }
+]
