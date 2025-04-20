@@ -4,7 +4,6 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import { ApolloServer } from '@apollo/server';
 import { expressMiddleware } from '@apollo/server/express4';
-import jwt from 'jsonwebtoken';
 
 // ====== Local Imports ======
 import db from './config/connection';
@@ -16,20 +15,6 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-
-// ====== JWT Secret Key ======
-const secret = process.env.JWT_SECRET || 'mysecretkey';
-
-// ====== Decode Token Helper ======
-const getUserFromToken = (token: string | null) => {
-  if (!token) return null;
-  try {
-    const decoded = jwt.verify(token.replace('Bearer ', ''), secret);
-    return decoded;
-  } catch (err) {
-    return null;
-  }
-};
 
 // ====== Apollo Server Setup ======
 const server = new ApolloServer({
