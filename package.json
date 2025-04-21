@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
     "start": "cd server && npm run start",
-    "build": "concurrently \"npm run build --prefix server\" \"npm run build --prefix client\"",
+    "build": "cd server && npm install && npm run build && cd ../client && npm install && npm run build",
     "render-build": "npm install && npm run build"    
   },
   "keywords": [],
