@@ -52,6 +52,9 @@ const typeDefs = gql`
     _id: ID!
     username: String!
     email: String!
+    userType: String
+    profileImage: String
+    bio: String
   }
 
   type Auth {
@@ -70,8 +73,19 @@ const typeDefs = gql`
 
   # === Root Mutations ===
   type Mutation {
-    register(username: String!, email: String!, password: String!): Auth
-    login(email: String!, password: String!): Auth
+    register(
+      username: String!
+      email: String!
+      password: String!
+      userType: String!
+      profileImage: String!
+      bio: String
+    ): Auth
+
+    login(
+      email: String!
+      password: String!
+    ): Auth
   }
 `;
 
