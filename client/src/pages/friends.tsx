@@ -126,7 +126,7 @@ const Friends: React.FC = () => {
           ))}
         </ul>
       )}
-      <Modal show={showModal} onHide={() => setShowModal(false)}>
+      <Modal show={showModal} onClose={() => setShowModal(false)}>
         <h5>Friend Requests</h5>
         {requests.map(req => (
           <div key={req.id} className="d-flex align-items-center justify-content-between mb-2">
