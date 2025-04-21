@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import '../styles/modal.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';  // Import the close icon
 
 interface ModalProps {
   show: boolean;
@@ -23,15 +25,27 @@ export default function Modal({ show, onClose, title, children, footer }: ModalP
   return (
     <div className="modal-overlay" role="dialog" aria-modal="true">
       <div className="modal-content">
-
+        
+        {/* Modal Header */}
         {title && (
           <div className="modal-header">
             <h2 className="modal-title">{title}</h2>
+            {/* Close Icon */}
+            <FontAwesomeIcon
+              icon={faTimes}
+              className="fa-icon fa-modal-icon"
+              title="Close"
+              onClick={onClose}  // Close functionality
+            />
           </div>
         )}
 
-        <div className="modal-body">{children}</div>
+        {/* Modal Body (where the actual content goes) */}
+        <div className="modal-body">
+          {children}
+        </div>
 
+        {/* Modal Footer (optional content like buttons) */}
         {footer && <div className="modal-footer">{footer}</div>}
       </div>
     </div>

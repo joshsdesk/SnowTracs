@@ -1,12 +1,11 @@
-// === Register.tsx ===
-// Registration modal for new user sign-up
-// Collects user info: username, email, password, user type, avatar, and optional bio
-
+// register.tsx
 import { useState } from 'react';
 import { gql, useMutation } from '@apollo/client';
-import '../styles/register.css';  // ✅ Use its own CSS now
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons'; // Import the close icon
+import '../styles/register.css';
+import Card from '../components/card'; // Import the Card component
 
-// === GraphQL Mutation: Register a New User ===
 const REGISTER_USER = gql`
   mutation Register(
     $username: String!
@@ -39,9 +38,10 @@ const REGISTER_USER = gql`
 
 interface RegisterProps {
   onSuccess: () => void;
+  onClose: () => void;  // Close modal function
 }
 
-export default function Register({ onSuccess }: RegisterProps) {
+export default function Register({ onSuccess, onClose }: RegisterProps) {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -66,80 +66,92 @@ export default function Register({ onSuccess }: RegisterProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="register-modal">
-      <h2 className="modal-title">Register</h2>
-
-      <label htmlFor="username" className="form-title">Username</label>
-      <input
-        id="username"
-        type="text"
-        placeholder="Enter username"
-        value={username}
-        onChange={e => setUsername(e.target.value)}
-        required
-      />
-
-      <label htmlFor="email" className="form-title">Email</label>
-      <input
-        id="email"
-        type="email"
-        placeholder="Enter email"
-        value={email}
-        onChange={e => setEmail(e.target.value)}
-        required
-      />
-
-      <label htmlFor="password" className="form-title">Password</label>
-      <input
-        id="password"
-        type="password"
-        placeholder="Enter password"
-        value={password}
-        onChange={e => setPassword(e.target.value)}
-        required
-      />
-
-      <label htmlFor="userType" className="form-title">Select your style</label>
-      <select
-        id="userType"
-        value={userType}
-        onChange={e => setUserType(e.target.value)}
-      >
-        <option value="Snowboarder">Snowboarder</option>
-        <option value="Skier">Skier</option>
-      </select>
-
-      <label htmlFor="profileImage" className="form-title">Select an Avatar</label>
-      <select
-        id="profileImage"
-        value={profileImage}
-        onChange={e => setProfileImage(e.target.value)}
-      >
-        {Array.from({ length: 9 }, (_, i) => {
-          const url = `/assets/images/profileIMGs/avatar${i + 1}.png`;
-          return (
-            <option key={i} value={url}>
-              Avatar {i + 1}
-            </option>
-          );
-        })}
-      </select>
-
-      <div className="avatar-preview">
-        <div className="avatar-frame">
-          <img src={profileImage} alt="Selected avatar" />
-        </div>  
+    <Card onClose={onClose}>
+      <div className="modal-header">
+        <h2 className="modal-title">Register</h2>
+        {/* Close Icon */}
+        <FontAwesomeIcon
+          icon={faTimes}
+          className="fa-icon fa-modal-icon"
+          title="Close"
+          onClick={onClose} // Close modal functionality
+        />
       </div>
 
-      <label htmlFor="bio" className="form-title">Short Bio (optional)</label>
-      <textarea
-        id="bio"
-        placeholder="Tell us a little about yourself..."
-        value={bio}
-        onChange={e => setBio(e.target.value)}
-      />
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="username" className="form-title">Username</label>
+        <input
+          id="username"
+          type="text"
+          placeholder="Enter username"
+          value={username}
+          onChange={e => setUsername(e.target.value)}
+          required
+        />
 
-      <button type="submit" className="register-submit">Submit</button>
-    </form>
+        <label htmlFor="email" className="form-title">Email</label>
+        <input
+          id="email"
+          type="email"
+          placeholder="Enter email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          required
+        />
+
+        <label htmlFor="password" className="form-title">Password</label>
+        <input
+          id="password"
+          type="password"
+          placeholder="Enter password"
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+          required
+        />
+
+        <label htmlFor="userType" className="form-title">Select your style</label>
+        <select
+          id="userType"
+          value={userType}
+          onChange={e => setUserType(e.target.value)}
+        >
+          <option value="Snowboarder">Snowboarder</option>
+          <option value="Skier">Skier</option>
+        </select>
+
+        <label htmlFor="profileImage" className="form-title">Select an Avatar</label>
+        <select
+          id="profileImage"
+          value={profileImage}
+          onChange={e => setProfileImage(e.target.value)}
+        >
+          {Array.from({ length: 9 }, (_, i) => {
+            const url = `/assets/images/profileIMGs/avatar${i + 1}.png`;
+            return (
+              <option key={i} value={url}>
+                Avatar {i + 1}
+              </option>
+            );
+          })}
+        </select>
+
+        <div className="avatar-preview">
+          <div className="avatar-frame">
+            <img src={profileImage} alt="Selected avatar" />
+          </div>  
+        </div>
+
+        <label htmlFor="bio" className="form-title">Short Bio (optional)</label>
+        <textarea
+          id="bio"
+          placeholder="Tell us a little about yourself..."
+          value={bio}
+          onChange={e => setBio(e.target.value)}
+          className="form-control"
+        />
+
+        <button type="submit" className="register-submit">Submit</button>
+      </form>
+    </Card>
   );
 }

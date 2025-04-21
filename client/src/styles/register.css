@@ -1,28 +1,29 @@
 /* === Register Modal Specific Styling === */
 .register-modal {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem 0;
-  }
-  
-  /* === Input Fields (inherits base input styles globally) === */
-  .register-modal input,
-  .register-modal select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #444;
-    border-radius: 8px;
-    background-color: #2b2b2b;
-    color: #fff;
-    font-size: 1rem;
-  }
-  
-  .register-modal input::placeholder {
-    color: #bbb;
-  }
-  
-  /* === Avatar Preview and Selector === */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 0;
+  position: relative; /* Position for the close button */
+}
+
+/* === Input Fields (inherits base input styles globally) === */
+.register-modal input,
+.register-modal select {
+  width: 100%;
+  padding: 0.625rem;
+  border: 1px solid var(--text-color-muted);
+  border-radius: var(--rounded);
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  font-size: var(--base-font-size);
+}
+
+.register-modal input::placeholder {
+  color: var(--text-color-muted);
+}
+
+/* === Avatar Preview and Selector === */
 .avatar-preview {
   display: flex;
   justify-content: center;
@@ -32,7 +33,7 @@
 .avatar-frame {
   width: 128px;
   height: 128px;
-  border-radius: var(--rounded); /* Slight rounding for consistency */
+  border-radius: var(--rounded);
   overflow: hidden;
   border: 3px solid var(--accent-color);
   box-shadow: 0 0 12px rgba(0, 191, 255, 0.7);
@@ -50,29 +51,43 @@
   display: block;
 }
 
-  
-  
-  /* === Submit Button (inherits global button styles) === */
-  .register-submit {
-    width: 100%;
-    padding: 12px;
-    background-color: #00bfff;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    color: #121212;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  .register-submit:hover {
-    background-color: #1de1ff;
-  }
-  
-  /* === Error Message or Helper Text === */
-  .register-modal .error-msg {
-    font-size: 0.9rem;
-    color: #ff6666;
-    text-align: center;
-  }
-  
+/* === Submit Button (inherits global button styles) === */
+.register-submit {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: var(--rounded);
+  font-weight: bold;
+  color: var(--bg-dark);
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: var(--base-font-size);
+}
+
+.register-submit:hover {
+  background-color: var(--hover-color);
+}
+
+/* === Error Message or Helper Text === */
+.register-modal .error-msg {
+  font-size: var(--small-font-size);
+  color: #ff6666;
+  text-align: center;
+}
+
+/* === Close Icon in Modal Header === */
+.fa-icon.fa-modal-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem; /* Larger for easy clicking */
+  color: var(--text-color); /* Close icon color */
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.fa-icon.fa-modal-icon:hover {
+  color: var(--accent-color); /* Change color on hover */
+  transform: scale(1.1); /* Slight scaling effect */
+}

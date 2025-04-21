@@ -2,150 +2,161 @@
 
 /* Page container */
 .friends-page {
-    background-color: var(--bg-dark);
-    color: var(--text-primary);
-    min-height: 100vh;
-    padding: 1rem 0 4rem; /* top spacing + bottom nav padding */
-  }
-  
-  /* Top bar (reuse global header look) */
-  .friends-topbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.75rem 1rem;
-    background-color: var(--bg-panel);
-    border-bottom: 1px solid var(--border-color);
-  }
-  
-  /* Search input */
-  .friends-search {
-    margin: 1rem;
-    position: relative;
-  }
-  .friends-search input {
-    width: 100%;
-    padding: 0.5rem 2.5rem 0.5rem 0.75rem;
-    border-radius: 0.5rem;
-    border: 1px solid var(--border-color);
-    background-color: var(--bg-input);
-    color: var(--text-primary);
-  }
-  .friends-search .search-icon {
-    position: absolute;
-    top: 50%;
-    right: 1rem;
-    transform: translateY(-50%);
-    color: var(--text-muted);
-  }
-  
-  /* Friend card */
-  .friend-card {
-    background-color: var(--bg-panel);
-    margin: 0.5rem 1rem;
-    border-radius: 0.75rem;
-    box-shadow: var(--shadow);
-    cursor: pointer;
-    overflow: hidden;
-    transition: background-color 0.2s;
-  }
-  .friend-card:hover {
-    background-color: var(--bg-panel-hover);
-  }
-  .friend-card img {
-    flex-shrink: 0;
-  }
-  
-  .friend-card > div {
-    flex: 1;
-    padding: 0.75rem 1rem;
-  }
-  
-  /* Card header */
-  .friend-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .friend-header .friend-name {
-    font-size: 1rem;
-    font-weight: 600;
-  }
-  .friend-header .fa-ellipsis-vertical {
-    color: var(--accent);
-  }
-  
-  .friend-card small {
-    display: block;
-    margin-top: 0.25rem;
-    font-size: 0.875rem;
-    color: var(--text-muted);
-  }
-  
-  /* Stats row */
-  .friend-info {
-    display: flex;
-    gap: 1.5rem;
-    margin-top: 0.5rem;
-    font-size: 0.875rem;
-    color: var(--text-muted);
-  }
-  .friend-info span {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-  }
-  .friend-info .fa-mountain-sun,
-  .friend-info .fa-arrow-up,
-  .friend-info .fa-gauge-high {
-    color: var(--accent);
-  }
-  
-  /* Context menu */
-  .friend-menu {
-    position: absolute;
-    top: calc(100% + 0.25rem);
-    right: 1rem;
-    background-color: var(--bg-panel);
-    border-radius: 0.5rem;
-    box-shadow: var(--shadow);
-    padding: 0.5rem 0;
-    z-index: 200;
-  }
-  .friend-menu > div {
-    padding: 0.5rem 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.875rem;
-    color: var(--text-primary);
-  }
-  .friend-menu > div:hover {
-    background-color: var(--bg-panel-hover);
-  }
-  
-  /* Empty state */
-  .friends-empty {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 4rem 1rem;
-    color: var(--text-muted);
-    text-align: center;
-  }
-  .friends-empty .fa-users {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-  .friends-empty p {
-    font-size: 1rem;
-  }
-  
-  /* Modal overrides (if needed) */
-  .friends-page .modal-content {
-    background-color: var(--bg-panel);
-    color: var(--text-primary);
-    border-radius: 0.75rem;
-  }
-  
+  background-color: var(--bg-dark);
+  color: var(--text-color);
+  min-height: 100vh;
+  padding: 1rem 0 4rem;
+}
+
+/* Top bar */
+.friends-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--text-color-muted);
+}
+
+/* Search input */
+.friends-search {
+  margin: 1rem;
+  position: relative;
+}
+
+.friends-search input {
+  width: 100%;
+  padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+  border-radius: var(--rounded);
+  border: 1px solid var(--text-color-muted);
+  background-color: var(--input-bg);
+  color: var(--text-color);
+}
+
+.friends-search .search-icon {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  color: var(--text-color-muted);
+}
+
+/* Friend card */
+.friend-card {
+  background-color: var(--card-bg);
+  margin: 0.5rem 1rem;
+  border-radius: var(--rounded);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color 0.2s;
+}
+
+.friend-card:hover {
+  background-color: var(--bg-panel-hover);
+}
+
+.friend-card img {
+  flex-shrink: 0;
+}
+
+.friend-card > div {
+  flex: 1;
+  padding: 0.75rem 1rem;
+}
+
+/* Card header */
+.friend-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.friend-header .friend-name {
+  font-size: var(--base-font-size);
+  font-weight: 600;
+}
+
+.friend-header .fa-ellipsis-vertical {
+  color: var(--accent-color);
+}
+
+.friend-card small {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: var(--small-font-size);
+  color: var(--text-color-muted);
+}
+
+/* Stats row */
+.friend-info {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+  font-size: var(--small-font-size);
+  color: var(--text-color-muted);
+}
+
+.friend-info span {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.friend-info .fa-mountain-sun,
+.friend-info .fa-arrow-up,
+.friend-info .fa-gauge-high {
+  color: var(--accent-color);
+}
+
+/* Context menu */
+.friend-menu {
+  position: absolute;
+  top: calc(100% + 0.25rem);
+  right: 1rem;
+  background-color: var(--card-bg);
+  border-radius: var(--rounded);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  padding: 0.5rem 0;
+  z-index: 200;
+}
+
+.friend-menu > div {
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+}
+
+.friend-menu > div:hover {
+  background-color: var(--bg-panel-hover);
+}
+
+/* Empty state */
+.friends-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+  color: var(--text-color-muted);
+  text-align: center;
+}
+
+.friends-empty .fa-users {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.friends-empty p {
+  font-size: var(--base-font-size);
+}
+
+/* Modal overrides */
+.friends-page .modal-content {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border-radius: var(--rounded);
+}

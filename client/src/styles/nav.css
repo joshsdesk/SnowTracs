@@ -8,26 +8,25 @@
   left: 0;
   right: 0;
   z-index: 10;
-
   display: flex;
   justify-content: space-around;
   align-items: center;
-
-  background-color: #121212;
+  background-color: var(--bg-dark);
   padding: 8px 0;
 }
 
 /* Navigation Links */
 .bottom-nav a {
-  font-size: 1.1rem;
+  font-size: var(--base-font-size);
   text-align: center;
   position: relative;
   transition: color 0.3s ease, transform 0.3s ease;
+  color: var(--text-color-muted);
 }
 
 .bottom-nav a:hover {
   text-decoration: underline;
-  color: #ffffff;
+  color: var(--text-color);
   transform: scale(1.1);
 }
 
@@ -43,6 +42,7 @@
   border-radius: 50%;
   transform: translate(-50%, -50%);
   animation: glowing 1.5s infinite alternate;
+  z-index: -1;
 }
 
 /* Glow Animation */

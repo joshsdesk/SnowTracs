@@ -91,7 +91,7 @@ export default function Map() {
             }
           }}
         />
-        <button onClick={handleSearch}>Search</button>
+        <button className="btn btn-primary" onClick={handleSearch}>Search</button>
       </div>
 
       {/* ====== Record Controls ====== */}
@@ -108,7 +108,7 @@ export default function Map() {
               role="button"
               aria-label={isPaused ? 'Resume' : 'Pause'}
             >
-              <FontAwesomeIcon icon={faCirclePlay} />
+              <FontAwesomeIcon icon={isPaused ? faCirclePlay : faCirclePause} />
             </div>
             <div
               className="record-button"

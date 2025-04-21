@@ -43,7 +43,7 @@ export default function Resort() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <button type="submit">Search</button>
+        <button type="submit" className="btn btn-primary">Search</button>
       </form>
 
       {/* ===== Resort Results ===== */}

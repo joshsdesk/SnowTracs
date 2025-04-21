@@ -76,26 +76,25 @@ const Profile = () => {
       </div>
 
       {/* === Your Tracs Section === */}
-<div className="ur-tracs">
-  <h3 className="section-title">Your Tracs</h3>
-  <div className="session-card">
-    <div className="session-header">
-      <h4>Keystone</h4>
-      <FontAwesomeIcon
-        icon={faEye}
-        className="resort-icon session-eye"
-        title="View Full Stats"
-        onClick={() => window.location.href = '/stats'}
-      />
-    </div>
-    <div className="session-info">
-      <p><strong>Runs:</strong> 5</p>
-      <p><strong>Elevation:</strong> 2800 ft</p>
-      <p><strong>Max Speed:</strong> 62 km/h</p>
-    </div>
-  </div>
-</div>
-
+      <div className="ur-tracs">
+        <h3 className="section-title">Your Tracs</h3>
+        <div className="session-card">
+          <div className="session-header">
+            <h4>Keystone</h4>
+            <FontAwesomeIcon
+              icon={faEye}
+              className="resort-icon session-eye"
+              title="View Full Stats"
+              onClick={() => window.location.href = '/stats'}
+            />
+          </div>
+          <div className="session-info">
+            <p><strong>Runs:</strong> 5</p>
+            <p><strong>Elevation:</strong> 2800 ft</p>
+            <p><strong>Max Speed:</strong> 62 km/h</p>
+          </div>
+        </div>
+      </div>
 
       {/* === Social Icons === */}
       <div className="social-media-share">

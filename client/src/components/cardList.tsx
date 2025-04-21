@@ -57,7 +57,7 @@ const CardList: React.FC<CardListProps> = ({ search }) => {
               }
             }
           `,
-          variables: { name: search }
+          variables: { name: search },
         };
 
         const res = await fetch('http://127.0.0.1:5000/graphql', {
@@ -73,8 +73,8 @@ const CardList: React.FC<CardListProps> = ({ search }) => {
           setResorts([resort]);
 
           // Update persistent history
-          setPastSearches(prev => {
-            const updated = [resort, ...prev.filter(r => r.name !== resort.name)];
+          setPastSearches((prev) => {
+            const updated = [resort, ...prev.filter((r) => r.name !== resort.name)];
             localStorage.setItem('resortHistory', JSON.stringify(updated));
             return updated;
           });
@@ -99,13 +99,12 @@ const CardList: React.FC<CardListProps> = ({ search }) => {
       )}
 
       {/* Search result */}
-      {search.trim() && resorts.length > 0 && (
+      {search.trim() && resorts.length > 0 &&
         resorts.map((resort, index) => (
           <div key={index} className="resort-card">
             <ResortCard {...resort} />
           </div>
-        ))
-      )}
+        ))}
 
       {/* Ski Divider */}
       {pastSearches.length > 0 && (
@@ -122,8 +121,7 @@ const CardList: React.FC<CardListProps> = ({ search }) => {
             <div key={index} className="resort-card past-search-card">
               <div className="resort-content">
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <h3 className="resort-name">{resort.name}</h3>
-
+                  <h3 className="resort-name">{resort.name}</h3>
                   <FontAwesomeIcon
                     icon={faArrowsRotate}
                     className="refresh-button"

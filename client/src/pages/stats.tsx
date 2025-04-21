@@ -9,6 +9,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import Modal from '../components/modal';
+import Card from '../components/card'; // Import the Card component
 import '../styles/stats.css';
 
 interface SessionData {
@@ -72,74 +73,117 @@ export default function Stats() {
 
   return (
     <div className="stats-page">
-      <h1 className="stats-title">Stats</h1>
+      <h1 className="heading-1">Stats</h1>
 
       <div className="overall-stats-card card-box">
-        <div className="stat-header">
-          <h2 className="stat-name">Stats to Date</h2>
-          <div className="stat-icons">
-            <FontAwesomeIcon icon={faChartLine} title="View Chart" className="icon-btn" onClick={() => setShowOverallModal(true)} />
-          </div>
-        </div>
-        <div className="stat-info">
-          <div className="stat-labels">
-            <span className="stat-label">Total Runs</span>
-            <span className="stat-value">32</span>
-          </div>
-          <div className="stat-labels">
-            <span className="stat-label">Total Distance</span>
-            <span className="stat-value">56.3 mi</span>
-          </div>
-          <div className="stat-labels">
-            <span className="stat-label">Total Elevation</span>
-            <span className="stat-value">5,640 ft</span>
-          </div>
-        </div>
-      </div>
-
-      {latestSession && (
-        <div className="stat-card card-box">
+        <Card>
           <div className="stat-header">
-            <h2 className="stat-name">
-              {(latestSession.resort?.name || 'Unknown Resort')} – {latestSession.date}
-            </h2>
+            <h2 className="heading-2">{`Stats to Date`}</h2>
             <div className="stat-icons">
-              <FontAwesomeIcon icon={faEye} title="View Full Stats" className="icon-btn" onClick={() => setSelectedSession(latestSession)} />
-              <FontAwesomeIcon icon={faDownload} title="Download Session" className="icon-btn" />
-              <FontAwesomeIcon icon={faShareFromSquare} title="Share Session" className="icon-btn share-icon" />
-              <FontAwesomeIcon icon={faTrash} title="Delete Session" className="icon-btn" />
+              <FontAwesomeIcon
+                icon={faChartLine}
+                title="View Chart"
+                className="icon-btn"
+                onClick={() => setShowOverallModal(true)}
+              />
             </div>
           </div>
           <div className="stat-info">
             <div className="stat-labels">
-              <span className="stat-label">Runs</span>
-              <span className="stat-value">{latestSession.runCount}</span>
+              <span className="stat-label">Total Runs</span>
+              <span className="stat-value">32</span>
             </div>
             <div className="stat-labels">
-              <span className="stat-label">Max Speed</span>
-              <span className="stat-value">{latestSession.topSpeed} mph</span>
+              <span className="stat-label">Total Distance</span>
+              <span className="stat-value">56.3 mi</span>
             </div>
             <div className="stat-labels">
-              <span className="stat-label">Elevation</span>
-              <span className="stat-value">{latestSession.elevationGain} ft</span>
+              <span className="stat-label">Elevation Gain</span>
+              <span className="stat-value">5,640 ft</span>
             </div>
           </div>
+        </Card>
+      </div>
+
+      {latestSession && (
+        <div className="stat-card card-box">
+          <Card>
+            <div className="stat-header">
+              <h2 className="heading-2">
+                {(latestSession.resort?.name || 'Unknown Resort')} – {latestSession.date}
+              </h2>
+              <div className="stat-icons">
+                <FontAwesomeIcon
+                  icon={faEye}
+                  title="View Full Stats"
+                  className="icon-btn"
+                  onClick={() => setSelectedSession(latestSession)}
+                />
+                <FontAwesomeIcon
+                  icon={faDownload}
+                  title="Download Session"
+                  className="icon-btn"
+                />
+                <FontAwesomeIcon
+                  icon={faShareFromSquare}
+                  title="Share Session"
+                  className="icon-btn share-icon"
+                />
+                <FontAwesomeIcon
+                  icon={faTrash}
+                  title="Delete Session"
+                  className="icon-btn"
+                />
+              </div>
+            </div>
+            <div className="stat-info">
+              <div className="stat-labels">
+                <span className="stat-label">Runs</span>
+                <span className="stat-value">{latestSession.runCount}</span>
+              </div>
+              <div className="stat-labels">
+                <span className="stat-label">Max Speed</span>
+                <span className="stat-value">{latestSession.topSpeed} mph</span>
+              </div>
+              <div className="stat-labels">
+                <span className="stat-label">Elevation</span>
+                <span className="stat-value">{latestSession.elevationGain} ft</span>
+              </div>
+            </div>
+          </Card>
         </div>
       )}
 
       <div className="history-section">
-        <h2 className="history-title">Past Sessions</h2>
+        <h2 className="heading-3">Past Sessions</h2>
         {pastSessions.map(session => (
           <div key={session._id} className="history-card card-box fade-in">
             <div className="stat-header">
-              <h3 className="stat-name">
+              <h3 className="heading-3">
                 {(session.resort?.name || 'Unknown Resort')} – {session.date}
               </h3>
               <div className="stat-icons">
-                <FontAwesomeIcon icon={faEye} title="View Full Stats" className="icon-btn" onClick={() => setSelectedSession(session)} />
-                <FontAwesomeIcon icon={faDownload} title="Download Session" className="icon-btn" />
-                <FontAwesomeIcon icon={faShareFromSquare} title="Share Session" className="icon-btn share-icon" />
-                <FontAwesomeIcon icon={faTrash} title="Delete Session" className="icon-btn" />
+                <FontAwesomeIcon
+                  icon={faEye}
+                  title="View Full Stats"
+                  className="icon-btn"
+                  onClick={() => setSelectedSession(session)}
+                />
+                <FontAwesomeIcon
+                  icon={faDownload}
+                  title="Download Session"
+                  className="icon-btn"
+                />
+                <FontAwesomeIcon
+                  icon={faShareFromSquare}
+                  title="Share Session"
+                  className="icon-btn share-icon"
+                />
+                <FontAwesomeIcon
+                  icon={faTrash}
+                  title="Delete Session"
+                  className="icon-btn"
+                />
               </div>
             </div>
             <div className="stat-info">

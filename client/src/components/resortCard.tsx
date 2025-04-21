@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/resortcard.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 // ===== ResortCard Props =====
 export type ResortCardProps = {
@@ -28,7 +28,7 @@ const ResortCard: React.FC<ResortCardProps> = ({
   gondolas_total,
   snowpack_in,
   hours,
-  website
+  website,
 }) => {
   return (
     <div className="resort-card-wrapper">

@@ -2,6 +2,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import path from 'path';
 import { ApolloServer } from '@apollo/server';
 import { expressMiddleware } from '@apollo/server/express4';
 
@@ -10,8 +11,7 @@ import db from './config/connection';
 import { typeDefs, resolvers } from './schema';
 import mapRoutes from './routes/map';
 import resortRoutes from './routes/resortRoutes';
-import { authMiddleware } from './middleware/auth'; // ✅ Shared JWT logic: verifies token and injects user context
-
+import { authMiddleware } from './middleware/auth';
 dotenv.config();
 
 const app = express();
@@ -47,9 +47,13 @@ async function startApolloServer() {
     })
   );
 
-  // ====== Default Route ======
-  app.get('/', (_req, res) => {
-    res.send('SnowTracs backend is live');
+  // ====== Serve Vite-Built Frontend ======
+  const clientPath = path.resolve(__dirname, '../../client/dist');
+  app.use(express.static(clientPath));
+
+  // ====== Catch-All for Client Routing ======
+  app.get('*', (_req, res) => {
+    res.sendFile(path.join(clientPath, 'index.html'));
   });
 
   // ====== Start Server ======

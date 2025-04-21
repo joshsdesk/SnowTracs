@@ -1,7 +1,7 @@
 /* === Page Layout === */
 .resort-page {
-  background: #121212;
-  color: #ffffff;
+  background: var(--bg-dark);
+  color: var(--text-color);
   min-height: 100vh;
   padding: 1rem;
   display: flex;
@@ -16,12 +16,12 @@
 .resort-map {
   width: 100%;
   height: 250px;
-  background: #333;
-  border-radius: 12px;
+  background: var(--card-bg);
+  border-radius: var(--rounded);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #aaa;
+  color: var(--text-color-muted);
 }
 
 /* === Search Bar Styling === */
@@ -29,7 +29,7 @@
   display: flex;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.6);
-  border-radius: 12px;
+  border-radius: var(--rounded);
   padding: 0.5rem;
   width: 100%;
   gap: 0.5rem;
@@ -41,26 +41,26 @@
 .resort-search-bar input {
   flex: 1;
   padding: 0.6rem;
-  border-radius: 8px;
+  border-radius: var(--rounded);
   border: none;
-  background: #f0f0f0;
-  color: #121212;
-  font-size: 1rem;
+  background: var(--input-bg);
+  color: var(--text-color);
+  font-size: var(--base-font-size);
 }
 
 .resort-search-bar button {
   padding: 0.6rem 1rem;
-  background-color: #00bfff;
-  color: #121212;
+  background-color: var(--accent-color);
+  color: var(--bg-dark);
   border: none;
-  border-radius: 8px;
+  border-radius: var(--rounded);
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .resort-search-bar button:hover {
-  background-color: #1de1ff;
+  background-color: var(--hover-color);
   transform: scale(1.05);
 }
 
@@ -89,15 +89,15 @@
 
 .past-searches h4 {
   text-align: center;
-  font-size: 3rem;
-  color: #00bfff;
+  font-size: 2rem;
+  color: var(--accent-color);
   margin-top: 1rem;
 }
 
 /* === Past Search Card Appearance === */
 .resort-card.past-search-card {
-  background-color: #1f1f1f;
-  border-radius: 10px;
+  background-color: var(--card-bg);
+  border-radius: var(--rounded);
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -117,7 +117,7 @@
 
 /* === Refresh Icon Button === */
 .refresh-button {
-  color: #00bfff;
+  color: var(--accent-color);
   font-size: 1.1rem;
   cursor: pointer;
   margin-left: auto;
@@ -131,8 +131,8 @@
 /* === Fallback Text Styling === */
 .no-results-message {
   width: 100%;
-  font-size: 1rem;
-  color: #ccc;
+  font-size: var(--base-font-size);
+  color: var(--text-color-muted);
   margin: 0;
   padding: 0 0.5rem;
   text-align: left;
@@ -152,7 +152,29 @@ h3.fade-in {
   margin-bottom: 0.5rem;
   font-size: 1.2rem;
   font-weight: bold;
-  color: #00bfff;
+  color: var(--accent-color);
   text-align: left;
   padding-left: 0.5rem;
+}
+
+/* === Card Icon Adjustments === */
+.card-icons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.card-icons .fa-icon {
+  font-size: 1.2rem;
+  color: var(--text-color);
+  transition: color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.card-icons .fa-icon:hover {
+  color: var(--accent-color);
+  transform: scale(1.1);
 }
