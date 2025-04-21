@@ -1,3 +1,4 @@
+// login.tsx
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { gql, useMutation } from '@apollo/client';
@@ -89,6 +90,7 @@ export default function Login() {
             setShowModal(false);
             navigate('/home');
           }}
+          onClose={() => setShowModal(false)} // ✅ required to match RegisterProps
         />
       </Modal>
     </>
