@@ -3,7 +3,9 @@ import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:5000/graphql', // 🔁 Replace with deployed URL in production
+  uri: process.env.NODE_ENV === 'production'
+    ? 'https://snowtracs.onrender.com/graphql' // ✅ Deployed backend URL for production
+    : 'http://localhost:5000/graphql',          // ✅ Local dev fallback
 });
 
 // 🔐 Attach JWT token to headers
