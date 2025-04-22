@@ -1,9 +1,8 @@
-// user.tsx - Now dynamic using localStorage and avatar settings modal logic
 import React, { useState, useEffect } from 'react';
 import '../styles/user.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { faHeartCircleCheck, faTrash, faEye, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 import Card from '../components/card';
 import Modal from '../components/modal';
 
@@ -87,49 +86,63 @@ const Profile = () => {
         </div>
       </Card>
 
+      <div className="ski-divider">
+        <img src="/assets/images/UI/ski.png" alt="Divider" />
+      </div>
+
       {/* === User Info Card === */}
       <Card title={`${userData.username}${userData.userType ? ` is a ${userData.userType}` : ''}`}>
         <p className="user-description">{userData.description}</p>
       </Card>
 
+      <div className="ski-divider">
+        <img src="/assets/images/UI/ski.png" alt="Divider" />
+      </div>
+
       {/* === Stats to Date Section === */}
       <Card title="Stats to Date">
-        <div className="user-stats-card">
-          <div className="stats-labels">
-            <p>Runs</p>
-            <p>Total Elevation</p>
-            <p>Max Speed</p>
-          </div>
-          <div className="stats-values">
-            <p>26</p>
-            <p>18,200 ft</p>
-            <p>72 km/h</p>
-          </div>
-        </div>
+        <ul className="resort-stats">
+          <li><strong>Runs:</strong> 26</li>
+          <li><strong>Total Elevation:</strong> 18,200 ft</li>
+          <li><strong>Max Speed:</strong> 72 km/h</li>
+          <li><strong>Lift Time:</strong> 2 hrs</li>
+          <li><strong>Hours Active:</strong> 4 hrs</li>
+        </ul>
       </Card>
+
+      <div className="ski-divider">
+        <img src="/assets/images/UI/ski.png" alt="Divider" />
+      </div>
 
       {/* === Favorite Mountains Section === */}
       <Card title="Favorite Mountains">
-        <div className="fav-mtn-card">
-          <div className="fav-mtn-labels">
-            <p><strong>Snowpack:</strong> 45"</p>
-            <p><strong>Trails:</strong> 72 / 100</p>
-            <p><strong>Lifts:</strong> 10 / 12</p>
-          </div>
-        </div>
+        <ul className="resort-stats">
+          <li><strong>Snowpack:</strong> 45"</li>
+          <li><strong>Trails:</strong> 72 / 100</li>
+          <li><strong>Lifts:</strong> 10 / 12</li>
+          <li><strong>Gondolas:</strong> 4 / 5</li>
+          <li><strong>Hours:</strong> 9am - 5pm</li>
+        </ul>
       </Card>
+
+      <div className="ski-divider">
+        <img src="/assets/images/UI/ski.png" alt="Divider" />
+      </div>
 
       {/* === Your Tracs Section === */}
-      <Card title="Your Tracs">
-        <div className="session-card">
-          <div className="session-info">
-            <p><strong>Runs:</strong> 5</p>
-            <p><strong>Elevation:</strong> 2800 ft</p>
-            <p><strong>Max Speed:</strong> 62 km/h</p>
-          </div>
-        </div>
+      <Card title="Your Tracs" icons={
+        <FontAwesomeIcon icon={faEye} className="fa-icon" />
+      }>
+        <ul className="resort-stats">
+          <li><strong>Runs:</strong> 5</li>
+          <li><strong>Elevation:</strong> 2800 ft</li>
+          <li><strong>Max Speed:</strong> 62 km/h</li>
+          <li><strong>Lift Time:</strong> 1 hr</li>
+          <li><strong>Session Time:</strong> 2 hrs</li>
+        </ul>
       </Card>
 
+    
       {/* === Social Media Icons === */}
       <div className="social-media-share">
         <FontAwesomeIcon icon={faFacebook} size="2x" color="#1877f2" />

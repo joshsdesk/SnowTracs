@@ -10,6 +10,7 @@ export default defineConfig({
     proxy: {
       '/map': 'http://localhost:5000',
       '/resort': 'http://localhost:5000',
+      '/resorts': 'http://localhost:5000',
       '/graphql': {
         target: 'http://localhost:5000',
         changeOrigin: true

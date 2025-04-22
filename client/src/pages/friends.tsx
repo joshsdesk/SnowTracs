@@ -2,20 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faUserPlus,
-  faMagnifyingGlass,
-  faEllipsisVertical,
-  faUserMinus,
-  faEye,
-  faCircleCheck,
-  faCircleXmark,
-  faUsers,
-  faMountainSun,
-  faArrowUp,
-  faGaugeHigh
+  faUserPlus, faMagnifyingGlass, faEllipsisVertical,
+  faUserMinus, faEye, faCircleCheck, faCircleXmark,
+  faUsers, faMountainSun, faArrowUp, faGaugeHigh
 } from '@fortawesome/free-solid-svg-icons';
 import '../styles/friends.css';
 import Modal from '../components/modal';
+import Card from '../components/card';
 
 interface Friend {
   id: string;
@@ -34,13 +27,19 @@ interface Request {
 }
 
 const mockFriends: Friend[] = [
-  { id: '1', name: 'Charlie S.', avatarUrl: '/assets/images/profile1.jpg', status: 'On the slopes', runs: 14, elevation: 8900, maxSpeed: 47 },
-  { id: '2', name: 'Maya L.',    avatarUrl: '/assets/images/profile2.jpg', status: 'Offline',       runs: 9,  elevation: 7000, maxSpeed: 60 }
+  { id: '1', name: 'Charlie S.', avatarUrl: '/assets/images/avatar1.webp', status: 'On the slopes', runs: 14, elevation: 8900, maxSpeed: 47 },
+  { id: '2', name: 'Maya L.', avatarUrl: '/assets/images/avatar3.webp', status: 'Offline', runs: 9, elevation: 7000, maxSpeed: 60 },
+  { id: '3', name: 'Liam K.', avatarUrl: '/assets/images/avatar4.webp', status: 'Resting', runs: 11, elevation: 7600, maxSpeed: 52 },
+  { id: '4', name: 'Sofia P.', avatarUrl: '/assets/images/avatar5.webp', status: 'Exploring', runs: 6, elevation: 4500, maxSpeed: 40 },
+  { id: '5', name: 'Daniel W.', avatarUrl: '/assets/images/avatar6.webp', status: 'Offline', runs: 17, elevation: 10000, maxSpeed: 65 },
+  { id: '6', name: 'Olivia M.', avatarUrl: '/assets/images/avatar7.webp', status: 'On the slopes', runs: 13, elevation: 8500, maxSpeed: 55 },
+  { id: '7', name: 'Ethan B.', avatarUrl: '/assets/images/avatar8.webp', status: 'In Lodge', runs: 5, elevation: 3200, maxSpeed: 38 },
+  { id: '8', name: 'Emma J.', avatarUrl: '/assets/images/avatar9.webp', status: 'Offline', runs: 12, elevation: 9100, maxSpeed: 50 },
 ];
 
 const mockRequests: Request[] = [
-  { id: 'r1', name: 'Jordan P.', avatarUrl: '/assets/images/profile3.jpg' },
-  { id: 'r2', name: 'Alex R.',   avatarUrl: '/assets/images/profile4.jpg' }
+  { id: 'r1', name: 'Jordan P.', avatarUrl: '/assets/images/avatar1.webp' },
+  { id: 'r2', name: 'Alex R.', avatarUrl: '/assets/images/avatar3.webp' }
 ];
 
 const Friends: React.FC = () => {
@@ -53,11 +52,15 @@ const Friends: React.FC = () => {
   const [newRequestName, setNewRequestName] = useState<string>('');
 
   useEffect(() => {
-    setFiltered(
-      friends.filter(f =>
-        f.name.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-    );
+    if (!searchTerm.trim()) {
+      setFiltered(friends); // Show all friends by default
+    } else {
+      setFiltered(
+        friends.filter(f =>
+          f.name.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      );
+    }
   }, [searchTerm, friends]);
 
   const handleUnfriend = (id: string) => {
@@ -71,12 +74,7 @@ const Friends: React.FC = () => {
   const handleAccept = (id: string) => {
     const req = requests.find(r => r.id === id);
     if (req) {
-      setFriends(prev => [{
-        id: req.id,
-        name: req.name,
-        avatarUrl: req.avatarUrl || '',
-        status: 'Offline'
-      }, ...prev]);
+      setFriends(prev => [ { id: req.id, name: req.name, avatarUrl: req.avatarUrl || '', status: 'Offline' }, ...prev ]);
       setRequests(prev => prev.filter(r => r.id !== id));
     }
   };
@@ -94,7 +92,7 @@ const Friends: React.FC = () => {
     setNewRequestName('');
   };
 
-  const currentUserAvatar = '/assets/images/default-profile.png';
+  const currentUserAvatar = '/assets/images/avatar2.webp';
 
   return (
     <div className="friends-page">
@@ -118,10 +116,22 @@ const Friends: React.FC = () => {
           <p>No friends yet—tap plus to add.</p>
         </div>
       ) : (
-        <ul className="list-unstyled mb-0">
+        <ul className="friends-list">
           {filtered.map(friend => (
             <li key={friend.id}>
-              <FriendCard friend={friend} onUnfriend={handleUnfriend} onViewStats={handleViewStats} />
+              <Card title={friend.name} icons={
+                <FontAwesomeIcon icon={faEllipsisVertical} onClick={e => { e.stopPropagation(); }} />
+              }>
+                <div className="friend-info">
+                  <img src={friend.avatarUrl} alt={friend.name} width={48} height={48} className="rounded-circle" />
+                  {friend.status && <small>{friend.status}</small>}
+                  <div className="friend-info">
+                    {friend.runs !== undefined && <span><FontAwesomeIcon icon={faMountainSun} /> {friend.runs} Runs</span>}
+                    {friend.elevation !== undefined && <span><FontAwesomeIcon icon={faArrowUp} /> {friend.elevation} ft</span>}
+                    {friend.maxSpeed !== undefined && <span><FontAwesomeIcon icon={faGaugeHigh} /> {friend.maxSpeed} mph</span>}
+                  </div>
+                </div>
+              </Card>
             </li>
           ))}
         </ul>
@@ -148,34 +158,6 @@ const Friends: React.FC = () => {
           <button onClick={handleSendRequest} className="btn btn-primary mt-2">Send</button>
         </div>
       </Modal>
-    </div>
-  );
-};
-
-const FriendCard: React.FC<{ friend: Friend; onUnfriend: (id: string) => void; onViewStats: (id: string) => void }> = ({ friend, onUnfriend, onViewStats }) => {
-  const navigate = useNavigate();
-  const [showMenu, setShowMenu] = useState(false);
-  return (
-    <div className="friend-card" onClick={() => navigate(`/user/${friend.id}`)}>
-      <img src={friend.avatarUrl} alt={friend.name} width={48} height={48} className="rounded-circle" />
-      <div>
-        <div className="friend-header">
-          <h5 className="friend-name">{friend.name}</h5>
-          <FontAwesomeIcon icon={faEllipsisVertical} onClick={e => { e.stopPropagation(); setShowMenu(!showMenu); }} />
-        </div>
-        {friend.status && <small>{friend.status}</small>}
-        <div className="friend-info">
-          {friend.runs !== undefined && <span><FontAwesomeIcon icon={faMountainSun} /> {friend.runs} Runs</span>}
-          {friend.elevation !== undefined && <span><FontAwesomeIcon icon={faArrowUp} /> {friend.elevation} ft</span>}
-          {friend.maxSpeed !== undefined && <span><FontAwesomeIcon icon={faGaugeHigh} /> {friend.maxSpeed} mph</span>}
-        </div>
-      </div>
-      {showMenu && (
-        <div className="friend-menu">
-          <div onClick={() => onUnfriend(friend.id)}><FontAwesomeIcon icon={faUserMinus} /> Unfriend</div>
-          <div onClick={() => onViewStats(friend.id)}><FontAwesomeIcon icon={faEye} /> View Stats</div>
-        </div>
-      )}
     </div>
   );
 };

@@ -1,15 +1,11 @@
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faEye,
-  faTrash,
-  faDownload,
-  faShareFromSquare,
-  faChartLine
+  faEye, faTrash, faDownload, faShareFromSquare, faChartLine
 } from '@fortawesome/free-solid-svg-icons';
 
 import Modal from '../components/modal';
-import Card from '../components/card'; // Import the Card component
+import Card from '../components/card';
 import '../styles/stats.css';
 
 interface SessionData {
@@ -53,7 +49,6 @@ export default function Stats() {
         });
 
         const raw = await response.json();
-        console.log('GraphQL raw JSON:', raw);
         setSessions(raw?.data?.sessions || []);
       } catch (err) {
         console.error('Failed to fetch sessions:', err);
@@ -75,188 +70,107 @@ export default function Stats() {
     <div className="stats-page">
       <h1 className="heading-1">Stats</h1>
 
-      <div className="overall-stats-card card-box">
-        <Card>
-          <div className="stat-header">
-            <h2 className="heading-2">{`Stats to Date`}</h2>
-            <div className="stat-icons">
-              <FontAwesomeIcon
-                icon={faChartLine}
-                title="View Chart"
-                className="icon-btn"
-                onClick={() => setShowOverallModal(true)}
-              />
-            </div>
-          </div>
-          <div className="stat-info">
-            <div className="stat-labels">
-              <span className="stat-label">Total Runs</span>
-              <span className="stat-value">32</span>
-            </div>
-            <div className="stat-labels">
-              <span className="stat-label">Total Distance</span>
-              <span className="stat-value">56.3 mi</span>
-            </div>
-            <div className="stat-labels">
-              <span className="stat-label">Elevation Gain</span>
-              <span className="stat-value">5,640 ft</span>
-            </div>
-          </div>
-        </Card>
+      {/* === Overall Stats Card === */}
+      <Card title="Stats to Date" icons={
+        <FontAwesomeIcon icon={faChartLine} className="fa-icon" onClick={() => setShowOverallModal(true)} />
+      }>
+        <ul className="resort-stats">
+          <li><strong>Total Runs:</strong> 32</li>
+          <li><strong>Total Distance:</strong> 56.3 mi</li>
+          <li><strong>Elevation Gain:</strong> 5,640 ft</li>
+        </ul>
+      </Card>
+
+      <div className="ski-divider">
+        <img src="/assets/images/UI/ski.png" alt="Divider" />
       </div>
 
+      {/* === Latest Session === */}
       {latestSession && (
-        <div className="stat-card card-box">
-          <Card>
-            <div className="stat-header">
-              <h2 className="heading-2">
-                {(latestSession.resort?.name || 'Unknown Resort')} – {latestSession.date}
-              </h2>
-              <div className="stat-icons">
-                <FontAwesomeIcon
-                  icon={faEye}
-                  title="View Full Stats"
-                  className="icon-btn"
-                  onClick={() => setSelectedSession(latestSession)}
-                />
-                <FontAwesomeIcon
-                  icon={faDownload}
-                  title="Download Session"
-                  className="icon-btn"
-                />
-                <FontAwesomeIcon
-                  icon={faShareFromSquare}
-                  title="Share Session"
-                  className="icon-btn share-icon"
-                />
-                <FontAwesomeIcon
-                  icon={faTrash}
-                  title="Delete Session"
-                  className="icon-btn"
-                />
-              </div>
-            </div>
-            <div className="stat-info">
-              <div className="stat-labels">
-                <span className="stat-label">Runs</span>
-                <span className="stat-value">{latestSession.runCount}</span>
-              </div>
-              <div className="stat-labels">
-                <span className="stat-label">Max Speed</span>
-                <span className="stat-value">{latestSession.topSpeed} mph</span>
-              </div>
-              <div className="stat-labels">
-                <span className="stat-label">Elevation</span>
-                <span className="stat-value">{latestSession.elevationGain} ft</span>
-              </div>
-            </div>
+        <>
+          <Card title={`${latestSession.resort?.name || 'Unknown Resort'}`} icons={
+            <>
+              <FontAwesomeIcon icon={faEye} className="fa-icon" onClick={() => setSelectedSession(latestSession)} />
+              <FontAwesomeIcon icon={faDownload} className="fa-icon" />
+              <FontAwesomeIcon icon={faShareFromSquare} className="fa-icon" />
+              <FontAwesomeIcon icon={faTrash} className="fa-icon" />
+            </>
+          }>
+            <ul className="resort-stats">
+              <li><strong>Runs:</strong> {latestSession.runCount}</li>
+              <li><strong>Max Speed:</strong> {latestSession.topSpeed} mph</li>
+              <li><strong>Elevation:</strong> {latestSession.elevationGain} ft</li>
+            </ul>
           </Card>
+
+          <div className="ski-divider">
+            <img src="/assets/images/UI/ski.png" alt="Divider" />
+          </div>
+        </>
+      )}
+
+      {/* === Past Sessions === */}
+      <h2 className="heading-3">Past Sessions</h2>
+      {pastSessions.map(session => (
+        <>
+          <Card key={session._id} title={`${session.resort?.name || 'Unknown Resort'}`} icons={
+            <>
+              <FontAwesomeIcon icon={faEye} className="fa-icon" onClick={() => setSelectedSession(session)} />
+              <FontAwesomeIcon icon={faDownload} className="fa-icon" />
+              <FontAwesomeIcon icon={faShareFromSquare} className="fa-icon" />
+              <FontAwesomeIcon icon={faTrash} className="fa-icon" />
+            </>
+          }>
+            <ul className="resort-stats">
+              <li><strong>Runs:</strong> {session.runCount}</li>
+              <li><strong>Max Speed:</strong> {session.topSpeed} mph</li>
+            </ul>
+          </Card>
+
+          <div className="ski-divider">
+            <img src="/assets/images/UI/ski.png" alt="Divider" />
+          </div>
+        </>
+      ))}
+
+      {/* === Show More Button === */}
+      {sessions.length > 3 && (
+        <div className="history-toggle-wrapper">
+          <button className="history-toggle-btn" onClick={handleShowMore}>
+            {visibleCount < sessions.length ? 'Show More' : 'Show Less'}
+          </button>
         </div>
       )}
 
-      <div className="history-section">
-        <h2 className="heading-3">Past Sessions</h2>
-        {pastSessions.map(session => (
-          <div key={session._id} className="history-card card-box fade-in">
-            <div className="stat-header">
-              <h3 className="heading-3">
-                {(session.resort?.name || 'Unknown Resort')} – {session.date}
-              </h3>
-              <div className="stat-icons">
-                <FontAwesomeIcon
-                  icon={faEye}
-                  title="View Full Stats"
-                  className="icon-btn"
-                  onClick={() => setSelectedSession(session)}
-                />
-                <FontAwesomeIcon
-                  icon={faDownload}
-                  title="Download Session"
-                  className="icon-btn"
-                />
-                <FontAwesomeIcon
-                  icon={faShareFromSquare}
-                  title="Share Session"
-                  className="icon-btn share-icon"
-                />
-                <FontAwesomeIcon
-                  icon={faTrash}
-                  title="Delete Session"
-                  className="icon-btn"
-                />
-              </div>
-            </div>
-            <div className="stat-info">
-              <div className="stat-labels">
-                <span className="stat-label">Runs</span>
-                <span className="stat-value">{session.runCount}</span>
-              </div>
-              <div className="stat-labels">
-                <span className="stat-label">Max Speed</span>
-                <span className="stat-value">{session.topSpeed} mph</span>
-              </div>
-            </div>
-          </div>
-        ))}
-        {sessions.length > 3 && (
-          <div className="history-toggle-wrapper">
-            <button className="history-toggle-btn" onClick={handleShowMore}>
-              {visibleCount < sessions.length ? 'Show More' : 'Show Less'}
-            </button>
-          </div>
-        )}
-      </div>
-
+      {/* === Modal for Latest Session === */}
       {selectedSession && (
         <Modal show={!!selectedSession} onClose={() => setSelectedSession(null)}>
-          <div className="stats-modal-grid">
-            <div className="stat-detail-card">
-              <p className="stat-label">Runs</p>
-              <p className="stat-value">{selectedSession.runCount}</p>
-            </div>
-            <div className="stat-detail-card">
-              <p className="stat-label">Max Speed</p>
-              <p className="stat-value">{selectedSession.topSpeed} mph</p>
-            </div>
-            <div className="stat-detail-card">
-              <p className="stat-label">Elevation</p>
-              <p className="stat-value">{selectedSession.elevationGain} ft</p>
-            </div>
-          </div>
-
+          <ul className="resort-stats">
+            <li><strong>Runs:</strong> {selectedSession.runCount}</li>
+            <li><strong>Max Speed:</strong> {selectedSession.topSpeed} mph</li>
+            <li><strong>Elevation:</strong> {selectedSession.elevationGain} ft</li>
+          </ul>
           <textarea className="stat-notes" defaultValue={selectedSession.notes || ''}></textarea>
-
           <div className="share-row">
-            <FontAwesomeIcon icon={faShareFromSquare} title="Share Session" className="share-icon" />
+            <FontAwesomeIcon icon={faShareFromSquare} className="fa-icon" />
           </div>
-
           <div className="modal-footer">
             <button onClick={() => setSelectedSession(null)}>Close</button>
           </div>
         </Modal>
       )}
 
+      {/* === Overall Modal === */}
       {showOverallModal && (
         <Modal show={showOverallModal} onClose={() => setShowOverallModal(false)}>
-          <div className="overall-modal-grid">
-            <div className="overall-detail-card">
-              <p className="overall-label">Total Runs</p>
-              <p className="overall-value">32</p>
-            </div>
-            <div className="overall-detail-card">
-              <p className="overall-label">Total Distance</p>
-              <p className="overall-value">56.3 mi</p>
-            </div>
-            <div className="overall-detail-card">
-              <p className="overall-label">Total Elevation</p>
-              <p className="overall-value">5,640 ft</p>
-            </div>
-          </div>
-
+          <ul className="resort-stats">
+            <li><strong>Total Runs:</strong> 32</li>
+            <li><strong>Total Distance:</strong> 56.3 mi</li>
+            <li><strong>Total Elevation:</strong> 5,640 ft</li>
+          </ul>
           <div className="share-row">
-            <FontAwesomeIcon icon={faShareFromSquare} title="Share All Stats" className="share-icon" />
+            <FontAwesomeIcon icon={faShareFromSquare} className="fa-icon" />
           </div>
-
           <div className="modal-footer">
             <button onClick={() => setShowOverallModal(false)}>Close</button>
           </div>

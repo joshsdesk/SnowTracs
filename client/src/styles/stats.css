@@ -1,5 +1,4 @@
 /* === Stats Page Scoped Styles === */
-
 .stats-page {
   background-color: var(--bg-dark);
   padding: 1rem;
@@ -12,42 +11,33 @@
 
 .stats-title {
   text-align: center;
-  font-size: var(--h1-size); /* Ensuring font size from global variables */
+  font-size: var(--h1-size);
   font-weight: bold;
   color: var(--text-color);
 }
 
-/* === Overall Stats Card === */
-.overall-stats-card {
-  composes: card-box; /* Ensures card-box styling from global CSS */
-}
-
-/* === Stat Card (Latest & History) === */
-.stat-card,
-.history-card {
-  composes: card-box;
-  position: relative;
-}
-
+/* === Stat Header + Icons Right === */
 .stat-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* title left, icons right */
   align-items: center;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
-.stat-name {
-  font-size: var(--h2-size); /* Global font size for consistency */
-  font-weight: bold;
+.stat-name,
+.heading-2,
+.heading-3 {
+  font-size: 2rem;
+  font-family: 'Playfair Display', serif;
+  color: var(--accent-color);
+  margin: 0;
+  text-align: left; /* now left aligned */
 }
 
 .stat-icons {
   display: flex;
-  gap: 1rem;
-}
-
-.stat-icons .icon-btn {
-  position: relative;
+  gap: 10px;
+  color: var(--accent-color);
 }
 
 .stat-icons .icon-btn:hover::after,
@@ -67,6 +57,7 @@
   z-index: 10;
 }
 
+/* === Stat Info Section === */
 .stat-info {
   display: flex;
   flex-direction: column;
@@ -77,7 +68,7 @@
 .stat-labels {
   display: flex;
   justify-content: space-between;
-  font-size: var(--small-font-size); /* Using global font size */
+  font-size: 15px;
   color: var(--text-color-muted);
 }
 
@@ -90,12 +81,6 @@
   color: var(--text-color);
 }
 
-.stat-data {
-  font-size: var(--small-font-size); /* Using global small font size */
-  margin-top: 0.5rem;
-  color: var(--muted-text);
-}
-
 /* === History Section === */
 .history-section {
   margin-top: 2rem;
@@ -106,17 +91,18 @@
 
 .history-title {
   text-align: center;
-  font-size: var(--h3-size); /* Global font size */
+  font-size: var(--h3-size);
   margin-bottom: 1rem;
 }
 
 .history-toggle-wrapper {
   text-align: center;
   margin-top: 1rem;
+  padding-bottom: 50px; /* 🟢 Ensures safe space above nav */
 }
 
 .history-toggle-btn {
-  font-size: var(--base-font-size); /* Using global font size */
+  font-size: var(--base-font-size);
   font-weight: bold;
   background-color: #333;
   color: #fff;
@@ -163,13 +149,13 @@
 
 .stat-label,
 .overall-label {
-  font-size: var(--small-font-size); /* Using global small font size */
+  font-size: var(--small-font-size);
   color: var(--text-color-muted);
 }
 
 .stat-value,
 .overall-value {
-  font-size: var(--h3-size); /* Using global h3 size */
+  font-size: var(--h3-size);
   font-weight: bold;
   color: var(--text-color);
   margin-top: 0.25rem;
@@ -212,4 +198,18 @@
   justify-content: center;
   gap: 1rem;
   margin-top: 1rem;
+}
+
+/* === Divider (optional if you use ski dividers) === */
+.ski-divider {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0 1rem;
+}
+
+.ski-divider img {
+  width: 360px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
 }

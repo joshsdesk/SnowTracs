@@ -1,3 +1,8 @@
+/*
+* {
+  outline: 1px solid red;
+  box-sizing: border-box;
+}
 /* index.css - Global Styles */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
@@ -37,6 +42,23 @@ html, body {
   max-width: 100vw;
   overflow-x: hidden;
   font-size: var(--base-font-size);
+  max-width: 430px;
+  margin: 0 auto;
+
+}
+
+html, body {
+  overflow-y: scroll; /* ✅ Allows scroll */
+}
+
+/* Hide scrollbar */
+::-webkit-scrollbar {
+  display: none; /* ✅ Hides the scrollbar */
+}
+
+/* Optional: For Firefox */
+body {
+  scrollbar-width: none; /* ✅ Firefox hides scrollbar */
 }
 
 /* === Wrapper for Mobile Layout === */

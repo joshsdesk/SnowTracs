@@ -6,7 +6,6 @@ import '../styles/login.css';
 import Modal from '../components/modal';
 import Register from '../components/register';
 
-// === GraphQL Login Mutation (updated to match user data requirements) ===
 const LOGIN_USER = gql`
   mutation Login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
@@ -29,7 +28,6 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [login] = useMutation(LOGIN_USER);
-
   const [showModal, setShowModal] = useState(false);
 
   const handleLogin = async () => {
@@ -38,7 +36,6 @@ export default function Login() {
 
       localStorage.setItem('token', data.login.token);
 
-      // ✅ Save full user info into localStorage
       localStorage.setItem(
         'user',
         JSON.stringify({
@@ -65,8 +62,12 @@ export default function Login() {
         <div className="snow">{snowflakes}</div>
 
         <div className="app-logo">
-          <h1 className="heading-1">SnowTracs❄</h1>
-          <p className="small-text muted-text">Every Peak. Every Run. Every Moment.</p>
+          <img
+            src="/assets/images/UI/logoWtxt.png"
+            alt="SnowTracs Logo"
+            className="logo-image"
+          />
+          <p className="slogan">Every Peak. Every Run. Every Moment.</p>
         </div>
 
         <div className="login-container">

@@ -1,4 +1,8 @@
 /* Login Page Styling */
+.app-logo {
+  position: relative;
+  z-index: 2;
+}
 .login-page {
   position: relative;
   display: flex;
@@ -12,11 +16,21 @@
   z-index: 1;
 }
 
-.app-logo {
+.slogan {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--accent-color);
   text-align: center;
-  margin-bottom: 30px;
-  position: relative;
-  z-index: 2;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.logo-image {
+  width: 350px;
+  height: auto;
+  margin-bottom: 0.5rem;
 }
 
 .app-logo h1 {
@@ -25,11 +39,6 @@
   text-shadow: 0 0 10px rgba(0, 191, 255, 0.8);
 }
 
-.app-logo p {
-  color: var(--text-color-muted);
-  font-size: 0.95rem;
-  margin-top: 8px;
-}
 
 .login-container {
   background-color: var(--card-bg);
