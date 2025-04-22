@@ -6,9 +6,24 @@
   padding: 0.75rem;
   position: relative;
   width: 100%;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem; /* 🔧 Tighter gap below cards */
   box-sizing: border-box;
 }
+
+/* === Divider === */
+.ski-divider {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0 0.75rem; /* 🔧 Reduced top/bottom spacing */
+}
+
+.ski-divider img {
+  width: 360px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 
 /* === Header: Centered Title + Icons Right === */
 .card-header {

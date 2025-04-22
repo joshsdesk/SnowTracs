@@ -44,3 +44,10 @@ Thumbs.db
 # Optional IDE settings
 .idea/
 *.swp
+
+# Design Files (ignore large design sources)
+*.psd
+*.ai
+*.eps
+*.xcf
+*.sketch

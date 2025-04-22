@@ -90,22 +90,6 @@
   margin-top: 8px;
   text-align: center;
 }
-
-/* === Divider (matches Resort page) === */
-.ski-divider {
-  display: flex;
-  justify-content: center;
-  margin: 1.5rem 0 1rem;
-}
-
-.ski-divider img {
-  width: 360px;
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-
-
 /* === User Stats Card === */
 .user-stats-card {
   background-color: var(--card-bg);
