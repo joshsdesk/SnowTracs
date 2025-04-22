@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/resort.css';
 import CardList from '../components/cardList';
-import ski from '../assets/ski.png';
+import ski from '../assets/images/UI/ski.png';
 
 export default function Resort() {
   const [search, setSearch] = useState('');

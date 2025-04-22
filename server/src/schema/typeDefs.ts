@@ -52,6 +52,8 @@ const typeDefs = gql`
     _id: ID!
     username: String!
     email: String!
+    firstName: String
+    lastName: String
     userType: String
     profileImage: String
     bio: String
@@ -77,6 +79,8 @@ const typeDefs = gql`
       username: String!
       email: String!
       password: String!
+      firstName: String
+      lastName: String
       userType: String!
       profileImage: String!
       bio: String

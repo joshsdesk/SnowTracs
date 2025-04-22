@@ -1,31 +1,24 @@
-// Card.tsx
+// card.tsx
 import React from 'react';
-import '../styles/card.css'; // Generic card styling
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons'; // Example icon for close button
+import '../styles/card.css';
 
 type CardProps = {
-  onClose?: () => void;  // Close button function
-  children: React.ReactNode;  // Content passed down to the card
+  title?: string;
+  children: React.ReactNode;
+  icons?: React.ReactNode;
 };
 
-const Card: React.FC<CardProps> = ({ onClose, children }) => {
+const Card: React.FC<CardProps> = ({ title, children, icons }) => {
   return (
     <div className="card-box">
-      {/* Card Header (Top-right for icons like Close) */}
-      <div className="card-header">
-        {onClose && (
-          <FontAwesomeIcon
-            icon={faTimes}
-            className="fa-icon fa-card-icon"
-            title="Close"
-            onClick={onClose}  // Close button logic
-          />
-        )}
-      </div>
-
       <div className="card-content">
-        {children} {/* Render passed content inside the card */}
+        {(title || icons) && (
+          <div className="modal-header">
+            {title && <h2 className="modal-title">{title}</h2>}
+            {icons && <div className="card-icons">{icons}</div>}
+          </div>
+        )}
+        {children}
       </div>
     </div>
   );

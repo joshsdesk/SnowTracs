@@ -1,6 +1,6 @@
 import Resort from '../models/Resort';
 import User from '../models/User';
-import Session from '../models/Session'; // ✅ New: Session model
+import Session from '../models/Session';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
@@ -65,12 +65,10 @@ const resolvers = {
       return await User.findById(context.user._id);
     },
 
-    // ✅ New: Get all sessions
     sessions: async () => {
       return await Session.find().sort({ date: -1 });
     },
 
-    // ✅ New: Get a session by ID
     session: async (_: unknown, { id }: { id: string }) => {
       return await Session.findById(id);
     }
@@ -78,11 +76,33 @@ const resolvers = {
 
   // === ROOT MUTATION ===
   Mutation: {
-    register: async (_: unknown, { username, email, password }: any) => {
+    register: async (
+      _: unknown,
+      {
+        username,
+        email,
+        password,
+        firstName,
+        lastName,
+        userType,
+        profileImage,
+        bio
+      }: any
+    ) => {
       const existing = await User.findOne({ email });
       if (existing) throw new Error('Email already registered');
 
-      const user = await User.create({ username, email, password });
+      const user = await User.create({
+        username,
+        email,
+        password,
+        firstName,
+        lastName,
+        userType,
+        profileImage,
+        bio
+      });
+
       const token = signToken(user);
       return { token, user };
     },

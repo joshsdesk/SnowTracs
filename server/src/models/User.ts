@@ -5,6 +5,11 @@ export interface IUser extends Document {
   username: string;
   email: string;
   password: string;
+  firstName?: string;
+  lastName?: string;
+  bio?: string;
+  profileImage?: string;
+  userType?: string;
   comparePassword(password: string): Promise<boolean>;
 }
 
@@ -26,9 +31,30 @@ const userSchema = new Schema<IUser>({
     required: true,
     minlength: 6,
   },
+  firstName: {
+    type: String,
+    default: '',
+  },
+  lastName: {
+    type: String,
+    default: '',
+  },
+  bio: {
+    type: String,
+    default: '',
+  },
+  profileImage: {
+    type: String,
+    default: '/assets/images/profileIMGs/avatar3.webp',
+  },
+  userType: {
+    type: String,
+    enum: ['Skier', 'Snowboarder', ''],
+    default: '',
+  },
 });
 
-// ✅ Hash before save
+// ✅ Hash password before saving
 userSchema.pre('save', async function (next) {
   if (!this.isModified('password')) return next();
   const saltRounds = 10;
@@ -36,11 +62,10 @@ userSchema.pre('save', async function (next) {
   next();
 });
 
-// ✅ Compare passwords on login
+// ✅ Add method to compare password
 userSchema.methods.comparePassword = async function (password: string) {
   return bcrypt.compare(password, this.password);
 };
 
 const User = model<IUser>('User', userSchema);
-
 export default User;

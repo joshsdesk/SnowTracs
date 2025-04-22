@@ -1,65 +1,65 @@
 /* === Global Font Awesome Icon Styling === */
 .fa-icon {
-    font-size: 1.2rem; /* Default size for all icons */
-    color: var(--text-color); /* Default color for all icons */
-    transition: color 0.3s ease, transform 0.3s ease; /* Hover effect for color/scale */
-    cursor: pointer; /* Pointer cursor on hover */
-  }
-  
-  /* Hover Effects for Icons */
-  .fa-icon:hover {
-    color: var(--accent-color); /* Change color on hover */
-    transform: scale(1.1); /* Slight scaling effect */
-  }
-  
-  /* === Card Header (Top-right corner for icons) === */
-  .card-header {
-    position: absolute;
-    top: 10px; /* Distance from the top of the container */
-    right: 10px; /* Distance from the right of the container */
-    display: flex;
-    gap: 10px;
-    z-index: 10;
-  }
-  
-  /* === Card Container === */
-  .card-box {
-    background: var(--card-bg);
-    border-radius: var(--rounded);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-    padding: 1rem;
-    position: relative;
-    width: 100%;
-  }
-  
-  .card-content {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    color: var(--text-color);
-  }
-  
-  /* === Card Title Styling (Just like Modal Title) === */
-  .card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: var(--h2-size);
-    color: var(--accent-color); /* Title color */
-    text-align: center;
-    margin: 0;
-  }
-  
-  /* === Card Stats (if any content is passed) === */
-  .card-stats {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    color: var(--text-color-muted); /* Muted text color */
-  }
-  
-  /* === Card Actions Section === */
-  .card-actions {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-  
+  font-size: 1.2rem;
+  color: var(--text-color);
+  transition: color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.fa-icon:hover {
+  color: var(--accent-color);
+  transform: scale(1.1);
+}
+
+/* === Card Container === */
+.card-box {
+  background: var(--card-bg);
+  border-radius: var(--rounded);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  position: relative;
+  width: 100%;
+  margin: 10px; /* ✅ Fixed: uniform spacing all around */
+}
+
+/* === Header: Title + Icons in Same Row === */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: var(--h2-size);
+  color: var(--text-color);
+  margin: 0;
+}
+
+.card-icons {
+  display: flex;
+  gap: 12px;
+}
+
+/* === Card Content Block === */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  color: var(--text-color);
+}
+
+/* === Optional Card Stats List === */
+.card-stats {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: var(--text-color-muted);
+}
+
+/* === Shared Actions Container (when needed elsewhere) === */
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}

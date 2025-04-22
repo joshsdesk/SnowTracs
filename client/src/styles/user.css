@@ -1,25 +1,24 @@
-/* Profile Page Layout */
+/* === Profile Page Layout === */
 .profile-page {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #121212;
-  color: white;
-  font-family: 'Playfair Display', serif;
+  background-color: var(--bg-dark);
+  color: var(--text-color);
+  font-family: var(--font-primary); /* ✅ use var from index.css */
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 20px;
+  padding: 20px 0 50px 0; /* ✅ Top spacing + nav-safe bottom */
   width: 100%;
   max-width: 430px;
   margin: 0 auto;
 }
 
-/* Top Row: Avatar + Weather */
+/* === Top Row: Avatar + Weather === */
 .top-row {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 0;
 }
 
 .left-column {
@@ -44,7 +43,7 @@
 
 .profile-avatar {
   width: 120px;
-  height: 120px;
+  height: 90px;
   object-fit: cover;
   border-radius: 50%;
   display: block;
@@ -58,142 +57,106 @@
 
 .weather-info.compact {
   font-size: 44px;
-  color: white;
-  margin-top: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
+  color: var(--text-color);
+  margin: 10px;
+}
+/* === Avatar Modal Fix === */
+.avatar-modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* ✅ Center everything inside modal */
+  gap: 16px;
+  text-align: center;
 }
 
-/* Info Cards */
-.stats-info {
-  background-color: #2a2a2a;
-  border-radius: 10px;
-  width: 100%;
-  margin-top: 20px;
-  padding-top: 20px;
+.current-avatar-preview {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--accent-color, #00bfff);
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.4);
 }
 
+/* === Section Titles & Description === */
 .section-title {
-  font-size: 25px;
-  color: #fff;
+  font-size: var(--h2-size);
+  color: var(--text-color);
   text-align: center;
 }
 
 .user-description {
-  color: #bbb;
+  font-size: var(--base-font-size);
+  color: var(--text-color-muted);
+  font-style: italic;
   margin-top: 8px;
   text-align: center;
 }
 
-/* User Stats Card */
+/* === User Stats Card === */
 .user-stats-card {
-  background-color: #1e1e1e;
-  border-radius: 8px;
+  background-color: var(--card-bg);
+  border-radius: var(--rounded);
   padding: 16px;
   width: 100%;
   box-sizing: border-box;
 }
 
-.stats-labels {
-  display: flex;
-  justify-content: space-between;
-  font-size: 17px;
-  font-weight: 600;
-  color: #fff;
-}
-
+.stats-labels,
 .stats-values {
   display: flex;
   justify-content: space-between;
-  font-size: 19px;
-  font-weight: 500;
-  color: #ccc;
+  font-size: var(--base-font-size);
 }
 
-/* Favorite Mountains */
+.stats-labels {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.stats-values {
+  font-weight: 500;
+  color: var(--text-color-muted);
+}
+.avatar-settings-icon {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+}
+
+/* === Favorite Mountains Section === */
 .fav-mtn-card {
-  background-color: #1e1e1e;
-  border-radius: 8px;
+  background-color: var(--card-bg);
+  border-radius: var(--rounded);
   padding: 16px;
   margin-top: 20px;
   width: 100%;
   box-sizing: border-box;
 }
 
-/* Title + icons on the same row */
-.fav-mtn-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
-}
-
-.fav-mtn-header h4 {
-  font-size: 18px;
-  color: #fff;
-  margin: 0;
-}
-
-.card-actions {
-  display: flex;
-  gap: 12px;
-}
-
-.resort-icon {
-  font-size: 18px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.resort-icon.selected {
-  color: #ff4b5c;
-}
-
-.resort-icon.delete {
-  color: #f44336;
-}
-
-.resort-icon:hover {
-  transform: scale(1.2);
-  filter: brightness(1.4);
-}
-
-/* Stats below the title/icons row */
 .fav-mtn-labels {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  font-size: 14px;
-  color: #ccc;
+  font-size: var(--small-font-size);
+  color: var(--text-color-muted);
   margin-top: 8px;
   padding: 0 8px;
   gap: 12px;
 }
 
 .fav-mtn-labels strong {
-  color: #fff;
+  color: var(--text-color);
   margin-right: 4px;
 }
 
-
-/* Your Tracks - Session Card */
+/* === Session Cards === */
 .session-card {
-  background-color: #1e1e1e;
-  border-radius: 8px;
+  background-color: var(--card-bg);
+  border-radius: var(--rounded);
   padding: 16px;
   margin-top: 20px;
   width: 100%;
-  box-sizing: border-box;
-}
-
-.session-summary {
-  background-color: #1e1e1e;
-  border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   box-sizing: border-box;
 }
 
@@ -201,37 +164,15 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  font-size: 14px;
-  color: #ccc;
+  font-size: var(--small-font-size);
+  color: var(--text-color-muted);
 }
 
 .session-info p {
   margin: 0;
 }
 
-.session-eye {
-  font-size: 18px;
-  color: #00bfff;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.session-eye:hover {
-  transform: scale(1.2);
-}
-
-.session-eye:active {
-  animation: blink 0.3s steps(2, start) 3;
-}
-
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
-}
-
-
-/* Social Media Icons */
+/* === Social Media Icons === */
 .social-media-share {
   display: flex;
   justify-content: center;
@@ -247,4 +188,13 @@
 
 .social-media-share svg:hover {
   transform: scale(1.2);
+}
+
+/* === Card Spacing Fix === */
+.card-box {
+  margin-top: 20px;
+}
+
+.profile-page .card-box:first-of-type {
+  margin-top: 0;
 }

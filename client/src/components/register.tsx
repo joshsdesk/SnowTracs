@@ -1,11 +1,9 @@
 // register.tsx
 import { useState } from 'react';
 import { gql, useMutation } from '@apollo/client';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons'; // Import the close icon
 import '../styles/register.css';
-import Card from '../components/card'; // Import the Card component
 
+// ===== GraphQL Mutation =====
 const REGISTER_USER = gql`
   mutation Register(
     $username: String!
@@ -36,17 +34,18 @@ const REGISTER_USER = gql`
   }
 `;
 
+// ===== Props Passed from Modal =====
 interface RegisterProps {
   onSuccess: () => void;
-  onClose: () => void;  // Close modal function
+  onClose: () => void;
 }
 
-export default function Register({ onSuccess, onClose }: RegisterProps) {
+export default function Register({ onSuccess }: RegisterProps) {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [userType, setUserType] = useState('Snowboarder');
-  const [profileImage, setProfileImage] = useState('/assets/images/profileIMGs/avatar1.png');
+  const [profileImage, setProfileImage] = useState('/assets/images/profileIMGs/avatar1.webp');
   const [bio, setBio] = useState('');
 
   const [register] = useMutation(REGISTER_USER);
@@ -57,7 +56,22 @@ export default function Register({ onSuccess, onClose }: RegisterProps) {
       const { data } = await register({
         variables: { username, email, password, userType, profileImage, bio },
       });
+
+      // ✅ Clear any existing data and set the new user
+      localStorage.removeItem('user');
+      localStorage.setItem(
+        'user',
+        JSON.stringify({
+          username: data.register.user.username,
+          description: data.register.user.bio,
+          profileImage: data.register.user.profileImage,
+          userType: data.register.user.userType,
+        })
+      );
+
       localStorage.setItem('token', data.register.token);
+
+      // ✅ Stay on the homepage — no redirect
       onSuccess();
     } catch (err: any) {
       console.error('Registration error:', err);
@@ -66,49 +80,38 @@ export default function Register({ onSuccess, onClose }: RegisterProps) {
   };
 
   return (
-    <Card onClose={onClose}>
-      <div className="modal-header">
-        <h2 className="modal-title">Register</h2>
-        {/* Close Icon */}
-        <FontAwesomeIcon
-          icon={faTimes}
-          className="fa-icon fa-modal-icon"
-          title="Close"
-          onClick={onClose} // Close modal functionality
-        />
-      </div>
+    <form onSubmit={handleSubmit} className="register-modal">
+      <label htmlFor="username" className="form-title">Username</label>
+      <input
+        id="username"
+        type="text"
+        placeholder="Enter username"
+        value={username}
+        onChange={e => setUsername(e.target.value)}
+        required
+      />
 
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username" className="form-title">Username</label>
-        <input
-          id="username"
-          type="text"
-          placeholder="Enter username"
-          value={username}
-          onChange={e => setUsername(e.target.value)}
-          required
-        />
+      <label htmlFor="email" className="form-title">Email</label>
+      <input
+        id="email"
+        type="email"
+        placeholder="Enter email"
+        value={email}
+        onChange={e => setEmail(e.target.value)}
+        required
+      />
 
-        <label htmlFor="email" className="form-title">Email</label>
-        <input
-          id="email"
-          type="email"
-          placeholder="Enter email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          required
-        />
+      <label htmlFor="password" className="form-title">Password</label>
+      <input
+        id="password"
+        type="password"
+        placeholder="Enter password"
+        value={password}
+        onChange={e => setPassword(e.target.value)}
+        required
+      />
 
-        <label htmlFor="password" className="form-title">Password</label>
-        <input
-          id="password"
-          type="password"
-          placeholder="Enter password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          required
-        />
-
+      <div className="form-group">
         <label htmlFor="userType" className="form-title">Select your style</label>
         <select
           id="userType"
@@ -118,7 +121,9 @@ export default function Register({ onSuccess, onClose }: RegisterProps) {
           <option value="Snowboarder">Snowboarder</option>
           <option value="Skier">Skier</option>
         </select>
+      </div>
 
+      <div className="form-group">
         <label htmlFor="profileImage" className="form-title">Select an Avatar</label>
         <select
           id="profileImage"
@@ -126,7 +131,7 @@ export default function Register({ onSuccess, onClose }: RegisterProps) {
           onChange={e => setProfileImage(e.target.value)}
         >
           {Array.from({ length: 9 }, (_, i) => {
-            const url = `/assets/images/profileIMGs/avatar${i + 1}.png`;
+            const url = `/assets/images/profileIMGs/avatar${i + 1}.webp`;
             return (
               <option key={i} value={url}>
                 Avatar {i + 1}
@@ -134,24 +139,27 @@ export default function Register({ onSuccess, onClose }: RegisterProps) {
             );
           })}
         </select>
+      </div>
 
-        <div className="avatar-preview">
-          <div className="avatar-frame">
-            <img src={profileImage} alt="Selected avatar" />
-          </div>  
+      <div className="avatar-preview">
+        <div className="avatar-frame">
+          <img src={profileImage} alt="Selected avatar" />
         </div>
+      </div>
 
-        <label htmlFor="bio" className="form-title">Short Bio (optional)</label>
-        <textarea
-          id="bio"
-          placeholder="Tell us a little about yourself..."
-          value={bio}
-          onChange={e => setBio(e.target.value)}
-          className="form-control"
-        />
+      <label htmlFor="bio" className="form-title">Short Bio (optional)</label>
+      <textarea
+        id="bio"
+        placeholder="Tell us a little about yourself..."
+        value={bio}
+        onChange={e => setBio(e.target.value)}
+        className="form-control"
+      />
 
-        <button type="submit" className="register-submit">Submit</button>
-      </form>
-    </Card>
+      <button type="submit" className="register-submit">Submit</button>
+    </form>
   );
 }
+
+// ✅ This will be read automatically by modal.tsx
+Register.modalTitle = 'Register';

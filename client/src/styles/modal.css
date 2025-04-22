@@ -8,14 +8,17 @@
   z-index: 999;
   backdrop-filter: blur(5px) brightness(0.7);
 }
+.modal-title {
+  color: var(--accent-color); /* ✅ matches label text color */
+}
 
 /* ===== Modal Box Styling ===== */
 .modal-content {
+  position: relative;
   background-color: var(--card-bg) !important;
   opacity: 1 !important;
   border: 2px solid var(--accent-color);
   border-radius: var(--rounded);
-  padding: 1.5rem;
   color: var(--text-color);
   width: 90%;
   max-width: 320px;
@@ -24,59 +27,56 @@
   z-index: 1001;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   box-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
   animation: fadeIn 0.3s ease-in-out;
   backdrop-filter: none !important;
+
 }
 
-/* ===== Modal Header (Title Section Wrapper) ===== */
+/* ===== Modal Header ===== */
 .modal-header {
-  border-bottom: 1px solid var(--accent-color);
-  padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
-  position: relative; /* To position the close icon */
-}
-
-/* ===== Title Text ===== */
-.modal-title {
-  font-family: 'Playfair Display', serif;
-  font-size: var(--h2-size);
-  color: var(--accent-color);
-  text-align: center;
-  margin: 0;
-}
-
-/* ===== Modal Body ===== */
-.modal-body {
-  font-family: 'Playfair Display', serif;
-  color: var(--text-color);
-  overflow-y: auto; /* Allow scroll within the modal body */
-  max-height: 80vh; /* Limit content height to avoid overflowing */
-  padding-right: 0; /* Ensure no right padding that causes scrolling */
-}
-
-/* ===== Modal Footer Buttons or Extras ===== */
-.modal-footer {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  position: relative;
 }
 
-/* ===== Font Awesome Icon for Close Button ===== */
+/* ===== Font Awesome Close Icon ===== */
 .fa-modal-icon {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 14px; /* ✅ Better visual spacing */
+  right: 14px;
   font-size: 1.5rem;
   color: var(--text-color);
   cursor: pointer;
   transition: color 0.3s ease, transform 0.3s ease;
+  z-index: 1002;
 }
 
 .fa-modal-icon:hover {
-  color: var(--accent-color); /* Hover effect */
-  transform: scale(1.1); /* Slight scaling effect */
+  color: var(--accent-color);
+  transform: scale(1.1);
+}
+
+/* ===== Button at Bottom of Modal ===== */
+.modal-button {
+  margin-top: auto;
+  align-self: center;
+  background-color: transparent;
+  color: var(--accent-color);
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--accent-color);
+  border-radius: var(--rounded);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modal-button:hover {
+  background-color: var(--accent-color);
+  color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.6);
 }
 
 /* ===== Fade-in Animation ===== */

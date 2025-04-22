@@ -217,10 +217,16 @@ a:hover {
 
 /* === Card Container === */
 .card-box {
+  display: flex;
+  flex-direction: column;
   background: var(--card-bg);
   border-radius: var(--rounded);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
   padding: 1rem;
+  margin: 0 auto 20px auto;
+  width: 90%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 /* === Animations & Utility === */
@@ -282,4 +288,4 @@ a:hover {
   border: 2px solid var(--accent-color);
   box-shadow: 0 0 10px rgba(0, 191, 255, 0.6);
   border-radius: var(--rounded);
-}
+} 

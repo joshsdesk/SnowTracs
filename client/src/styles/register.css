@@ -11,7 +11,7 @@
 .register-modal input,
 .register-modal select {
   width: 100%;
-  padding: 0.625rem;
+  padding: 0.625rem 1rem; /* ← Added left/right padding */
   border: 1px solid var(--text-color-muted);
   border-radius: var(--rounded);
   background-color: var(--input-bg);
@@ -45,7 +45,7 @@
 
 .avatar-frame img {
   width: 100%;
-  height: 100%;
+  height: 62%;
   object-fit: cover;
   object-position: center;
   display: block;

@@ -1,5 +1,5 @@
 // app.tsx – Main Application Wrapper
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/client';
 import client from './apollo';
 
@@ -15,13 +15,16 @@ import './index.css';
 
 function AppWrapper() {
   const location = useLocation();
-  const isLoginPage = location.pathname === '/';
+  const isLoginPage = location.pathname === '/login';
 
   return (
     <>
       <div className="app-wrapper">
         <Routes>
-          <Route path="/" element={<Login />} />
+          {/* 🔁 Redirect root path to /login */}
+          <Route path="/" element={<Navigate to="/login" replace />} />
+          
+          <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
           <Route path="/user" element={<User />} />
           <Route path="/settings" element={<Settings />} />
