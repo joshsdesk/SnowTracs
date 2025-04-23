@@ -111,6 +111,9 @@ npm run dev
 - Render deployment:  
   [Click Me!](https://snowtracs.onrender.com)
 
+  GitHub deployment:  
+  [Click Me!](https://github.com/joshsdesk/SnowTracs)
+
 ---
 
 ## **Planned Enhancements**
