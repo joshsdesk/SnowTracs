@@ -3,11 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faUserPlus, faMagnifyingGlass, faEllipsisVertical,
-  faUserMinus, faEye, faCircleCheck, faCircleXmark,
   faUsers, faMountainSun, faArrowUp, faGaugeHigh
 } from '@fortawesome/free-solid-svg-icons';
 import '../styles/friends.css';
-import Modal from '../components/modal';
 import Card from '../components/card';
 
 interface Friend {
@@ -47,9 +45,6 @@ const Friends: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [friends, setFriends] = useState<Friend[]>(mockFriends);
   const [filtered, setFiltered] = useState<Friend[]>(mockFriends);
-  const [showModal, setShowModal] = useState<boolean>(false);
-  const [requests, setRequests] = useState<Request[]>(mockRequests);
-  const [newRequestName, setNewRequestName] = useState<string>('');
 
   useEffect(() => {
     if (!searchTerm.trim()) {
