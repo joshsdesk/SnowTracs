@@ -105,3 +105,16 @@ For any questions, please reach out to:
 |       [Nav Button 1] [Nav Button 2]    |  ← Bottom Navigation Bar (Bootstrap Nav)
 |       [Nav Button 3] [Nav Button 4]    |
 ------------------------------------------
+
+
+
+
+
+
+
+
+When you're ready to replace globally in VS Code, just let me know what pattern you're replacing and what the new pattern should be. Then we can:
+
+Add .ski-divider globally if needed.
+
+Insert them into card, user, or wherever you specify.

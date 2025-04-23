@@ -1,8 +1,3 @@
-/*
-* {
-  outline: 1px solid red;
-  box-sizing: border-box;
-}
 /* index.css - Global Styles */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
@@ -13,7 +8,7 @@
   padding: 0;
 }
 
-/* === Global Variables (Fallbacks included) === */
+/* === Global Variables === */
 :root {
   --bg-dark: #121212;
   --text-color: #ffffff;
@@ -29,37 +24,27 @@
   --h3-size: 1.5rem;
   --base-font-size: 1rem;
   --small-font-size: 0.875rem;
+  --font-primary: 'Playfair Display', serif;
 }
 
 /* === Base Page Setup === */
 html, body {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-primary);
   background-color: var(--bg-dark);
   color: var(--text-color);
   line-height: 1.6;
   width: 100%;
   height: 100%;
-  max-width: 100vw;
   overflow-x: hidden;
   font-size: var(--base-font-size);
   max-width: 430px;
   margin: 0 auto;
-
-}
-
-html, body {
-  overflow-y: scroll; /* ✅ Allows scroll */
+  overflow-y: scroll;
 }
 
 /* Hide scrollbar */
-::-webkit-scrollbar {
-  display: none; /* ✅ Hides the scrollbar */
-}
-
-/* Optional: For Firefox */
-body {
-  scrollbar-width: none; /* ✅ Firefox hides scrollbar */
-}
+::-webkit-scrollbar { display: none; }
+body { scrollbar-width: none; }
 
 /* === Wrapper for Mobile Layout === */
 .app-wrapper {
@@ -80,6 +65,7 @@ button {
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: var(--base-font-size);
+  font-family: var(--font-primary);
 }
 
 button:hover {
@@ -107,6 +93,7 @@ a {
   color: var(--accent-color);
   text-decoration: none;
   transition: all 0.3s ease;
+  font-family: var(--font-primary);
 }
 
 a:hover {
@@ -116,53 +103,21 @@ a:hover {
 }
 
 /* === Typography Scale === */
-.heading-1 {
-  font-size: var(--h1-size);
-  font-weight: bold;
-  color: var(--text-color);
+.heading-1, .heading-2, .heading-3,
+.subtitle, .body-text, .small-text,
+.muted-text, .accent-text, .error-text {
+  font-family: var(--font-primary);
 }
 
-.heading-2 {
-  font-size: var(--h2-size);
-  font-weight: bold;
-  color: var(--text-color);
-}
-
-.heading-3 {
-  font-size: var(--h3-size);
-  font-weight: bold;
-  color: var(--text-color);
-}
-
-.subtitle {
-  font-size: var(--base-font-size);
-  font-weight: 600;
-  color: var(--text-color-muted);
-}
-
-.body-text {
-  font-size: var(--base-font-size);
-  color: var(--text-color);
-}
-
-.small-text {
-  font-size: var(--small-font-size);
-  color: var(--text-color-muted);
-}
-
-.muted-text {
-  color: var(--text-color-muted) !important;
-}
-
-.accent-text {
-  color: var(--accent-color) !important;
-}
-
-.error-text {
-  color: #ff6666;
-  font-size: var(--small-font-size);
-  font-weight: 600;
-}
+.heading-1 { font-size: var(--h1-size); font-weight: bold; color: var(--text-color); }
+.heading-2 { font-size: var(--h2-size); font-weight: bold; color: var(--text-color); }
+.heading-3 { font-size: var(--h3-size); font-weight: bold; color: var(--text-color); }
+.subtitle { font-size: var(--base-font-size); font-weight: 600; color: var(--text-color-muted); }
+.body-text { font-size: var(--base-font-size); color: var(--text-color); }
+.small-text { font-size: var(--small-font-size); color: var(--text-color-muted); }
+.muted-text { color: var(--text-color-muted) !important; }
+.accent-text { color: var(--accent-color) !important; }
+.error-text { color: #ff6666; font-size: var(--small-font-size); font-weight: 600; }
 
 /* === Form Elements === */
 .form-label {
@@ -198,45 +153,6 @@ a:hover {
   margin-bottom: 0.75rem;
 }
 
-/* === Buttons & Variants === */
-.btn {
-  @apply button;
-}
-
-.btn-primary {
-  background-color: var(--accent-color);
-  color: #ffffff;
-}
-
-.btn-secondary {
-  background-color: transparent;
-  border-color: var(--text-color-muted);
-  color: var(--text-color-muted);
-}
-
-.btn-link {
-  background: none;
-  border: none;
-  padding: 0;
-  color: var(--accent-color);
-  text-decoration: underline;
-}
-
-.icon-btn {
-  background: none;
-  border: none;
-  padding: 0.5rem;
-  border-radius: 50%;
-  cursor: pointer;
-  color: var(--text-color-muted);
-  transition: all 0.2s ease;
-}
-
-.icon-btn:hover {
-  color: var(--accent-color);
-  transform: scale(1.1);
-}
-
 /* === Card Container === */
 .card-box {
   display: flex;
@@ -249,6 +165,7 @@ a:hover {
   width: 90%;
   max-width: 100%;
   box-sizing: border-box;
+  font-family: var(--font-primary);
 }
 
 /* === Animations & Utility === */
@@ -257,9 +174,7 @@ a:hover {
   to { opacity: 1; transform: translateY(0); }
 }
 
-.fade-in {
-  animation: fadeIn 0.5s ease-in-out;
-}
+.fade-in { animation: fadeIn 0.5s ease-in-out; }
 
 .glow-icon {
   position: relative;
@@ -279,16 +194,12 @@ a:hover {
   z-index: -1;
 }
 
-/* === Global Link & Hover Effects === */
-.bottom-nav a svg,
-.record-button,
-.share-icon {
+/* === Hover Effects === */
+.bottom-nav a svg, .record-button, .share-icon {
   transition: all 0.3s ease;
 }
 
-.bottom-nav a:hover svg,
-.record-button:hover,
-.share-icon:hover {
+.bottom-nav a:hover svg, .record-button:hover, .share-icon:hover {
   transform: scale(1.2);
   filter: brightness(1.4);
 }
@@ -302,12 +213,8 @@ a:hover {
 }
 
 /* === Accent & Glow Utilities === */
-.accent-text {
-  color: var(--accent-color) !important;
-}
-
 .glow-border {
   border: 2px solid var(--accent-color);
   box-shadow: 0 0 10px rgba(0, 191, 255, 0.6);
   border-radius: var(--rounded);
-} 
+}

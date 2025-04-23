@@ -20,7 +20,7 @@
   font-family: 'Playfair Display', serif;
   font-size: 1.3rem;
   font-weight: 600;
-  color: var(--accent-color);
+color: var(--accent-color);
   text-align: center;
   margin-top: 1rem;
   margin-bottom: 2rem;
@@ -157,8 +157,7 @@
   background-color: #0056b3;
   box-shadow: 0 0 10px rgba(0, 191, 255, 0.6);
 }
-
-/* Snowflakes Background */
+/* ===== Original Snowflakes Background ===== */
 .snow {
   position: absolute;
   width: 100%;
@@ -172,12 +171,13 @@
 
 .flake {
   position: absolute;
-  top: -10px;
+  top: -30px;
   width: 6px;
   height: 6px;
   background: rgba(255, 255, 255, 0.8);
   border-radius: 50%;
   animation: fall linear infinite;
+  opacity: 0.8;
 }
 
 .glow {
@@ -195,10 +195,42 @@
   }
 }
 
-/* Random flakes */
-.flake:nth-child(odd) { left: 10%; animation-duration: 8s; }
-.flake:nth-child(even) { left: 50%; animation-duration: 12s; }
-.flake:nth-child(3n) { left: 30%; animation-duration: 15s; }
-.flake:nth-child(5n) { left: 70%; animation-duration: 20s; }
-.flake:nth-child(7n) { left: 20%; animation-duration: 18s; }
-.flake:nth-child(11n) { left: 80%; animation-duration: 22s; }
+/* ===== Random flakes ===== */
+.flake:nth-child(odd) { left: 10%; animation-duration: 8s; animation-delay: 0s; }
+.flake:nth-child(even) { left: 20%; animation-duration: 12s; animation-delay: 1s; }
+.flake:nth-child(3n) { left: 30%; animation-duration: 15s; animation-delay: 2s; }
+.flake:nth-child(5n) { left: 70%; animation-duration: 20s; animation-delay: 3s; }
+.flake:nth-child(7n) { left: 20%; animation-duration: 18s; animation-delay: 4s; }
+.flake:nth-child(11n) { left: 80%; animation-duration: 22s; animation-delay: 5s; }
+
+/* ===== Added nth-child for More Coverage ===== */
+.flake:nth-child(17n) { left: 60%; animation-duration: 19s; }
+.flake:nth-child(23n) { left: 75%; animation-duration: 21s; }
+
+
+
+/* ===== Emoji Flakes ===== */
+.emoji-flake {
+  position: absolute;
+  top: -30px;
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: fall linear infinite;
+  opacity: 0.8;
+}
+
+/* ===== Emoji nth-child Logic for Controlled Flow ===== */
+.emoji-flake:nth-child(4n+1) { left: 15%; animation-duration: 10s, 8s; animation-delay: 2s, 0s; }
+.emoji-flake:nth-child(5n+2) { left: 35%; animation-duration: 14s, 7s; animation-delay: 3s, 0s; }
+.emoji-flake:nth-child(6n+3) { left: 45%; animation-duration: 18s, 6s; animation-delay: 1s, 0s; }
+.emoji-flake:nth-child(7n+4) { left: 60%; animation-duration: 16s, 9s; animation-delay: 4s, 0s; }
+.emoji-flake:nth-child(8n+5) { left: 25%; animation-duration: 22s, 11s; animation-delay: 5s, 0s; }
+.emoji-flake:nth-child(9n+6) { left: 50%; animation-duration: 19s, 10s; animation-delay: 2.5s, 0s; }
+
+/* ===== Spin Animation ===== */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

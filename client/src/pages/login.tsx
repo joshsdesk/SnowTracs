@@ -1,11 +1,12 @@
-// login.tsx
-import { useState } from 'react';
+// ===== Imports =====
+import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { gql, useMutation } from '@apollo/client';
 import '../styles/login.css';
 import Modal from '../components/modal';
 import Register from '../components/register';
 
+// ===== GraphQL Mutation =====
 const LOGIN_USER = gql`
   mutation Login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
@@ -22,14 +23,17 @@ const LOGIN_USER = gql`
   }
 `;
 
+// ===== Main Login Component =====
 export default function Login() {
   const navigate = useNavigate();
 
+  // ===== State Management =====
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [login] = useMutation(LOGIN_USER);
   const [showModal, setShowModal] = useState(false);
 
+  // ===== Handle Login Logic =====
   const handleLogin = async () => {
     try {
       const { data } = await login({ variables: { email, password } });
@@ -52,24 +56,67 @@ export default function Login() {
     }
   };
 
-  const snowflakes = Array.from({ length: 400 }, (_, i) => (
-    <div key={i} className={`flake ${i % 8 === 0 ? 'glow' : ''}`}></div>
+// ===== Regular Snowflake Generation =====
+const snowflakes = useMemo(() => {
+  return Array.from({ length: 2000 }, (_, i) => (
+    <div key={`flake-${i}`} className={`flake ${i % 8 === 0 ? 'glow' : ''}`}></div>
   ));
+}, []);
 
+// ===== Emoji Snowflake Generation (Fixed Fall) =====
+const emojiFlakes = useMemo(() => {
+  return Array.from({ length: 20 }, (_, i) => {
+    const left = `${Math.random() * 100}vw`;
+    const fallDuration = `${Math.random() * 10 + 12}s`;
+    const spinDuration = `${Math.random() * 5 + 6}s`;
+    const fontSize = `${Math.floor(Math.random() * 10) + 18}px`;
+
+    return (
+      <div
+        key={`emoji-flake-${i}`}
+        className="emoji-flake-wrapper"
+        style={{
+          left,
+          top: '-10px',
+          position: 'absolute',
+          animation: `fall ${fallDuration} linear infinite`,
+        }}
+      >
+        <div
+          className="emoji-flake"
+          style={{
+            fontSize,
+            animation: `spin ${spinDuration} linear infinite`,
+          }}
+        >
+          ❄️
+        </div>
+      </div>
+    );
+  });
+}, []);
+
+  // ===== Render Component =====
   return (
     <>
       <div className="login-page">
-        <div className="snow">{snowflakes}</div>
+        {/* ===== Snowflakes Background ===== */}
+        <div className="snow">
+          {snowflakes}
+          {emojiFlakes}
+        </div>
 
+        {/* ===== App Logo Section ===== */}
         <div className="app-logo">
           <img
             src="/assets/images/UI/logoWtxt.png"
             alt="SnowTracs Logo"
             className="logo-image"
           />
-          <p className="slogan">Every Peak. Every Run. Every Moment.</p>
+          <p className="small-text muted-text">Every Peak. Every Run. Every Moment.</p>
         </div>
 
+        {/* ===== Login Form ===== */}
         <div className="login-container">
           <input
             type="text"
@@ -93,6 +140,7 @@ export default function Login() {
         </div>
       </div>
 
+      {/* ===== Registration Modal ===== */}
       <Modal show={showModal} onClose={() => setShowModal(false)}>
         <Register
           onSuccess={() => {

@@ -2,9 +2,9 @@
 .friends-page {
   background-color: var(--bg-dark);
   color: var(--text-color);
+  font-family: var(--font-primary);
   min-height: 100vh;
   padding: 1rem 0 4rem;
-  
 }
 
 /* === Top bar === */
@@ -14,7 +14,43 @@
   justify-content: space-between;
   padding: 0.75rem 1rem;
   background-color: var(--card-bg);
-  border-bottom: 1px solid var(--text-color-muted);
+  border-radius: 0 0 var(--rounded) var(--rounded);
+}
+
+/* === Topbar Avatar - No Frame, Only Glow === */
+.friends-topbar .profile-avatar {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  box-shadow: 0 0 8px var(--accent-color);
+  transition: box-shadow 0.3s ease;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.friends-topbar .profile-avatar:hover {
+  box-shadow: 0 0 12px var(--accent-color);
+}
+
+/* === Topbar Title Centered === */
+.friends-topbar h4 {
+  margin: 0;
+  font-size: var(--h2-size);
+  color: var(--accent-color);
+  flex-grow: 1;
+  text-align: center;
+}
+
+/* === Topbar Icons === */
+.topbar-title {
+  color: var(--text-color);
+  font-family: var(--font-primary);
+}
+.topbar-right {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
 
 /* === Search input === */
@@ -50,55 +86,69 @@
   gap: 1rem;
 }
 
-/* === Friend Info inside Card === */
-.friend-info {
+/* === Card Header Avatar + Name + Icon === */
+.friend-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.friend-header .friend-avatar {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  box-shadow: 0 0 8px var(--accent-color);
+  transition: box-shadow 0.3s ease;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.friend-header .friend-avatar:hover {
+  box-shadow: 0 0 12px var(--accent-color);
+}
+
+.friend-header span {
+  font-size: var(--base-font-size);
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+/* === Font Awesome Icon in Header === */
+.card-icons {
+  display: flex;
+  gap: 0.75rem;
+  color: var(--accent-color);
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* === Friend Stats Below Header === */
+.friend-stats {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
   font-size: var(--small-font-size);
   color: var(--text-color-muted);
+  gap: 0.25rem;
+  padding-top: 0.5rem;
 }
 
-.friend-info small {
-  font-size: var(--small-font-size);
-  color: var(--text-color-muted);
-}
-
-.friend-info span {
+.friend-stats span {
   display: flex;
   align-items: center;
   gap: 0.25rem;
 }
 
-.friend-info .fa-mountain-sun,
-.friend-info .fa-arrow-up,
-.friend-info .fa-gauge-high {
-  color: var(--accent-color);
-}
-
-/* === Context menu (still needed) === */
-.friend-menu {
-  position: absolute;
-  top: calc(100% + 0.25rem);
-  right: 1rem;
-  background-color: var(--card-bg);
-  border-radius: var(--rounded);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
-  padding: 0.5rem 0;
-  z-index: 200;
-}
-
-.friend-menu > div {
-  padding: 0.5rem 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: var(--small-font-size);
+.friend-stats span strong {
+  font-weight: bold;
   color: var(--text-color);
 }
 
-.friend-menu > div:hover {
-  background-color: var(--bg-panel-hover);
+.friend-stats .fa-mountain-sun,
+.friend-stats .fa-arrow-up,
+.friend-stats .fa-gauge-high {
+  color: var(--accent-color);
 }
 
 /* === Empty state === */
