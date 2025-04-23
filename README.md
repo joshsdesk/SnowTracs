@@ -1,120 +1,159 @@
-# SnowTracs 📍🏂
-**The Ultimate GPS Tracking App for Snowboarding and Skiing**
 
-SnowTracs is a GPS-based mobile application designed for snow enthusiasts to enhance their experience on the slopes. Whether you're snowboarding or skiing, track your trails, measure performance, and stay safe.
+# SnowTracs 📍🏂  
+### **The Ultimate GPS Tracking App for Snowboarding and Skiing**
 
-## Key Features
-- 🗺️ **Live GPS Tracking**
-  - Track your real-time location on the slopes.
-  - Share live location with friends and family for safety.
-  
-- 🎿 **Trail Mapping**
-  - Preloaded and dynamically updated ski and snowboard trails.
-  - Trails categorized by difficulty levels: Easy, Intermediate, Expert.
-  
-- 📊 **Performance Analytics**
-  - Measure speed, distance traveled, and elevation changes.
-  - Log session times and rest periods for detailed performance reports.
-  
-- 🆘 **SOS Functionality**
-  - Emergency alert system to notify family or rescue teams with live GPS location.
-  - Quick-access SOS button for immediate help.
-  
-- ❄️ **Weather and Snow Conditions**
-  - Get real-time weather updates for ski resorts and slopes.
-  - Stay informed with snow conditions and avalanche warnings.
-  
-- 🏆 **Social Features**
-  - Leaderboards to compete with friends on stats and performance.
-  - Share your achievements and trail maps on social media.
-  
-- 🌐 **Offline Mode**
-  - Download maps and trails for offline use in areas with low connectivity.
-  - Cache routes and other essential data locally.
+**SnowTracs** is a full-stack MERN (MongoDB, Express, React, Node.js) application that brings real-time GPS tracking, performance analytics, and social features to snow sports enthusiasts. Whether you're snowboarding or skiing, this app helps you track your every run, every peak, and every moment.
 
-## Project Requirements
-To ensure the successful completion of the SnowTracs application, the following requirements must be met:
+---
 
-1. **Interactive Application**: 
-   - Ensure the application is interactive and responds to user input, such as tracking trails and logging performance.
+## **Features**
 
-2. **Client-side Storage**: 
-   - Implement client-side storage to save user data, such as trail maps and performance analytics.
+### 🗺️ **Live GPS Tracking**
+- Real-time location tracking with **Leaflet** + **OpenStreetMap**.
+- Custom emoji markers (⛷️ for skiers, 🏂 for snowboarders).
+- Search for any location on the map and fly to it.
 
-3. **CSS Framework**: 
-   - Use a CSS framework (e.g., Bootstrap, Tailwind CSS) to enhance the UI design and ensure responsiveness.
+### 🎿 **Resort Information**
+- Search for ski resorts by name.
+- Display resort data including:
+  - **Snowpack** (inches)
+  - **Lifts** open/total
+  - **Gondolas** open/total
+  - **Trails** open/total
+  - **Operating Hours**
+- Past searches saved locally for quick access.
 
-4. **Modal Functionality**: 
-   - Include at least one modal for displaying information (e.g., performance reports or SOS alerts) instead of using native browser alerts.
+### 📊 **Performance Analytics**
+- Measure and display:
+  - **Altitude**
+  - **Runs Completed**
+  - **Vertical Feet**
+  - **Speed (MPH)**
+- Session stats saved and viewed in **Stats** section.
 
-5. **Deployment**: 
-   - Deploy the application to a live URL (e.g., GitHub Pages or Render) and ensure it loads without errors.
+### 🆘 **SOS Feature**
+- One-tap access to SOS functionality (planned for future).
 
-6. **Quality README**: 
-   - Provide a quality README file that includes:
-     - Project title and description
-     - Table of contents
-     - Installation instructions
-     - Usage information
-     - License details
-     - Contribution guidelines
-     - Test instructions (if applicable)
-     - Contact information for questions
-     - Screenshots of the application
-     - Links to the deployed application and GitHub repository
+### 🌦️ **Weather Integration**
+- Display current temperature.
+- Toggle between **Celsius** and **Fahrenheit** in settings.
 
-## Tasks to Complete
-- [ ] Implement live GPS tracking functionality.
-- [ ] Develop trail mapping features with difficulty categorization.
-- [ ] Create performance analytics to log speed, distance, and elevation.
-- [ ] Integrate SOS functionality for emergency alerts.
-- [ ] Add weather and snow condition updates.
-- [ ] Design social features, including leaderboards and sharing options.
-- [ ] Enable offline mode for downloading maps and trails.
-- [ ] Use a CSS framework for the application’s UI.
-- [ ] Create modals for alerts and performance reports.
-- [ ] Deploy the application to a live URL.
-- [ ] Write a comprehensive README with all required sections.
+### 🏆 **Social Features**
+- Add and manage friends.
+- View friends' stats and session info.
+- Share achievements (Planned).
 
-## License
-Specify your license here (e.g., MIT License).
+### 💾 **Offline Mode**
+- Cache data for use without internet.
 
-## Contributing
-Guidelines for contributing to the project.
+---
 
-## Tests
-Instructions on how to run tests for the application, if applicable.
+## **Tech Stack**
 
-## Questions
-For any questions, please reach out to:
-- GitHub: [Your GitHub Username](https://github.com/YourGitHubUsername)
-- Email: your.email@example.com
+| Layer        | Technology                           |
+|--------------|--------------------------------------|
+| **Frontend** | React + TypeScript                   |
+| **Mapping**  | Leaflet, OpenStreetMap               |
+| **Backend**  | Node.js, Express, GraphQL            |
+| **Database** | MongoDB, Mongoose ODM                |
+| **Styling**  | Custom CSS Modules                   |
+| **Auth**     | JWT Authentication                   |
+| **Icons**    | Font Awesome                         |
+| **Deployment** | Render + GitHub Actions             |
 
-------------------------------------------
-| [Map API Controls / Buttons]           |  ← Top Map Controls (Mapbox/Map API)  
-------------------------------------------
-|                                        |
-|                                        |
-|                                        |
-|                MAP                     |  ← 75% (3/4 of the screen height) 
-|        (Mapbox or OpenStreetMap)       |
-|                                        |  
-|                                        |
-|        [Record]   [Pause]              |  ← Floating buttons over the map (record/pause)
-------------------------------------------
-|       [Nav Button 1] [Nav Button 2]    |  ← Bottom Navigation Bar (Bootstrap Nav)
-|       [Nav Button 3] [Nav Button 4]    |
-------------------------------------------
+---
 
+## **Screenshots**
+![SnowTracs Screenshot](./client/public/assets/images/Screenshot.png)
 
+---
 
+## **Pages Overview**
 
+- **Login Page**: Authenticate with email/password. JWT token storage.
+- **Home Page**: Map view, live GPS tracking, action buttons for **Friends**, **Stats**, and **Ski Patrol**.
+- **User Profile**: Customize avatar, view top stats, favorite mountains, and session history.
+- **Settings**: Toggle dark mode, offline mode, unit preferences, and logout.
+- **Resorts**: Search and view resort data dynamically from backend.
+- **Friends**: Manage friends list, view their stats and status.
+- **Stats**: Access detailed session analytics, download/share stats, and view history.
 
+---
 
+## **Installation**
 
+### 1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/snowtracs.git
+cd snowtracs
+```
 
-When you're ready to replace globally in VS Code, just let me know what pattern you're replacing and what the new pattern should be. Then we can:
+### 2. Install dependencies:
+```bash
+npm install
+cd client && npm install
+cd ../server && npm install
+```
 
-Add .ski-divider globally if needed.
+### 3. Environment Variables:
+Create a `.env` file in the **server** directory:
+```env
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+```
 
-Insert them into card, user, or wherever you specify.
+### 4. Running Locally:
+```bash
+npm run dev
+```
+
+### 5. Deployment:
+- Render deployment:  
+  [Click Me!](https://snowtracs.onrender.com)
+
+---
+
+## **Planned Enhancements**
+
+- 🎮 **Achievements & Gamification**: Earn badges and track milestones.
+- 🗺️ **Augmented Reality Trails**: Overlay trail directions on the map.
+- ⌚ **Smartwatch Integration**: Sync stats with wearables.
+- 🚨 **Advanced SOS Alerts**: Auto-alerts with GPS coordinates.
+- 🌐 **Localization**: Multi-language support.
+
+---
+
+## **Contributing**
+
+We welcome contributions from the community! 🚀
+
+1. Fork the repository.
+2. Create a new feature branch.
+3. Commit and push your changes.
+4. Submit a pull request for review.
+
+---
+
+## **License**
+
+MIT License.  
+Feel free to use, modify, and distribute.
+
+---
+
+## **Author**
+
+- **Josh Bourassa** – Lead Developer
+
+---
+
+## **Resources**
+
+- [Leaflet Documentation](https://leafletjs.com/)
+- [Font Awesome Icons](https://fontawesome.com/icons)
+- [GraphQL](https://graphql.org/)
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+
+---
+
+**Every Peak. Every Run. Every Moment.**
