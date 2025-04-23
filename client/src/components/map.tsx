@@ -47,15 +47,18 @@ export default function Map() {
         const coords: LatLng = [position.coords.latitude, position.coords.longitude];
         setUserLocation(coords);
         setMapTarget(coords);
-        setEmojiPos(coords);
       },
       () => {
         const fallback: LatLng = [39.7392, -104.9903];
         setUserLocation(fallback);
         setMapTarget(fallback);
-        setEmojiPos(fallback);
       }
     );
+
+    // ====== Cleanup Emoji on Unmount ======
+    return () => {
+      setEmojiPos(null);
+    };
   }, []);
 
   // ====== Geocode Search Input ======
@@ -72,7 +75,7 @@ export default function Map() {
       const lon = parseFloat(firstResult.lon);
       const coords: LatLng = [lat, lon];
       setMapTarget(coords);
-      setEmojiPos(coords);
+      setEmojiPos(coords); // Only set emoji after search
     }
   };
 

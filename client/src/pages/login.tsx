@@ -56,45 +56,45 @@ export default function Login() {
     }
   };
 
-// ===== Regular Snowflake Generation =====
-const snowflakes = useMemo(() => {
-  return Array.from({ length: 800 }, (_, i) => (
-    <div key={`flake-${i}`} className={`flake ${i % 8 === 0 ? 'glow' : ''}`}></div>
-  ));
-}, []);
+  // ===== Regular Snowflake Generation =====
+  const snowflakes = useMemo(() => {
+    return Array.from({ length: 800 }, (_, i) => (
+      <div key={`flake-${i}`} className={`flake ${i % 8 === 0 ? 'glow' : ''}`}></div>
+    ));
+  }, []);
 
-// ===== Emoji Snowflake Generation (Fixed Fall) =====
-const emojiFlakes = useMemo(() => {
-  return Array.from({ length: 20 }, (_, i) => {
-    const left = `${Math.random() * 100}vw`;
-    const fallDuration = `${Math.random() * 10 + 12}s`;
-    const spinDuration = `${Math.random() * 5 + 6}s`;
-    const fontSize = `${Math.floor(Math.random() * 10) + 18}px`;
+  // ===== Emoji Snowflake Generation (Fixed Fall) =====
+  const emojiFlakes = useMemo(() => {
+    return Array.from({ length: 20 }, (_, i) => {
+      const left = `${Math.random() * 100}vw`;
+      const fallDuration = `${Math.random() * 10 + 12}s`;
+      const spinDuration = `${Math.random() * 5 + 6}s`;
+      const fontSize = `${Math.floor(Math.random() * 10) + 18}px`;
 
-    return (
-      <div
-        key={`emoji-flake-${i}`}
-        className="emoji-flake-wrapper"
-        style={{
-          left,
-          top: '-10px',
-          position: 'absolute',
-          animation: `fall ${fallDuration} linear infinite`,
-        }}
-      >
+      return (
         <div
-          className="emoji-flake"
+          key={`emoji-flake-${i}`}
+          className="emoji-flake-wrapper"
           style={{
-            fontSize,
-            animation: `spin ${spinDuration} linear infinite`,
+            left,
+            top: '-10px',
+            position: 'absolute',
+            animation: `fall ${fallDuration} linear infinite`,
           }}
         >
-          ❄️
+          <div
+            className="emoji-flake"
+            style={{
+              fontSize,
+              animation: `spin ${spinDuration} linear infinite`,
+            }}
+          >
+            ❄️
+          </div>
         </div>
-      </div>
-    );
-  });
-}, []);
+      );
+    });
+  }, []);
 
   // ===== Render Component =====
   return (
@@ -113,7 +113,10 @@ const emojiFlakes = useMemo(() => {
             alt="SnowTracs Logo"
             className="logo-image"
           />
-          <p className="small-text muted-text">Every Peak. Every Run. Every Moment.</p>
+          <div className="slogan">
+            <div>Every Peak. Every Run.</div>
+            <div>Every Moment.</div>
+          </div>
         </div>
 
         {/* ===== Login Form ===== */}
