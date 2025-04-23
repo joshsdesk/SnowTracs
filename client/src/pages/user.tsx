@@ -58,30 +58,32 @@ const Profile = () => {
 
   return (
     <div className="profile-page">
-      {/* === Top Row: Avatar + Weather === */}
+      {/* === Top Row: Avatar Left + Right Side Content === */}
       <Card>
         <div className="top-row">
-          <div className="left-column">
+          {/* Left Side: Avatar */}
+          <div className="avatar-side">
             <div className="profile-avatar-wrapper">
               <img
                 src={userData.profileImage || `/assets/images/profileIMGs/avatar3.webp`}
                 alt="User Avatar"
                 className="profile-avatar"
               />
-              <div className="avatar-settings-icon">
-                <FontAwesomeIcon
-                  icon={faEllipsisH}
-                  className="fa-icon"
-                  title="Edit Profile Picture"
-                  onClick={handleOpenAvatarModal}
-                />
-              </div>
             </div>
           </div>
-          <div className="right-column">
-            <div className="weather-info compact">
-              <p>69°F</p>
+
+          {/* Right Side: Icon + Temp + Username */}
+          <div className="info-side">
+            <div className="avatar-settings-icon">
+              <FontAwesomeIcon
+                icon={faEllipsisH}
+                className="fa-icon"
+                title="Edit Profile Picture"
+                onClick={handleOpenAvatarModal}
+              />
             </div>
+            <p className="weather-info">69°F</p>
+            <h2 className="username">{userData.username}</h2>
           </div>
         </div>
       </Card>
@@ -91,7 +93,7 @@ const Profile = () => {
       </div>
 
       {/* === User Info Card === */}
-      <Card title={`${userData.username}${userData.userType ? ` is a ${userData.userType}` : ''}`}>
+      <Card>
         <p className="user-description">{userData.description}</p>
       </Card>
 
@@ -142,7 +144,6 @@ const Profile = () => {
         </ul>
       </Card>
 
-    
       {/* === Social Media Icons === */}
       <div className="social-media-share">
         <FontAwesomeIcon icon={faFacebook} size="2x" color="#1877f2" />

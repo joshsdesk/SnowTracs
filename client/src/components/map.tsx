@@ -2,7 +2,8 @@
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlay, faCirclePause, faCircleStop } from '@fortawesome/free-solid-svg-icons';
-import { MapContainer, TileLayer, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, useMap } from 'react-leaflet';
+import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import '../styles/map.css';
 
@@ -19,12 +20,25 @@ function FlyToLocation({ coordinates }: { coordinates: LatLng | null }) {
   return null;
 }
 
+function EmojiMarker({ position }: { position: LatLng }) {
+  const userType = JSON.parse(localStorage.getItem('user') || '{}').userType || 'Snowboarder';
+  const emoji = userType === 'Skier' ? '⛷️' : '🏂';
+
+  const icon = new L.DivIcon({
+    className: 'emoji-marker',
+    html: `<div style="font-size: 24px;">${emoji}</div>`,
+  });
+
+  return <Marker position={position} icon={icon} />;
+}
+
 export default function Map() {
   const [isRecording, setIsRecording] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [mapTarget, setMapTarget] = useState<LatLng | null>(null);
   const [userLocation, setUserLocation] = useState<LatLng | null>(null);
+  const [emojiPos, setEmojiPos] = useState<LatLng | null>(null);
 
   // ====== Set User Location on Load ======
   useEffect(() => {
@@ -33,11 +47,13 @@ export default function Map() {
         const coords: LatLng = [position.coords.latitude, position.coords.longitude];
         setUserLocation(coords);
         setMapTarget(coords);
+        setEmojiPos(coords);
       },
       () => {
         const fallback: LatLng = [39.7392, -104.9903];
         setUserLocation(fallback);
         setMapTarget(fallback);
+        setEmojiPos(fallback);
       }
     );
   }, []);
@@ -54,7 +70,9 @@ export default function Map() {
       const firstResult = geoData[0];
       const lat = parseFloat(firstResult.lat);
       const lon = parseFloat(firstResult.lon);
-      setMapTarget([lat, lon]);
+      const coords: LatLng = [lat, lon];
+      setMapTarget(coords);
+      setEmojiPos(coords);
     }
   };
 
@@ -74,6 +92,7 @@ export default function Map() {
             attribution='© <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
           />
           <FlyToLocation coordinates={mapTarget} />
+          {emojiPos && <EmojiMarker position={emojiPos} />}
         </MapContainer>
       )}
 

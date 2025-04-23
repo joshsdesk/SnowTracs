@@ -9,21 +9,42 @@
   overflow-y: auto;
   overflow-x: hidden;
   padding: 20px 0 50px 0; /* ✅ Top spacing + nav-safe bottom */
- 
 }
 
-/* === Top Row: Avatar + Weather === */
+/* === Card Content Layout === */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* === Top Row Layout (Custom) === */
 .top-row {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
+  gap: 16px;
 }
 
-.left-column {
+/* === Avatar Side === */
+.avatar-side {
+  flex: 0 0 auto;
+}
+
+/* === Info Side === */
+.info-side {
+  flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  position: relative;
+  height: 100%;
+  gap: 8px;
 }
 
+/* === Avatar Wrapper === */
 .profile-avatar-wrapper {
   width: 132px;
   height: 132px;
@@ -37,32 +58,37 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .profile-avatar {
   width: 120px;
-  height: 90px;
+  height: 120px;
   object-fit: cover;
   border-radius: 50%;
   display: block;
 }
 
-.right-column {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
+/* === Username Styling === */
+.username {
+  font-size: var(--h2-size);
+  font-weight: bold;
+  color: var(--text-color);
+  margin: 0;
 }
 
-.weather-info.compact {
-  font-size: 44px;
+/* === Temperature === */
+.weather-info {
+  font-size: 32px;
   color: var(--text-color);
-  margin: 10px;
+  margin: 0;
 }
+
 /* === Avatar Modal Fix === */
 .avatar-modal-content {
   display: flex;
   flex-direction: column;
-  align-items: center; /* ✅ Center everything inside modal */
+  align-items: center;
   gap: 16px;
   text-align: center;
 }
@@ -76,13 +102,7 @@
   box-shadow: 0 0 10px rgba(0, 191, 255, 0.4);
 }
 
-/* === Section Titles & Description === */
-.section-title {
-  font-size: var(--h2-size);
-  color: var(--text-color);
-  text-align: center;
-}
-
+/* === Description Section === */
 .user-description {
   font-size: var(--base-font-size);
   color: var(--text-color-muted);
@@ -90,83 +110,13 @@
   margin-top: 8px;
   text-align: center;
 }
-/* === User Stats Card === */
-.user-stats-card {
-  background-color: var(--card-bg);
-  border-radius: var(--rounded);
-  padding: 16px;
-  width: 100%;
-  box-sizing: border-box;
-}
 
-.stats-labels,
-.stats-values {
-  display: flex;
-  justify-content: space-between;
-  font-size: var(--base-font-size);
-}
-
-.stats-labels {
-  font-weight: 600;
-  color: var(--text-color);
-}
-
-.stats-values {
-  font-weight: 500;
-  color: var(--text-color-muted);
-}
+/* === Avatar Settings Icon === */
 .avatar-settings-icon {
   position: absolute;
-  top: 6px;
-  right: 6px;
-}
-
-/* === Favorite Mountains Section === */
-.fav-mtn-card {
-  background-color: var(--card-bg);
-  border-radius: var(--rounded);
-  padding: 16px;
-  margin-top: 20px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.fav-mtn-labels {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  font-size: var(--small-font-size);
-  color: var(--text-color-muted);
-  margin-top: 8px;
-  padding: 0 8px;
-  gap: 12px;
-}
-
-.fav-mtn-labels strong {
-  color: var(--text-color);
-  margin-right: 4px;
-}
-
-/* === Session Cards === */
-.session-card {
-  background-color: var(--card-bg);
-  border-radius: var(--rounded);
-  padding: 16px;
-  margin-top: 20px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.session-info {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  font-size: var(--small-font-size);
-  color: var(--text-color-muted);
-}
-
-.session-info p {
-  margin: 0;
+  top: 0;
+  right: 0;
+  cursor: pointer;
 }
 
 /* === Social Media Icons === */

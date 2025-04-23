@@ -40,13 +40,10 @@
   color: var(--accent-color);
   flex-grow: 1;
   text-align: center;
+  font-family: var(--font-primary);
 }
 
 /* === Topbar Icons === */
-.topbar-title {
-  color: var(--text-color);
-  font-family: var(--font-primary);
-}
 .topbar-right {
   display: flex;
   gap: 1rem;
@@ -66,6 +63,7 @@
   border: 1px solid var(--text-color-muted);
   background-color: var(--input-bg);
   color: var(--text-color);
+  font-family: var(--font-primary);
 }
 
 .friends-search .search-icon {
@@ -86,15 +84,8 @@
   gap: 1rem;
 }
 
-/* === Card Header Avatar + Name + Icon === */
-.friend-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.friend-header .friend-avatar {
+/* === Friend Avatar in Card Header === */
+.card-title img.friend-avatar {
   width: 48px;
   height: 48px;
   object-fit: cover;
@@ -105,14 +96,15 @@
   background: transparent;
 }
 
-.friend-header .friend-avatar:hover {
+.card-title img.friend-avatar:hover {
   box-shadow: 0 0 12px var(--accent-color);
 }
 
-.friend-header span {
+.card-title span {
   font-size: var(--base-font-size);
   color: var(--text-color);
   font-weight: bold;
+  font-family: var(--font-primary);
 }
 
 /* === Font Awesome Icon in Header === */
@@ -122,6 +114,7 @@
   color: var(--accent-color);
   align-items: center;
   justify-content: flex-end;
+  font-family: var(--font-primary);
 }
 
 /* === Friend Stats Below Header === */
@@ -132,6 +125,7 @@
   color: var(--text-color-muted);
   gap: 0.25rem;
   padding-top: 0.5rem;
+  font-family: var(--font-primary);
 }
 
 .friend-stats span {
@@ -160,6 +154,7 @@
   padding: 4rem 1rem;
   color: var(--text-color-muted);
   text-align: center;
+  font-family: var(--font-primary);
 }
 
 .friends-empty .fa-users {
@@ -176,4 +171,5 @@
   background-color: var(--card-bg);
   color: var(--text-color);
   border-radius: var(--rounded);
+  font-family: var(--font-primary);
 }

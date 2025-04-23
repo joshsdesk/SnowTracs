@@ -81,12 +81,14 @@ const Friends: React.FC = () => {
           {filtered.map(friend => (
             <li key={friend.id}>
               <Card
-                title={friend.name}
+                title={
+                  <div className="card-title">
+                    <img src={friend.avatarUrl} alt={friend.name} className="friend-avatar" />
+                    <span>{friend.name}</span>
+                  </div>
+                }
                 icons={<FontAwesomeIcon icon={faEllipsisVertical} />}
               >
-                <div className="friend-header">
-                  <img src={friend.avatarUrl} alt={friend.name} className="friend-avatar" />
-                </div>
                 <div className="friend-stats">
                   {friend.runs !== undefined && (
                     <span><FontAwesomeIcon icon={faMountainSun} /> <strong>Runs:</strong> {friend.runs}</span>
