@@ -171,7 +171,7 @@ color: var(--accent-color);
 
 .flake {
   position: absolute;
-  top: -30px;
+  top: -20px;
   width: 6px;
   height: 6px;
   background: rgba(255, 255, 255, 0.8);
@@ -195,17 +195,17 @@ color: var(--accent-color);
   }
 }
 
+
 /* ===== Random flakes ===== */
-.flake:nth-child(odd) { left: 10%; animation-duration: 8s; animation-delay: 0s; }
-.flake:nth-child(even) { left: 20%; animation-duration: 12s; animation-delay: 1s; }
+.flake:nth-child(odd) { left: 10%; animation-duration: 18s; animation-delay: 5s; }
+.flake:nth-child(even) { left: 50%; animation-duration: 12s; animation-delay: 12s; }
 .flake:nth-child(3n) { left: 30%; animation-duration: 15s; animation-delay: 2s; }
 .flake:nth-child(5n) { left: 70%; animation-duration: 20s; animation-delay: 3s; }
 .flake:nth-child(7n) { left: 20%; animation-duration: 18s; animation-delay: 4s; }
 .flake:nth-child(11n) { left: 80%; animation-duration: 22s; animation-delay: 5s; }
 
-/* ===== Added nth-child for More Coverage ===== */
-.flake:nth-child(17n) { left: 60%; animation-duration: 19s; }
-.flake:nth-child(23n) { left: 75%; animation-duration: 21s; }
+/* ===== Optional: Add default for all flakes beyond nth-child ===== */
+.flake:nth-child(n) { animation-delay: calc(0.1s * var(--i)); }
 
 
 
@@ -213,12 +213,8 @@ color: var(--accent-color);
 .emoji-flake {
   position: absolute;
   top: -30px;
-  width: 6px;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 50%;
-  animation: fall linear infinite;
-  opacity: 0.8;
+  animation: fall linear infinite, spin 10s linear infinite;
+  opacity: 0.9;
 }
 
 /* ===== Emoji nth-child Logic for Controlled Flow ===== */

@@ -25,21 +25,20 @@
   object-fit: contain;
 }
 
-/* === Header: Avatar + Title (left) + Icons (right) === */
+/* === Card Header: Flexible for Avatar + Title + Icons === */
 .card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.5rem;
-  padding: 0 0.5rem;
+  margin-bottom: 0.75rem;
   font-family: var(--font-primary);
 }
 
-/* === Title Flexible === */
+/* === Title and Optional Avatar === */
 .card-title {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
   font-size: var(--h2-size);
   color: var(--accent-color);
   margin: 0;
@@ -47,7 +46,22 @@
   font-family: var(--font-primary);
 }
 
-/* === Card Icons Right === */
+.card-title img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  box-shadow: 0 0 8px var(--accent-color);
+  border: none;
+  outline: none;
+  background: transparent;
+  transition: box-shadow 0.3s ease;
+}
+
+.card-title img:hover {
+  box-shadow: 0 0 12px var(--accent-color);
+}
+
+/* === Card Icons Properly Aligned === */
 .card-icons {
   display: flex;
   gap: 10px;
@@ -55,7 +69,7 @@
   font-family: var(--font-primary);
 }
 
-/* === Font Awesome Global === */
+/* === Font Awesome Icon Global Styling === */
 .fa-icon {
   font-size: 1.2rem;
   color: var(--accent-color);
@@ -67,7 +81,7 @@
   transform: scale(1.1);
 }
 
-/* === Card Content Block === */
+/* === Card Content === */
 .card-content {
   display: flex;
   flex-direction: column;
@@ -76,7 +90,7 @@
   font-family: var(--font-primary);
 }
 
-/* === Card Stats List === */
+/* === Card Stats Section === */
 .card-stats {
   list-style: none;
   padding: 0;
@@ -85,7 +99,7 @@
   font-family: var(--font-primary);
 }
 
-/* === Shared Actions Container === */
+/* === Shared Actions (Optional) === */
 .card-actions {
   display: flex;
   justify-content: space-between;

@@ -58,7 +58,7 @@ export default function Login() {
 
 // ===== Regular Snowflake Generation =====
 const snowflakes = useMemo(() => {
-  return Array.from({ length: 2000 }, (_, i) => (
+  return Array.from({ length: 800 }, (_, i) => (
     <div key={`flake-${i}`} className={`flake ${i % 8 === 0 ? 'glow' : ''}`}></div>
   ));
 }, []);
